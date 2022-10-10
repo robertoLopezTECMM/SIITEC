@@ -1,0 +1,109 @@
+
+.mainLogInContainer{
+    width:700px;
+    height:900px;
+    background-image: linear-gradient(white 30%, #00A29A 100%);
+    background-color: red;
+    border-radius: 30px;
+    justify-content: space-evenly;
+    box-shadow: 5px 5px 40px 40px rgba(0, 0, 0, 0.2);
+}
+
+.logoTecImageTag{
+    width: 50%;
+    margin-top: 1%;
+}
+
+.mainLogInContainer h3{
+    font-family:'KB-Bold';
+    margin:0;
+    font-size: 2em;
+    color:var(--grey)
+}
+
+.mainLogInContainer h2{
+    font-family:'KB-Bold';
+    
+    font-size: 1.5em;
+    color:black
+}
+
+.captchaContainer{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.restorePswdAndCreateAccountContainer{}
+
+.restorePswdAndCreateAccountContainer a{
+    font-family: 'KB-Bold';
+    color:white;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.restorePswdAndCreateAccountContainer a:hover{
+    color:var(--grey)
+}
+
+/*
+DESKTOP OR LAPTOP
+@media (min-width: 1224px) {
+    .mainLogInContainer{
+        width:650px;
+        height:900px;
+        background-image: linear-gradient(white 30%, #00A29A 100%);
+        border-radius: 30px;
+    }
+}
+
+BIG SCREEN
+@media (min-width: 1824px) {
+    .mainLogInContainer{
+        width:650px;
+        height:900px;
+        background-image: linear-gradient(white 30%, #00A29A 100%);
+        border-radius: 30px;
+    }
+}
+
+PORTRAIT
+@media (orientation: portrait) {
+
+}
+
+*/
+
+/*TABLET OR MOBILE*/
+@media (max-width: 500px) {
+    .mainLogInContainer{
+        width:100%;
+        height:100%;
+        background-image: linear-gradient(white 30%, #00A29A 100%);
+        border-radius: 0px;
+    }
+}
+
+
+/*TABLET OR MOBILE*/
+@media (min-width: 1200px) {
+    .mainLogInContainer{
+        width:700px;
+        height:900px;
+        background-image: linear-gradient(white 30%, #00A29A 100%);
+        border-radius: 30px;
+    }
+}
+
+
+/*RETINA
+@media (min-resolution: 2dppx) {
+    .mainLogInContainer{
+        width:700px;
+        height:950px;
+        background-image: linear-gradient(white 30%, #00A29A 100%);
+        border-radius: 30px;
+    }
+}*/

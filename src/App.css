@@ -7,6 +7,43 @@
   pointer-events: none;
 }
 
+:root{
+  --green:#00A29A;
+  --gold:#A7823B;
+  --grey:#6D6E71;
+}
+
+@font-face {
+  font-family: 'KB-Bold';
+  src:local("KohinoorBangla-Bold"), url('./Assets/Fonts/KohinoorBangla-Bold.otf') format('otf');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KB-Light';
+  src:local("KohinoorBangla-Light"), url('./Assets/Fonts/KohinoorBangla-Light.otf') format('otf');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KB-Medium';
+  src: url('./Assets/Fonts/KohinoorBangla-Medium.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'KB-Regular';
+  src: url('./Assets/Fonts/KohinoorBangla-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'KB-Semibold';
+  src: url('./Assets/Fonts/KohinoorBangla-Semibold.otf') format('otf');
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

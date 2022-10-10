@@ -1,0 +1,21 @@
+.primaryButton{
+    background-color:var(--green);
+    outline: none;
+    border: none;
+    width: auto;
+    height: auto;
+    color:white;
+    border-radius: 15px;
+    font-family:'KB-Bold';
+    cursor: pointer;
+}
+
+.primaryButton:hover{
+    opacity: 0.8;
+}
+
+.primaryButton p{
+    margin: 0;
+    padding:10px;
+    font-size: 1.5em;
+}

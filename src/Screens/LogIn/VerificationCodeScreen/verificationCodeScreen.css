@@ -1,0 +1,13 @@
+.messageToCodeVerfication{
+    font-size: 1.3em;
+    margin: 5% 15%;
+    font-family: 'KB-Light';
+}
+
+.codeDigitsContainer{
+    width: auto;
+    height: auto;
+    margin: 0% 15%;
+    display: flex;
+    justify-content: center;
+}
