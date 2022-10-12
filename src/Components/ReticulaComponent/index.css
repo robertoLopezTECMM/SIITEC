@@ -1,0 +1,26 @@
+.reticulaMainContainer{
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+
+}
+
+.semestersContainer{
+    width: auto;
+    height: auto;
+    background-color:rgb(196, 192, 200);
+    display: flex;
+    justify-content:space-around;
+    
+}
+
+.semesterColumnContainer{
+    /* background-color:rgb(87, 102, 115); */
+    overflow: scroll;
+}
+
+.totalsNumberContainer{
+    width: 100%;
+    height: 20%;
+    background-color: var(--green);
+}

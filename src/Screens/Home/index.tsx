@@ -3,6 +3,7 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import { SideNavBar } from '../../Components/SideNavBar';
 import { TopNavBar } from '../../Components/TopNavBar';
 import Calendar from '../../Components/Calendar';
+import { ReticulaComponent } from '../../Components/ReticulaComponent';
 
 
 
@@ -13,8 +14,9 @@ export const Home = () => {
     <div>
       {/* <SideNavBar/> */}
       <TopNavBar/>
-      <div>
-        <Calendar/>
+      <div style={{width:'1300px', height:'700px', margin:'auto'}}>
+        {/* <Calendar/> */}
+        <ReticulaComponent/>
       </div>
       
     </div>
