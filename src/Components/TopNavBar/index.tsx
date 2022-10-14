@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { authContext } from '../../Contexts/AuthProvider';
 import { SideNavBar } from '../SideNavBar'
 import './index.css'
 
 export const TopNavBar = () => {
+  const { logOut}:any = useContext(authContext);
+
   return (
     <div className='topNavBarContainer'>
 
@@ -12,7 +15,7 @@ export const TopNavBar = () => {
 
         <p className='topNavBarTitle'>Tecnologico superior de jalisco</p>
 
-        <button className='topNavBarButton'>
+        <button  onClick={logOut} className='topNavBarButton'>
             <i className="material-icons" style={{ fontSize: '2.75em', color:'white' }}>logout</i>
         </button>
         
