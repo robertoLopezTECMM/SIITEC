@@ -91,7 +91,7 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
         <div className='restorePswdAndCreateAccountContainer'>
         <Link to='/forgotPassword'> Recuperar contraseña </Link>
         <a> | </a>
-        <a onClick={()=>swal("Good job!", "You clicked the button!", "error")}>Crear nueva cuenta</a>
+        <Link to='/testScreen'> Test Screen </Link>        
         </div>
     </LogInContainer>
     </div>
