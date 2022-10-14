@@ -12,7 +12,6 @@ export const LogInContainer = ({children}:any) => {
   return (
     <div className="mainLogInContainer">
       {children}
-
     </div>
   )
 }

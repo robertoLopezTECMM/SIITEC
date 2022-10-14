@@ -6,6 +6,7 @@
     margin-bottom: 10px;
     position: relative;
     cursor: pointer;
+
 }
 
 
@@ -16,10 +17,11 @@
     position: absolute;
     bottom:0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 .creditsAssignatureContainer p{
+    width:25%;
     margin: 0;
-
+    border-right: 1px solid black;
 }

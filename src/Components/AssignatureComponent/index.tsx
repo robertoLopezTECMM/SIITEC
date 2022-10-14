@@ -1,12 +1,18 @@
 import React from 'react'
 import './index.css'
-export const AssignatureComponent = ({item}:any) => {
+
+interface assignatureComponentProps{
+    item:any;
+    onOpenModal: ()=>void;
+}
+
+export const AssignatureComponent = ({item, onOpenModal}:assignatureComponentProps) => {
   return (
-    <div className='assignatureMainContainer'>
+    <div onClick={onOpenModal} className='assignatureMainContainer'>
         {item.assignatureName}
 
         <div className='creditsAssignatureContainer'>
-            <p></p>
+            <p> &nbsp; </p>
             <p>{item.credits[0].practicHours}</p>
             <p>{item.credits[0].theoreticalHours}</p>
             <p>{item.credits[0].totalCredits}</p>

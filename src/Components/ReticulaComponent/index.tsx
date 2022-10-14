@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css'
 import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../Helpers/semesterData'
 import { AssignatureComponent } from '../AssignatureComponent'
@@ -8,45 +8,54 @@ import { ModalToAddAssignature } from '../ModalToAddAssignature'
 
 export const ReticulaComponent = () => {
 
+    const [openModal, setOpenModal] = useState(false)
+
+    const onOpenModal = () => {
+        setOpenModal(true)
+    }
+
+    const onCloseModal = () => {
+        setOpenModal(false)
+    }
   return (
     <div className='reticulaMainContainer'>
-        <ModalToAddAssignature/>
+        <ModalToAddAssignature onCloseModal={onCloseModal} isOpen={openModal}/>
         
         <div className='semestersContainer'>
             <div className='semesterColumnContainer'>
-                {semester1.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester1.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester2.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester2.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester3.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester3.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester4.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester4.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester5.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester5.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester6.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester6.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester7.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester7.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester8.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester8.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
             <div className='semesterColumnContainer'>
-                {semester9.map((item)=> <AssignatureComponent item={item}/>)}
+                {semester9.map((item)=> <AssignatureComponent item={item} onOpenModal={onOpenModal}/>)}
             </div>
 
 

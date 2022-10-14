@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from 'react-modal';
+import { LogInContainer } from '../Containers/LogInContainer/logInContainer';
+import './index.css'
 
 const customStyles = {
     content: {
@@ -7,14 +9,23 @@ const customStyles = {
       left: '50%',
       right: 'auto',
       bottom: 'auto',
+      width:'80%',
+      height:'80%',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      backgroundColor:'transparent',
+      border:'none'
     },
   };
 
-export const ModalToAddAssignature = () => {
+interface modalProps{
+    isOpen: boolean;
+    onCloseModal: ()=>void;
+}
+
+export const ModalToAddAssignature = ({isOpen, onCloseModal}:modalProps) => {
     let subtitle='kjdhfs';
-    const [modalIsOpen, setIsOpen] = React.useState(true);
+    const [modalIsOpen, setIsOpen] = useState(isOpen);
 
     function openModal() {
       setIsOpen(true);
@@ -29,23 +40,20 @@ export const ModalToAddAssignature = () => {
       setIsOpen(false);
     }
   return (
-    <div><Modal
-    isOpen={modalIsOpen}
+    <Modal
+    isOpen={isOpen}
     onAfterOpen={afterOpenModal}
     onRequestClose={closeModal}
     style={customStyles}
     contentLabel="Example Modal"
   >
-    <h2>Hello</h2>
-    <button onClick={closeModal}>close</button>
-    <div>I am a modal</div>
-    <form>
-      <input />
-      <button>tab navigation</button>
-      <button>stays</button>
-      <button>inside</button>
-      <button>the modal</button>
-    </form>
-  </Modal></div>
+    <div className='modalMainContainer'>
+        <h1>hola</h1>
+        <button onClick={onCloseModal}>
+            <h1>cerrar modal</h1>
+        </button>
+    </div>
+  </Modal>
+  
   )
 }
