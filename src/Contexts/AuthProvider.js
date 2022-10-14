@@ -3,11 +3,11 @@ import React, { createContext, useEffect, useState } from "react";
 export const authContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState({
-    token: null,
-    isLogged: false,
-    uuid: null,
-  });
+  const [auth, setAuth] = useState(
+    window.localStorage.getItem("Session")
+      ? JSON.parse(window.localStorage.getItem("Session"))
+      : { token: null, isLogged: false, uuid: null }
+  );
   const [userAndPassword, setUserAndPassword] = useState({
     user: "",
     password: "",
@@ -15,22 +15,12 @@ const AuthProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    console.log(auth)
-  }, [auth]);
+    setAuth(JSON.parse(localStorage.getItem("Session")));
+  }, []);
 
   useEffect(() => {
-    localStorage.setItem(
-      "Session",
-      JSON.stringify({ auth: auth, user: userAndPassword.user })
-    );
-    console.log(JSON.parse(localStorage.getItem("Session")));
-    const session = JSON.parse(localStorage.getItem("Session"));
-    if (session) {
-      setAuthData({token: session.auth.token, isLogged: session.auth.isLogged, uuid: session.auth.uuid});
-      // setUserAndPassword({...userAndPassword, user: session.user});
-    }
-  }, []);
-  
+    localStorage.setItem("Session", JSON.stringify(auth));
+  }, [auth]);
 
   const setAuthData = (token, isLogged, uuid) => {
     setAuth({ token: token, isLogged: isLogged, uuid: uuid });
@@ -47,7 +37,7 @@ const AuthProvider = ({ children }) => {
       password: "",
       verificationCode: "",
     });
-    localStorage.removeItem('Session');
+    localStorage.removeItem("Session");
   };
 
   return (
