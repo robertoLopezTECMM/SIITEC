@@ -25,7 +25,7 @@ export default function MainRouter() {
         <Route path="/" element={<LogIn />}/>
         <Route path="/forgotPassword" element={!auth.isLogged? <ForgotPassword/> : <Home/>}/>
         <Route path="/testScreen" element={<TestScreen/>}/>    
-        <Route path="/home" element={auth.isLogged ? <Home/> : <LogIn/>}/> 
+        <Route path="/home" element={auth.isLogged ? <TestScreen />: <LogIn/>}/> 
                   
       </Routes>
   );

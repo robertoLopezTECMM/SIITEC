@@ -1,7 +1,8 @@
 import React from 'react'
+import { Schedule } from './Schedule'
 
 export const TestScreen = () => {
   return (
-    <div>testScreen</div>
+    <Schedule />
   )
 }
