@@ -60,25 +60,27 @@ export const PasswordTextInput= ({placeHolder, passwordOnchange, fieldId, isForP
   }
   
 interface inputTextInterface{
+  textInputOnChange: (value:string) => void;
   labelText: string;
   placeholder?: string;
   isForNumber?: boolean;
   isForSearch?: boolean;
-  type?: string;
   maxLenght?: number;
   width?: string;
 }
 
-export const InputText = ({labelText, placeholder, isForNumber, isForSearch, maxLenght, width}: inputTextInterface) => {
+export const InputText = ({labelText, placeholder, isForNumber, isForSearch, maxLenght, width, textInputOnChange}: inputTextInterface) => {
+  const [textInputValue, setTextinputValue] = useState('')
     return(
         <div className='inputContainer'>
             <label>{labelText}</label>
             <input 
                 className={!isForNumber ? "inputText" : "numberText"} 
                 placeholder={!isForNumber ? placeholder : ''}
-                maxLength={maxLenght}
-                type={!isForNumber ? 'text' : 'number'}
-                style={!isForNumber ? {width: "100%"} : {width:`${width}`} } />
+                maxLength={!isForNumber ? 524288 : maxLenght }
+                style={!isForNumber ? {width: "100%"} : {width:`${width}`} } 
+                value={textInputValue}
+                onChange={(e) => [setTextinputValue(e.target.value), textInputOnChange(e.currentTarget.value)]} />
                 {isForSearch
                 ? <button>
                     <i className="material-icons">{'search'}</i>

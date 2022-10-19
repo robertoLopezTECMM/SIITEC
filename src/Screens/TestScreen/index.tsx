@@ -9,7 +9,9 @@ export const TestScreen = () => {
   const [password, setPassword] = useState('')
   const { userAndPassword, setUserPassword }:any = useContext(authContext);
 
-  
+  const textInputValue = () =>{
+    console.log()
+  }
 
   const onChangePasswords = (inputValue:string, fieldId:string) =>{
 
@@ -21,10 +23,10 @@ export const TestScreen = () => {
   return (
     <div className='container'>
       <h2>testScreen</h2>
-      <InputText labelText='Nombre completo' placeholder='Escribe el nombre completo' />
-      <InputText isForNumber labelText='Unidad' maxLenght={3} width='18%' />
-      <InputText isForSearch labelText='Buscar' placeholder='Buscar carrera' /> 
-      <InputTextPassword isForPassword labelText='Contraseña'  passwordOnchange={onChangePasswords} fieldId='password' placeholder='Ingresa tu contraseña'/>
+      <InputText labelText='Nombre completo' placeholder='Escribe el nombre completo' textInputOnChange={textInputValue} />
+      <InputText isForNumber labelText='Unidad' maxLenght={3} width='18%' textInputOnChange={textInputValue} />
+      <InputText isForSearch labelText='Buscar' placeholder='Buscar carrera' textInputOnChange={textInputValue} /> 
+      <InputTextPassword isForPassword labelText='Contraseña' passwordOnchange={onChangePasswords} fieldId='password' placeholder='Ingresa tu contraseña'/>
     {/* 
     <div className='container'>
       <h2>testScreen</h2>
