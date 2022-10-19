@@ -37,3 +37,66 @@
     color:var(--grey);
     font-size: 2em;
   }
+
+::-ms-reveal {
+display: none;
+}
+
+.inputContainer{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.inputContainer label{
+  font-size: 12px;
+  margin: 10px;
+}
+
+.inputText{
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  font-family: 'KB-light';
+  font-size: 25px;
+  height: auto;
+  outline: none;
+  padding: 0 10px;
+}
+
+.numberText{
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  font-family: 'KB-light';
+  font-size: 25px;
+  height: auto;
+  outline: none;
+  text-align: center;
+}
+
+.inputTextPassword{
+  border: 1.5px solid var(--green);
+  border-radius: 10px;
+  font-family: 'KB-light';
+  font-size: 25px;
+  height: auto;
+  outline: none;
+  padding: 0 10px;
+  position: relative;
+}
+
+.inputContainer button{
+  background-color: transparent;
+  border: none;
+  padding: 0 10px;
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+}
+
+.inputContainer i{
+  color: var(--green);
+  font-size: 30px;
+}
