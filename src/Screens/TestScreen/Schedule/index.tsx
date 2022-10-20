@@ -1,7 +1,13 @@
 import { Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { ModalToAddAssignature } from '../../../Components/ModalToAddAssignature';
+import { AssignatureComponent } from '../ModalSchedule';
+
+import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
+
+
 
 export const Schedule = () => {
   // cuadricula 6 x 15
@@ -17,6 +23,7 @@ export const Schedule = () => {
     { name: "Matematicas discretas" },
     { name: "Matematicas discretas" },
   ];
+  
   const hours: { start: number; end: number }[] = [];
   let h1 = 7,
     h2 = 8;
@@ -36,114 +43,137 @@ export const Schedule = () => {
     { name: "Sabado" },
   ];
 
-  return (
-    <Grid container direction="row" wrap='nowrap' className="div-cell">
-      <Grid>
-        {subjects.map((item, index) => {
-          return (
-            <Grid item xs={10}>
-              <div key={index} className="div-cell">
-                {item.name}
-              </div>
-            </Grid>
-          );
-        })}
-      </Grid>
+  const [openModal, setOpenModal] = useState(false)
 
-      <Grid container direction="row" className="grid-schedule">
-        <Grid>
-          <div className="div-cell">{days[0].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs={12}>
+  const onOpenModal = () => {
+      setOpenModal(true)
+  }
+
+  const onCloseModal = () => {
+      setOpenModal(false)
+  }
+
+  return (
+    <>
+
+      <ModalToAddAssignature onCloseModal={onCloseModal} isOpen={openModal}/>
+
+      <Grid container direction="row" wrap='nowrap' className="div-cell">
+          {/* <Grid>
+            {subjects.map((item, index) => {
+              return (
+                <Grid item xs={10}>
                   <div key={index} className="div-cell">
-                    {item.start} - {item.end}
+                    {item.name}
                   </div>
                 </Grid>
-              </>
-            );
-          })}
-        </Grid>
+              );
+            })}
+          </Grid> */}
 
-        <Grid >
-          <div className="div-cell">{days[1].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
-        </Grid>
+        <Grid container direction="row" className="grid-schedule">
+          <Grid>
+            <div className="div-cell">{days[0].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs={12}>
+                    <div key={index} className="div-cell">
+                      {item.start} - {item.end}
+                    </div>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
 
-        <Grid>
-          <div className="div-cell">{days[2].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
-        </Grid>
+          <Grid >
+            <div className="div-cell">{days[1].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
 
-        <Grid >
-          <div className="div-cell">{days[3].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
-        </Grid>
+          <Grid>
+            <div className="div-cell">{days[2].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
 
-        <Grid >
-          <div className="div-cell">{days[4].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
-        </Grid>
+          <Grid >
+            <div className="div-cell">{days[3].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
 
-        <Grid >
-          <div className="div-cell">{days[5].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
-        </Grid>
+          <Grid >
+            <div className="div-cell">{days[4].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
 
-        <Grid>
-          <div className="div-cell">{days[6].name}</div>
-          {hours.map((item, index) => {
-            return (
-              <>
-                <Grid item xs>
-                  <div key={index} className="div-cell">-</div>
-                </Grid>
-              </>
-            );
-          })}
+          <Grid >
+            <div className="div-cell">{days[5].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
+
+          <Grid>
+            <div className="div-cell">{days[6].name}</div>
+            {hours.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    {/* <div key={index} className="div-cell">-</div> */}
+                    <div key={index}>
+                      <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                    </div>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
