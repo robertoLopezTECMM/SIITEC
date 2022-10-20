@@ -23,3 +23,22 @@ export const CounterButton = ({textButton, buttonOnClick}:buttonProps) => {
     </button>
   )
 }
+
+interface buttonprimarysProps {
+  textButton: string;
+  isCancel: boolean;
+  isborder: boolean;
+  buttonOnClick: () => void
+}
+
+export const ButtonPrimarys = ({isborder ,textButton, buttonOnClick, isCancel}:buttonprimarysProps) => {
+  return (
+    <button 
+    onClick={()=>buttonOnClick()} 
+    className={!isCancel?"buttonPrimarySucces":"buttonPrimaryCancel"} 
+    style={isborder?{border:`${'solid 2px white'}`}:{border:`${'none'}`}} 
+    >
+        <p>{textButton}</p>
+    </button>
+  )
+}
