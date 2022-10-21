@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import {  Routes, Route, useNavigate } from "react-router-dom";
+import { DragDropContext} from "@hello-pangea/dnd";
 import { authContext } from "../Contexts/AuthProvider";
 import { ForgotPassword } from "../Screens/ForgotPassword";
 import { Home } from "../Screens/Home";
@@ -25,7 +26,7 @@ export default function MainRouter() {
         <Route path="/" element={<LogIn />}/>
         <Route path="/forgotPassword" element={!auth.isLogged? <ForgotPassword/> : <Home/>}/>
         <Route path="/testScreen" element={<TestScreen/>}/>    
-        <Route path="/home" element={auth.isLogged ? <TestScreen />: <LogIn/>}/> 
+        <Route path="/home" element={auth.isLogged? <TestScreen/>:<LogIn/>}/> 
                   
       </Routes>
   );

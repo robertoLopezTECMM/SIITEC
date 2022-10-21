@@ -6,6 +6,7 @@ import { ModalToAddAssignature } from '../ModalAddAssignature';
 import { AssignatureComponent } from '../AssignatureCell';
 
 import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
+import { Monday, Thursday, Wednesday } from "../HelpersTest/DaysData";
 
 
 
@@ -82,9 +83,9 @@ export const Schedule = () => {
             })}
           </Grid>
 
-          <Grid >
+          <Grid>
             <div className="div-cell">{days[1].name}</div>
-            {hours.map((item, index) => {
+            {Monday.map((item, index) => {
               return (
                 <>
                   <Grid item xs>

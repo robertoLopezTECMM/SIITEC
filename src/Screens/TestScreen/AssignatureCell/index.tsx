@@ -9,7 +9,7 @@ interface assignatureComponentProps{
 export const AssignatureComponent = ({item, onOpenModal}:assignatureComponentProps) => {
   return (
     <div onClick={onOpenModal} className='assignatureCell'>
-        -
+         {item.id}
     </div>
   )
 }
