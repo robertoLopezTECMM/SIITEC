@@ -4,8 +4,6 @@ import { semester1, semester2, semester3, semester4, semester5, semester6, semes
 import { AssignatureComponent } from '../AssignatureComponent'
 import { ModalToAddAssignature } from '../ModalToAddAssignature'
 
-
-
 export const ReticulaComponent = () => {
 
     const [openModal, setOpenModal] = useState(false)
