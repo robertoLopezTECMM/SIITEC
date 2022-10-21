@@ -6,6 +6,7 @@ import { ModalToAddAssignature } from '../../../Components/ModalToAddAssignature
 import { AssignatureComponent } from '../ModalSchedule';
 
 import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
+import { Monday, Thursday, Wednesday } from "../HelpersTest/DaysData";
 
 
 
@@ -87,9 +88,9 @@ export const Schedule = () => {
             })}
           </Grid>
 
-          <Grid >
+          <Grid>
             <div className="div-cell">{days[1].name}</div>
-            {hours.map((item, index) => {
+            {Monday.map((item, index) => {
               return (
                 <>
                   <Grid item xs>
@@ -103,49 +104,7 @@ export const Schedule = () => {
 
           <Grid>
             <div className="div-cell">{days[2].name}</div>
-            {hours.map((item, index) => {
-              return (
-                <>
-                  <Grid item xs>
-                    {/* <div key={index} className="div-cell">-</div> */}
-                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
-                  </Grid>
-                </>
-              );
-            })}
-          </Grid>
-
-          <Grid >
-            <div className="div-cell">{days[3].name}</div>
-            {hours.map((item, index) => {
-              return (
-                <>
-                  <Grid item xs>
-                    {/* <div key={index} className="div-cell">-</div> */}
-                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
-                  </Grid>
-                </>
-              );
-            })}
-          </Grid>
-
-          <Grid >
-            <div className="div-cell">{days[4].name}</div>
-            {hours.map((item, index) => {
-              return (
-                <>
-                  <Grid item xs>
-                    {/* <div key={index} className="div-cell">-</div> */}
-                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
-                  </Grid>
-                </>
-              );
-            })}
-          </Grid>
-
-          <Grid >
-            <div className="div-cell">{days[5].name}</div>
-            {hours.map((item, index) => {
+            {Thursday.map((item, index) => {
               return (
                 <>
                   <Grid item xs>
@@ -158,20 +117,19 @@ export const Schedule = () => {
           </Grid>
 
           <Grid>
-            <div className="div-cell">{days[6].name}</div>
-            {hours.map((item, index) => {
+            <div className="div-cell">{days[2].name}</div>
+            {Wednesday.map((item, index) => {
               return (
                 <>
                   <Grid item xs>
                     {/* <div key={index} className="div-cell">-</div> */}
-                    <div key={index}>
-                      <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
-                    </div>
+                    <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
                   </Grid>
                 </>
               );
             })}
           </Grid>
+
         </Grid>
       </Grid>
     </>
