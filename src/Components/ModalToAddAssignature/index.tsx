@@ -24,7 +24,6 @@ interface modalProps{
 }
 
 export const ModalToAddAssignature = ({isOpen, onCloseModal}:modalProps) => {
-    let subtitle='kjdhfs';
     const [modalIsOpen, setIsOpen] = useState(isOpen);
 
     function openModal() {
@@ -39,21 +38,24 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal}:modalProps) => {
     function closeModal() {
       setIsOpen(false);
     }
+    
   return (
     <Modal
-    isOpen={isOpen}
-    onAfterOpen={afterOpenModal}
-    onRequestClose={closeModal}
-    style={customStyles}
-    contentLabel="Example Modal"
-  >
-    <div className='modalMainContainer'>
-        <h1>hola</h1>
-        <button onClick={onCloseModal}>
-            <h1>cerrar modal</h1>
-        </button>
-    </div>
-  </Modal>
+      isOpen={isOpen}
+      onAfterOpen={afterOpenModal}
+      onRequestClose={closeModal}
+      style={customStyles}
+      contentLabel="Example Modal"
+      overlayClassName="Overlay"
+
+    >
+      <div className='modalMainContainer'>
+          <h1>hola</h1>
+          <button onClick={onCloseModal}>
+              <h1>cerrar modal</h1>
+          </button>
+      </div>
+    </Modal>
   
   )
 }
