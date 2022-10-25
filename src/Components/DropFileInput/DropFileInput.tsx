@@ -1,8 +1,8 @@
 import React, {useRef, useState} from 'react';
-import './drop-file-input.css';
+import './DropFileInput.css';
 
 
-import uploadImg from 'cloud.png';
+import uploadImg from './cloud.png';
 
 interface inputFileProps{
     message: string;

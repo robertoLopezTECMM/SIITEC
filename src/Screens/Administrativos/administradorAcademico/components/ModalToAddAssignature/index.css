@@ -1,3 +1,13 @@
+
+.twoTextInputContainer{
+    display:flex;
+}
+
+
+
+
+
+
 .oneColGrid{
     
     display: grid;

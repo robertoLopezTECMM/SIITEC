@@ -4,7 +4,7 @@ import './index.css'
 export const ContainerForModal = ({children}:any) => {
 
   return (
-    <div className="mainContainer">
+    <div className="containerForModalAddAssignature">
       {children}
     </div>
   )

@@ -1,6 +1,6 @@
 .textInput{
     width: 60%;
-    height: 45px;
+    height: 25px;
     border-radius: 10px;
     font-size: 1em;
     font-family:'KB-Light';
@@ -38,6 +38,9 @@
     font-size: 2em;
   }
 
+
+
+
 ::-ms-reveal {
 display: none;
 }
@@ -49,6 +52,7 @@ display: none;
   height: auto;
   position: relative;
   width: 100%;
+
 }
 
 .inputContainer label{
@@ -60,7 +64,7 @@ display: none;
   border: 1.5px solid var(--green);
   border-radius: 10px;
   font-family: 'KB-light';
-  font-size: 25px;
+  font-size: 1.3em;
   height: auto;
   outline: none;
   padding: 0 10px;

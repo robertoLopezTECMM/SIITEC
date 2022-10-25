@@ -1,14 +1,18 @@
 
-.mainContainer{
+.containerForModalAddAssignature{
     margin: auto;
     width:30%;
-    height:80%;
+    height:90%;
     background-image: linear-gradient(white 30%, #00A29A 100%);
-    background-color: red;
     border-radius: 30px;
-    justify-content: space-evenly;
+    text-align: center;
     box-shadow: 5px 5px 40px 40px rgba(0, 0, 0, 0.2);
+    padding:1%;
 }
+
+
+
+
 
 .logoTecImageTag{
     width: 50%;

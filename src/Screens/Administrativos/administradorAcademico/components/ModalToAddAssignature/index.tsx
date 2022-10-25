@@ -2,10 +2,12 @@ import { Checkbox } from "@mobiscroll/react";
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Modal from "react-modal";
-import { TextInput } from "../../../../../Components/TextInputs/TextInputs";
+import { InputText, TextInput } from "../../../../../Components/TextInputs/TextInputs";
 import { ContainerForModal } from "../ContainersForModals/index";
 import "./index.css";
 import {DropFileInput} from "../../../../../Components/DropFileInput/DropFileInput";
+import { ColorPicker } from "../../../../../Components/ColorPicker";
+import { ButtonPrimarys } from "../../../../../Components/Buttons/Buttons";
 
 const customStyles = {
   content: {
@@ -64,7 +66,22 @@ export const ModalToAddAssignatureAdministradorAcademico = ({
     </div> */}
 
       <ContainerForModal>
-        <div className="oneColGrid">
+
+        <h2>Nueva asignatura</h2>
+
+
+        <div className="twoTextInputContainer">
+          <InputText textInputOnChange={()=>console.log('hi')} labelText={"Nombre corto"}/>
+          &nbsp;
+          <InputText textInputOnChange={()=>console.log('hi')} labelText={"Nombre completo"}/>
+        </div>
+
+        <InputText textInputOnChange={()=>console.log('hi')} labelText={"Clave"}/>
+
+        <ColorPicker onChangeColorPicker={()=>console.log('hi')}/>
+
+        <ButtonPrimarys textButton={"Guardar"} isCancel={false} isborder={true} buttonOnClick={()=>console.log('hi')}/>
+        {/* <div className="oneColGrid">
           <h1>Nueva Asignatura</h1>
           <br />
           <form action="">
@@ -137,7 +154,7 @@ export const ModalToAddAssignatureAdministradorAcademico = ({
             </div>
             
           </form>
-        </div>
+        </div> */}
       </ContainerForModal>
     </Modal>
   );

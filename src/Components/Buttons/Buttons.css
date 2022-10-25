@@ -51,8 +51,8 @@ span{
 
 .buttonPrimarySucces{
     background-color: var(--fcolorblue);
-    width: var(--width);
-    height: var(--height);
+    width: 100px;
+    height: 40px;
     color: var(--white);
     font-size: var(--fontsize);
     border-radius: var(--borderradius);
