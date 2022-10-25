@@ -1,29 +1,17 @@
 import { Grid } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import "./index.css";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+//import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { ModalToAddAssignature } from '../ModalAddAssignature';
 import { AssignatureComponent } from '../AssignatureCell';
 
-import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
-import { Monday, Thursday, Wednesday } from "../HelpersTest/DaysData";
+//import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
+import { Monday, Thursday, Wednesday, Assignatures } from "../HelpersTest/DaysData";
 
 
 
 export const Schedule = () => {
   // cuadricula 6 x 15
-
-  const subjects = [
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-    { name: "Matematicas discretas" },
-  ];
   
   const hours: { start: number; end: number }[] = [];
   let h1 = 7,
@@ -46,7 +34,8 @@ export const Schedule = () => {
 
   const [openModal, setOpenModal] = useState(false)
 
-  const [positionIndex, setPositionIndex] = useState(0)
+  const [positionIndex, setPositionIndex] = useState(0);
+  const [Day, setDay] = useState("");
 
   // const handlePositionIndex = (event) => {
   //   setPositionIndex(event.target.value)
@@ -60,10 +49,28 @@ export const Schedule = () => {
       setOpenModal(false)
   }
 
+  const onSubmit = (value:string) => {
+      //const infoToModificate = Monday.find(el=> positionIndex === el.id );
+    console.log(value)
+    const assignature = Assignatures.find( el => value === el.name);
+    console.log("value",assignature)
+    console.log("position arrary",positionIndex)
+    const site = Monday.find(el => el.id === positionIndex); 
+    console.log("site",site)
+      
+    setOpenModal(false)
+    
+  }
+
   return (
     <>
 
-      <ModalToAddAssignature onCloseModal={onCloseModal} isOpen={openModal} positionIndex={positionIndex}/>
+      <ModalToAddAssignature 
+        onCloseModal={onCloseModal}
+        isOpen={openModal} 
+        positionIndex={positionIndex} 
+        onSubmit={onSubmit}
+        />
 
       <Grid container direction="row" wrap='nowrap' className="div-cell">
 
@@ -89,7 +96,42 @@ export const Schedule = () => {
               return (
                 <>
                   <Grid item xs>
-                    <div key={index} onClick={() => {setPositionIndex(index)}}>
+                    <div key={index} onClick={() => {
+                      setPositionIndex(item.id)
+                      setDay("Monday")
+                    }}>
+                      <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                    </div>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
+
+          <Grid>
+            <div className="div-cell">{days[2].name}</div>
+            {Thursday.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    <div key={index} onClick={() => {
+                      setPositionIndex(item.id) 
+                      setDay("Thursday")}}>
+                      <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
+                    </div>
+                  </Grid>
+                </>
+              );
+            })}
+          </Grid>
+
+          <Grid>
+            <div className="div-cell">{days[3].name}</div>
+            {Wednesday.map((item, index) => {
+              return (
+                <>
+                  <Grid item xs>
+                    <div key={index} onClick={() => {setPositionIndex(item.id)}}>
                       <AssignatureComponent item={item} onOpenModal={onOpenModal}/>
                     </div>
                   </Grid>
