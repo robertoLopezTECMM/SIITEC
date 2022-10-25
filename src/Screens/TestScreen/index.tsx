@@ -33,6 +33,7 @@ export const TestScreen = () => {
   }
 
   return (
-    <ColorPicker  onChangeColorPicker={colorChange}/>
+    // <ColorPicker  onChangeColorPicker={colorChange}/>
+    <Schedule/>
   )
 }

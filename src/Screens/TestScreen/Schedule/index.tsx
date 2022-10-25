@@ -75,7 +75,12 @@ export const Schedule = () => {
 
   return (
     <>
-      <ModalToAddAssignature onCloseModal={onCloseModal} isOpen={openModal} />
+      <ModalToAddAssignature 
+        onCloseModal={onCloseModal}
+        isOpen={openModal} 
+        positionIndex={positionIndex} 
+        onSubmit={onSubmit}  
+      />
 
       <Grid container direction="row" className="div-grid">
         {/* <Grid direction="column" xs={2}>
