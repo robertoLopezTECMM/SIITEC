@@ -15,6 +15,10 @@ export const TestScreen = () => {
 
 
 
+  const colorChange = (hexColor:any) => {
+    console.log(hexColor)
+  }
+
   return (
     <div className='container'>
       <h2>testScreen</h2>

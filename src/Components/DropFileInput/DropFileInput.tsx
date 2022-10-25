@@ -6,13 +6,13 @@ import uploadImg from 'cloud.png';
 
 interface inputFileProps{
     message: string;
-    onChangeInputFiles: (files:any[]) => void
+    onChangeInputFiles: ({files}:any) => void
 }
 
 export const DropFileInput = ({message, onChangeInputFiles}:inputFileProps) => {
 
     const [fileName, setFileName] = useState('')
-    const [file, setFile] = useState(null)
+    const [file, setFile] = useState<any>(null)
 
     const wrapperRef = useRef(null);
 

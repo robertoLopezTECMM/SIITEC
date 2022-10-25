@@ -4,3 +4,13 @@
     background-color: red;
     margin:auto;
 }
+
+.Overlay {
+    position: fixed;
+    z-index: 2000000000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #6d6e718a;
+}
