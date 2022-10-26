@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
+import Selector from '../components/Selector';
 import './index.css'
 
 
-const assignatures = [
-  {name: 'Calculo diferencial',         semester: '1'},
-  {name: 'Matematicas discretas',       semester: '1'},
-  {name: 'Quimica',                     semester: '1'},
-  {name: 'Fundamentos de programación', semester: '1'},
-  {name: 'POO',                         semester: '1'},
-  {name: 'Taller de investigacion',     semester: '1'},
-  {name: 'Formación cívica y ética',    semester: '1'},
-];
+
 
 
 const customStyles = {
@@ -32,11 +25,12 @@ interface modalProps{
     isOpen: boolean;
     onCloseModal: ()=>void;
     positionIndex: number;
+    onSubmit: (value:string)=>void;
 }
 
-export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex}:modalProps) => {
-    console.log('aqui toy:', positionIndex);
+export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubmit}:modalProps) => {
     const [modalIsOpen, setIsOpen] = useState(isOpen);
+    const [valueSelector, setValueSelector] = useState("")
 
     function openModal() {
       setIsOpen(true);
@@ -50,7 +44,7 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex}:modal
     function closeModal() {
       setIsOpen(false);
     }
-    
+   
   return (
     <Modal
     isOpen={isOpen}
@@ -63,19 +57,15 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex}:modal
         <h1>Añadir asignatura</h1>
         <h2>Asignatura: </h2>
         <h2>Horario:</h2>
-        <select name="assiganture" id="assignature">
-          <option disabled>Seleccione una asignatura</option>
-          {assignatures.map((item, index) => {
-            return(
-              <>
-                <option value={index}>{item.name}</option>
-              </>
-            )
-          })}
-        </select>
+
+        <Selector setValueSelector={setValueSelector}/>
+        
         <hr />
-        <button className='btn btn-primary' onClick={onCloseModal}>
-            <h1>cerrar modal</h1>
+        <button className='btn btn-danger' onClick={onCloseModal}>
+            <h1>Cancelar</h1>
+        </button>
+        <button className='btn btn-primary' onClick={()=>onSubmit(valueSelector)}>
+            <h1>Enviar</h1>
         </button>
     </div>
   </Modal>

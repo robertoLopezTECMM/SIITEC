@@ -51,3 +51,13 @@ export const Wednesday = [
     {id:44, hour:'20 - 21', assignatureName:" "},
     {id:45, hour:'21 - 22', assignatureName:" "},
 ]
+
+export const Assignatures = [
+    {name: 'Calculo diferencial',         semester: '1'},
+    {name: 'Matematicas discretas',       semester: '1'},
+    {name: 'Quimica',                     semester: '1'},
+    {name: 'Fundamentos de programación', semester: '1'},
+    {name: 'POO',                         semester: '1'},
+    {name: 'Taller de investigacion',     semester: '1'},
+    {name: 'Formación cívica y ética',    semester: '1'},
+  ];

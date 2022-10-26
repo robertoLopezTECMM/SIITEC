@@ -1,0 +1,57 @@
+.ListItem{
+    align-items: center;
+    background-color: #FFFFFF;
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    display: flex;
+    height: 63px;
+    justify-content: space-between;
+    margin: 20px 0;
+    width: calc(100% - 30px);
+}
+
+.ListItem .info{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 15px;
+}
+
+.ListItem .info .code{
+    color: black;
+    font-family: 'KB-Bold';
+    font-weight: bold;
+}
+
+.ListItem .info .title{
+    color: black;
+    font-family: 'KB-Bold';
+    margin: 0 50px;
+}
+
+.ListItem .icon-group{
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;
+    justify-content: center;
+    margin: 0 30px;
+}
+
+.icon-group .trash{
+    color: #A20000;
+}
+
+.icon-group .user_info-video{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+    width: 100px;
+}
+
+.icon-group .user_info-video .active{
+    color: var(--green);
+}
+
+.icon-group .user_info-video .inactive{
+    color: var(--grey);
+}

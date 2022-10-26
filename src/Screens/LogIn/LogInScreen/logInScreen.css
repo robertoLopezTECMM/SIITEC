@@ -8,3 +8,7 @@
     background-image: url('../../../Assets/Images/logInBackGround.JPG');
     background-size: cover;
 }
+
+.logoTecImageTag{
+    width: 350px;
+}

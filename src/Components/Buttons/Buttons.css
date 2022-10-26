@@ -21,55 +21,40 @@
 }
 
 /************************************************************************/
-:root{
-    --white:#FFFFFF;
-    --fontsize: 18px;
-    --fcolorblue: #00A29A;
-    --fcolorred: #A20000;
-    --width: 200px;
-    --height: auto;
-    --borderradius: 15px;
-    --font:'KB-Bold';
-    --margin: 25px;
-    --cursor: pointer;
-    --whiteborder: solid 2px white
-}
-
-span{
-    color: var(--white);
-}
-
-.contenedortest{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-}
-
-
 
 .buttonPrimarySucces{
-    background-color: var(--fcolorblue);
-    width: 100px;
-    height: 40px;
-    color: var(--white);
-    font-size: var(--fontsize);
-    border-radius: var(--borderradius);
-    font-family:var(--font);
-    cursor: var(--cursor);
-    margin: var(--margin);
+    background-color: var(--green);
+    max-width: 200px;
+    min-width: 130px;
+    height: auto;
+    color: #FFFFFF;
+    font-size: 1em;
+    border-radius: 15px;
+    font-family:'KB-Bold';
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+}
+
+.buttonPrimarySucces p{
+    margin: auto;
 }
 
 
 .buttonPrimaryCancel{
-    background-color: var(--fcolorred);
-    width: var(--width);
-    height: var(--height);
-    color: var(--white);
-    font-size: var(--fontsize);
-    border-radius: var(--borderradius);
-    font-family:var(--font);
-    cursor: var(--cursor);
-    margin: var(--margin);
+    background-color: var(--red);
+    max-width: 200px;
+    min-width: 130px;
+    height: auto;
+    color: #FFFFFF;
+    font-size: 1em;
+    border-radius: 15px;
+    font-family:'KB-Bold';
+    cursor: pointer;
+    margin: 10px;
+    padding: 10px;
+}
+
+.buttonPrimaryCancel p{
+    margin: auto;
 }
