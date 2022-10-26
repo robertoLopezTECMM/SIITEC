@@ -4,7 +4,7 @@
     --color-black:   #000000;
 
     --height: 400px;
-    --width:  600px;
+    --width:  1306px;
 }
 
 @font-face {
@@ -35,7 +35,6 @@ body{
     flex-direction:  column;
     height:          var(--height);
     justify-content: center;
-    padding:          5%;
     width:           var(--width);
 }
 

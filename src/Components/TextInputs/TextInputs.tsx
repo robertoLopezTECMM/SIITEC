@@ -91,23 +91,50 @@ export const InputText = ({labelText, placeholder, isForNumber, isForSearch, max
     )
 }
 
+
+interface inputTextShortNumberInterface{
+  textInputOnChange: (value:string) => void;
+  labelText: string;
+  placeholder?: string;
+
+  maxLenght?: number;
+
+}
+
+export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  textInputOnChange}: inputTextShortNumberInterface) => {
+  const [textInputValue, setTextinputValue] = useState('')
+    return(
+        <div className='inputContainer'>
+            <label>{labelText}</label>
+            <input
+                type='text'
+                className={"numberText"} 
+                placeholder={placeholder ? placeholder : ''}
+                maxLength={maxLenght }
+                style={{width:'80px'} } 
+                value={textInputValue}
+                onChange={(e) => [setTextinputValue(e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')), textInputOnChange(e.currentTarget.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1'))]} />
+
+        </div>
+    )
+}
+
 interface inputTextPassword{
     passwordOnchange: (value:string, value2:string) => void;
-    isForPassword?: boolean;
     labelText: string;
     placeholder: string;
     fieldId?: any;
 }
 
-export const InputTextPassword = ({labelText, placeholder, fieldId, isForPassword, passwordOnchange}: inputTextPassword) => {
+export const InputTextPassword = ({labelText, placeholder, fieldId, passwordOnchange}: inputTextPassword) => {
     const [hidePassword, setHidePassword] = useState(true)
     const [passWordValue, setPassWordValue] = useState('')
     return(
         <div className='inputContainer'>
                 <label>{labelText}</label>
                 <input 
-                    className={!isForPassword ? "inputText" : "inputTextPassword"} 
-                    type={!isForPassword ? '' : hidePassword ? 'password' : ''} 
+                    className="inputText"
+                    type={hidePassword ? 'password' : ''} 
                     placeholder={placeholder}
                     style={{width: "100%"}}  
                     value={passWordValue}
@@ -116,12 +143,11 @@ export const InputTextPassword = ({labelText, placeholder, fieldId, isForPasswor
                         passwordOnchange(e.currentTarget.value, fieldId)
                       ]
                 }/>
-                {isForPassword
-                ? <button onClick={()=>setHidePassword(!hidePassword)}>
+                 <button onClick={()=>setHidePassword(!hidePassword)}>
                     <i className="material-icons">{hidePassword ? 'visibility_off' : 'visibility'}</i>
                 </button>
-                : null
-                }
+                
+                
         </div>
     )
 }
