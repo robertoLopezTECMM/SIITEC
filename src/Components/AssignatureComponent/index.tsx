@@ -21,10 +21,9 @@ export const AssignatureComponent = ({item, onOpenModal}:assignatureComponentPro
           </div>
         </div>
         :        
-      <div onClick={onOpenModal} className='assignatureMainContainer'>
+        <div onClick={onOpenModal} className='assignatureMainContainer'>
 
-      </div>
-    
+        </div>
     
       }
     

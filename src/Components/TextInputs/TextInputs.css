@@ -49,30 +49,31 @@ display: none;
   height: auto;
   position: relative;
   width: 100%;
+  margin-top: 3vh;
 }
 
 .inputContainer label{
-  font-size: 12px;
-  margin: 10px;
+  font-size: 1em;
+  font-family: 'KB-Bold';
 }
 
 .inputText{
   border: 2.5px solid var(--green);
-  border-radius: 10px;
+  border-radius: 15px;
   font-family: 'KB-light';
-  font-size: 1.2em;
-  height: 2em;
+  font-size: 1em;
+  height: 3em;
   outline: none;
   padding: 0 10px;
 }
 
 .numberText{
   border: 1.5px solid var(--green);
-  border-radius: 10px;
+  border-radius: 15px;
   font-family: 'KB-light';
-  font-size: 1.2em;
-  height: 2em;
-  height: auto;
+  font-size: 1em;
+  height: 3em;
+  width: 80px;
   outline: none;
   text-align: center;
 }

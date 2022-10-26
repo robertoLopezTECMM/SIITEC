@@ -108,10 +108,10 @@ export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  text
             <label>{labelText}</label>
             <input
                 type='text'
-                className={"numberText"} 
+                className="numberText"
                 placeholder={placeholder ? placeholder : ''}
                 maxLength={maxLenght }
-                style={{width:'80px'} } 
+                 
                 value={textInputValue}
                 onChange={(e) => [setTextinputValue(e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')), textInputOnChange(e.currentTarget.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1'))]} />
 
