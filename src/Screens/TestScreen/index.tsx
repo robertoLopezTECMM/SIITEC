@@ -7,6 +7,7 @@ import { Slider, Sketch, Material, Colorful, Compact, Circle, Wheel, Block, Gith
 import { Alpha, Hue, ShadeSlider, Saturation, hsvaToHslaString } from '@uiw/react-color';
 import { EditableInput, EditableInputRGBA, EditableInputHSLA } from '@uiw/react-color';
 import { ColorPicker } from '../../Components/ColorPicker'
+import { ButtonPrimarys } from '../../Components/Buttons/Buttons'
 
 
 export const TestScreen = () => {
@@ -34,6 +35,12 @@ export const TestScreen = () => {
 
   return (
     // <ColorPicker  onChangeColorPicker={colorChange}/>
-    <Schedule/>
-  )
+    <div style={{backgroundColor:'black'}}>
+      <ButtonPrimarys textButton={'Guardar'} isCancel={false} isborder={false} buttonOnClick={()=>console.log('hi')}/>
+      <ButtonPrimarys textButton={'Cancelar'} isCancel={true} isborder={false} buttonOnClick={()=>console.log('hi')}/>
+      <ButtonPrimarys textButton={'hola mundo'} isCancel={false} isborder={true} buttonOnClick={()=>console.log('hi')}/>
+      <ButtonPrimarys textButton={'hola mundo'} isCancel={true} isborder={true} buttonOnClick={()=>console.log('hi')}/>
+    </div>
+    
+  ) 
 }
