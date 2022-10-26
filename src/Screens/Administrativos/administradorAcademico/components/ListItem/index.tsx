@@ -1,4 +1,4 @@
-import './listitem.css'
+import './index.css'
 
 interface listItem{
     code: string;
