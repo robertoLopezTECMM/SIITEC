@@ -57,11 +57,11 @@ display: none;
 }
 
 .inputText{
-  border: 1.5px solid var(--green);
+  border: 2.5px solid var(--green);
   border-radius: 10px;
   font-family: 'KB-light';
-  font-size: 25px;
-  height: auto;
+  font-size: 1.2em;
+  height: 2em;
   outline: none;
   padding: 0 10px;
 }
@@ -70,7 +70,8 @@ display: none;
   border: 1.5px solid var(--green);
   border-radius: 10px;
   font-family: 'KB-light';
-  font-size: 25px;
+  font-size: 1.2em;
+  height: 2em;
   height: auto;
   outline: none;
   text-align: center;
@@ -80,7 +81,8 @@ display: none;
   border: 1.5px solid var(--green);
   border-radius: 10px;
   font-family: 'KB-light';
-  font-size: 25px;
+  font-size: 1.2em;
+  height: 2em;
   height: auto;
   outline: none;
   padding: 0 10px;

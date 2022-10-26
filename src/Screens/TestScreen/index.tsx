@@ -8,6 +8,7 @@ import { Alpha, Hue, ShadeSlider, Saturation, hsvaToHslaString } from '@uiw/reac
 import { EditableInput, EditableInputRGBA, EditableInputHSLA } from '@uiw/react-color';
 import { ColorPicker } from '../../Components/ColorPicker'
 import { ButtonPrimarys } from '../../Components/Buttons/Buttons'
+import { InputText, InputTextShortNumber, InputTextPassword } from '../../Components/TextInputs/TextInputs';
 
 
 export const TestScreen = () => {
@@ -35,11 +36,21 @@ export const TestScreen = () => {
 
   return (
     // <ColorPicker  onChangeColorPicker={colorChange}/>
-    <div style={{backgroundColor:'black'}}>
-      <ButtonPrimarys textButton={'Guardar'} isCancel={false} isborder={false} buttonOnClick={()=>console.log('hi')}/>
-      <ButtonPrimarys textButton={'Cancelar'} isCancel={true} isborder={false} buttonOnClick={()=>console.log('hi')}/>
-      <ButtonPrimarys textButton={'hola mundo'} isCancel={false} isborder={true} buttonOnClick={()=>console.log('hi')}/>
-      <ButtonPrimarys textButton={'hola mundo'} isCancel={true} isborder={true} buttonOnClick={()=>console.log('hi')}/>
+    <div style={{backgroundColor:'#707060'}}>
+
+      <div style={{width:'50%',margin:'auto', display:'flex'}}>
+      <InputText textInputOnChange={()=>console.log('hi')} labelText={'Nombre corto'} placeholder={'inserte nombre corto'} maxLenght={2} isForSearch/>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <InputText textInputOnChange={()=>console.log('hi')} labelText={'Nombre corto'} placeholder={'inserte nombre corto'} maxLenght={2} isForSearch/>
+
+      </div>
+      <InputText textInputOnChange={()=>console.log('hi')} labelText={'Nombre corto'} placeholder={'inserte nombre corto'} maxLenght={2} isForSearch/>
+      <InputTextShortNumber  textInputOnChange={()=>console.log('hi')} labelText={'Creditos'}/>
+      <InputTextPassword passwordOnchange={()=>console.log('hi')} labelText={'Nombre corto'} placeholder={'ingrese su contraseña'}/>
+      <InputText textInputOnChange={()=>console.log('hi')} labelText={'Nombre corto'}/>
     </div>
     
   ) 
