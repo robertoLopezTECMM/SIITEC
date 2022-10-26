@@ -2,8 +2,20 @@ import './index.css'
 import { InputText, InputTextPassword } from '../../../src/Components/TextInputs/TextInputs'
 import { authContext } from '../../Contexts/AuthProvider'
 import { useContext, useState } from 'react'
+import { ListItem } from '../Administrativos/administradorAcademico/components/ListItem'
 
 export const TestScreen = () => {
+
+  return(
+    <div className='container'>
+      <ListItem isCarrera code='SCI-093' title='Ingenieria en sistemas computacionales'/>
+      <ListItem code='ID-1234' title='Matematicas discretas'/>
+    </div>
+  );
+
+}
+
+{/* export const TestScreen = () => {
 
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
@@ -35,8 +47,8 @@ export const TestScreen = () => {
       <TextInput isForPassword passwordOnchange={onChangePasswords} passwordValue='' fieldId='password' labelText='password' placeholder='Escribe la contraseña' width='100%'/>
       <TextInput isForPassword passwordOnchange={onChangePasswords} passwordValue='' fieldId='password' labelText='password' placeholder='Escribe la contraseña' width='100%'/>
     </div>
-    */}
+    
 
     </div>
   )
-}
+} */}
