@@ -1,0 +1,63 @@
+export const Monday = [
+    {id:1, hour:'7 - 8', assignatureName:" "},
+    {id:2, hour:'8 - 9', assignatureName:" "},
+    {id:3, hour:'9 - 10', assignatureName:" "},
+    {id:4, hour:'10 - 11', assignatureName:" "},
+    {id:5, hour:'11 - 12', assignatureName:" "},
+    {id:6, hour:'12 - 13', assignatureName:" "},
+    {id:7, hour:'13 - 14', assignatureName:" "},
+    {id:8, hour:'14 - 15', assignatureName:" "},
+    {id:9, hour:'15 - 16', assignatureName:" "},
+    {id:10, hour:'16 - 17', assignatureName:" "},
+    {id:11, hour:'17 - 18', assignatureName:" "},
+    {id:12, hour:'18 - 19', assignatureName:" "},
+    {id:13, hour:'19 - 20', assignatureName:" "},
+    {id:14, hour:'20 - 21', assignatureName:" "},
+    {id:15, hour:'21 - 22', assignatureName:" "},
+]
+
+export const Thursday = [
+    {id:16, hour:'7 - 8', assignatureName:" "},
+    {id:17, hour:'8 - 9', assignatureName:" "},
+    {id:18, hour:'9 - 10', assignatureName:" "},
+    {id:19, hour:'10 - 11', assignatureName:" "},
+    {id:20, hour:'11 - 12', assignatureName:" "},
+    {id:21, hour:'12 - 13', assignatureName:" "},
+    {id:22, hour:'13 - 14', assignatureName:" "},
+    {id:23, hour:'14 - 15', assignatureName:" "},
+    {id:24, hour:'15 - 16', assignatureName:" "},
+    {id:25, hour:'16 - 17', assignatureName:" "},
+    {id:26, hour:'17 - 18', assignatureName:" "},
+    {id:27, hour:'18 - 19', assignatureName:" "},
+    {id:28, hour:'19 - 20', assignatureName:" "},
+    {id:29, hour:'20 - 21', assignatureName:" "},
+    {id:30, hour:'21 - 22', assignatureName:" "},
+]
+
+export const Wednesday = [
+    {id:31, hour:'7 - 8', assignatureName:" "},
+    {id:32, hour:'8 - 9', assignatureName:" "},
+    {id:33, hour:'9 - 10', assignatureName:" "},
+    {id:34, hour:'10 - 11', assignatureName:" "},
+    {id:35, hour:'11 - 12', assignatureName:" "},
+    {id:36, hour:'12 - 13', assignatureName:" "},
+    {id:37, hour:'13 - 14', assignatureName:" "},
+    {id:38, hour:'14 - 15', assignatureName:" "},
+    {id:39, hour:'15 - 16', assignatureName:" "},
+    {id:40, hour:'16 - 17', assignatureName:" "},
+    {id:41, hour:'17 - 18', assignatureName:" "},
+    {id:42, hour:'18 - 19', assignatureName:" "},
+    {id:43, hour:'19 - 20', assignatureName:" "},
+    {id:44, hour:'20 - 21', assignatureName:" "},
+    {id:45, hour:'21 - 22', assignatureName:" "},
+]
+
+export const Assignatures = [
+    {name: 'Calculo diferencial',         semester: '1'},
+    {name: 'Matematicas discretas',       semester: '1'},
+    {name: 'Quimica',                     semester: '1'},
+    {name: 'Fundamentos de programación', semester: '1'},
+    {name: 'POO',                         semester: '1'},
+    {name: 'Taller de investigacion',     semester: '1'},
+    {name: 'Formación cívica y ética',    semester: '1'},
+  ];

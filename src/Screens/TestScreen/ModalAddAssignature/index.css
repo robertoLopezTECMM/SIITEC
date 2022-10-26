@@ -1,0 +1,11 @@
+h1{
+    text-align: center;
+}
+
+.modalMainContainer{
+    width: 60%!important;
+    height: 70%;
+    background-color: gray;
+    padding: 2%;
+    border-radius: 10%;
+}
