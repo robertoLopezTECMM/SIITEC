@@ -15,7 +15,7 @@ export const TestScreen = () => {
 
   return(
     <div>
-      {/* <ModalNewCareer isOpen={showModal} onCloseModal={closeModal}/> */}
+    {/* <ModalNewCareer isOpen={showModal} onCloseModal={closeModal}/> */}
       <ModalCreateAssignature isOpen={showModal} onCloseModal={closeModal}/>
 
       <button onClick={()=>setShowModal(true)}>open modal</button>
