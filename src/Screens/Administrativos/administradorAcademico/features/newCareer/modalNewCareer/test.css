@@ -1,22 +1,43 @@
-.modal_new-career {
+.ReactModal__Content .mainLogInContainer {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.requerido {
+  color: red;
+  font-weight: bold;
   position: fixed;
-  top: 0;
+  top: inherit;
   right: 0;
-  bottom: 0;
+  bottom: inherit;
   left: 0;
-  background-color: #111111bd;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: auto;
+}
+
+.numerico {
+  width: inherit;
+  position: fixed;
+  right: inherit;
+  left: inherit;
 }
 
 .title {
-  margin-top: 2rem;
+  font-weight: bold;
 }
 
 .new-career_input {
   margin-top: 3rem;
+}
+
+.new-career_input label {
+  font-weight: bold;
+}
+
+.new-career_input .inputWithButton input {
+  border: 1.5px solid #00A29A;
+}
+
+.new-career_input .inputWithButton input:focus {
+  outline: 1.5px solid #00A29A;
 }
 
 .numbers_input {
