@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'KB-Bold';
-  src:local("KohinoorBangla-Bold"), url('./Assets/Fonts/KohinoorBangla-Bold.otf') format('otf');
+  src:local("KohinoorBangla-Bold"), url('./Assets/Fonts/KohinoorBangla-Bold.otf') ;
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'KB-Light';
-  src:local("KohinoorBangla-Light"), url('./Assets/Fonts/KohinoorBangla-Light.otf') format('otf');
+  src:local("KohinoorBangla-Light"), url('./Assets/Fonts/KohinoorBangla-Light.otf');
   font-weight: bold;
   font-style: italic;
   font-display: swap;
@@ -32,17 +32,17 @@
 
 @font-face {
   font-family: 'KB-Medium';
-  src: url('./Assets/Fonts/KohinoorBangla-Medium.otf') format('otf');
+  src: url('./Assets/Fonts/KohinoorBangla-Medium.otf') ;
 }
 
 @font-face {
   font-family: 'KB-Regular';
-  src: url('./Assets/Fonts/KohinoorBangla-Regular.otf') format('otf');
+  src: url('./Assets/Fonts/KohinoorBangla-Regular.otf') ;
 }
 
 @font-face {
   font-family: 'KB-Semibold';
-  src: url('./Assets/Fonts/KohinoorBangla-Semibold.otf') format('otf');
+  src: url('./Assets/Fonts/KohinoorBangla-Semibold.otf') ;
 }
 
 @media (prefers-reduced-motion: no-preference) {

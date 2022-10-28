@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import { ButtonPrimarys } from '../../../../../Components/Buttons/Buttons';
+import { ColorPicker } from '../../../../../Components/ColorPicker';
 import { LogInContainer } from '../../../../../Components/Containers/LogInContainer/logInContainer';
 import { InputText, InputTextShortNumber } from '../../../../../Components/TextInputs/TextInputs';
 import { ThemedH1 } from '../../../../../Components/ThemedTexts';
@@ -31,7 +32,7 @@ interface modalProps{
     onCloseModal: ()=>void;
 }
 
-export const ModalNewCareer = ({isOpen, onCloseModal}:modalProps) => {
+export const ModalCreateAssignature = ({isOpen, onCloseModal}:modalProps) => {
     const [modalIsOpen, setIsOpen] = useState(true);
 
     function openModal() {
@@ -58,25 +59,8 @@ export const ModalNewCareer = ({isOpen, onCloseModal}:modalProps) => {
 
     >
         <LogInContainer>
-            <ThemedH1 text='Nueva Carrera'/>
+            <ThemedH1 text='Nueva Asignatura'/>
 
-            <div style={{display:'flex'}}>
-
-                <InputText
-                    labelText='Clave'
-                    textInputOnChange={()=>console.log('hi')}
-                    placeholder='Escriba la clave'    
-                />
-                &nbsp;
-                &nbsp;
-
-                <InputText
-                    labelText='Clave Oficial'
-                    textInputOnChange={()=>console.log('hi')}
-                    placeholder='Escriba la clave oficial'    
-                />
-
-            </div>
 
             <div style={{display:'flex'}}>
 
@@ -95,15 +79,29 @@ export const ModalNewCareer = ({isOpen, onCloseModal}:modalProps) => {
 
             </div>
 
+            <InputText
+                labelText='Clave'
+                textInputOnChange={()=>console.log('hi')}
+                placeholder='Escriba el nombre completo'    
+            />
+            <div style={{display:'flex', width:'100%'}}>
+                <InputTextShortNumber labelText='Unidades' textInputOnChange={()=>console.log('hi')}/>
+                <InputTextShortNumber labelText='H/Teoricas' textInputOnChange={()=>console.log('hi')}/>
+                <InputTextShortNumber labelText='H/Practicas' textInputOnChange={()=>console.log('hi')}/>
+
+                <InputTextShortNumber labelText='Creditos' textInputOnChange={()=>console.log('hi')}/>
+
+            </div>
+            <div className='colorPickerContainerInModal'>
+              <ColorPicker onChangeColorPicker={()=>console.log('hi')} />
+            </div>
+
             
 
 
 
 
-            <div style={{display:'flex', width:'100%'}}>
-                <InputTextShortNumber labelText='Grado' textInputOnChange={()=>console.log('hi')}/>
-                <InputTextShortNumber labelText='Nivel' textInputOnChange={()=>console.log('hi')}/>
-            </div>
+
 
             
             <div className='buttonsModalContainer'>

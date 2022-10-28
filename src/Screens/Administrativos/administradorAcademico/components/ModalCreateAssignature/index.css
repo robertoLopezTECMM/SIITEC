@@ -6,3 +6,11 @@
     border-collapse: collapse;
     margin-top: 10%;
 }
+
+.colorPickerContainerInModal{
+    width: 90%;
+    margin:auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
