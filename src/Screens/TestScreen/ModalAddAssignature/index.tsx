@@ -3,10 +3,6 @@ import Modal from 'react-modal';
 import Selector from '../components/Selector';
 import './index.css'
 
-
-
-
-
 const customStyles = {
     content: {
       top: '50%',
@@ -57,9 +53,8 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubm
         <h1>Añadir asignatura</h1>
         <h2>Asignatura: </h2>
         <h2>Horario:</h2>
-
-        <Selector setValueSelector={setValueSelector}/>
-        
+        <Selector
+         setValueSelector={setValueSelector}/>
         <hr />
         <button className='btn btn-danger' onClick={onCloseModal}>
             <h1>Cancelar</h1>
