@@ -1,18 +1,16 @@
-.rememberAccountCheckBoxContainer{
+.checkBoxContainer{
     width: 100%;
     display:flex;
-    flex-direction: row;
+    flex-direction:column;
     margin: auto;
     align-items: center;
     justify-content: center;
     padding: 0%;
-    font-family: 'KB-Medium';
-    
+    font-family: 'KB-Bold';
 }
 
 
-.rememberAccountCheckBoxContainer input[type="checkbox"]{
-/*.rememberAccountCheckBoxContainer input.checked{*/
+.checkBoxContainer input[type="checkbox"]{
     accent-color: var(--green);
     -ms-transform: scale(1.3);
     -moz-transform: scale(1.3);
@@ -32,8 +30,7 @@
     cursor: pointer;
 }
 
-.rememberAccountCheckBoxContainer input:checked{
-/*.rememberAccountCheckBoxContainer input.checked:checked{*/
+.checkBoxContainer input:checked{
     accent-color: var(--green);
     -ms-transform: scale(1.3); /* IE */
     -moz-transform: scale(1.3); /* FF */
@@ -41,7 +38,7 @@
     -o-transform: scale(1.3); /* Opera */
     transform: scale(1.3);
     
-    margin:10px;   
+    margin: 10px;   
     content: "";
     width: 21px;
     height: 21px;
@@ -55,10 +52,15 @@
     }
 
 
-.rememberAccountText{
-    align-items: center;
-    color: var(--grey);
+.checkBoxText{
     font-family:'KB-Bold';
     font-size: 1.1em;
+    
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;  
 }
 

@@ -8,33 +8,38 @@ import './ChecksBox.css'
 import { brotliDecompress } from 'zlib';
 import { connect } from 'http2';
 import { Console } from 'console';
+import { Prev } from 'react-bootstrap/esm/PageItem';
+import { BlobOptions } from 'buffer';
 
 
 interface checkboxInput{
   labelCheckBox: string;
-  checked?: boolean;
-  labelDirection?: string;
+  onChange: (value:boolean)=>void;
+  
 }
 
-export const  RememberAccountCheckBox = ({labelCheckBox, checked, labelDirection}: checkboxInput ) => {
-  const defaultChecked = checked ? checked : false;
-  const [isChecked, setIsChecked]= useState (defaultChecked);
-  const defaultLabelDirection = labelDirection? labelDirection : false;
-  
+export const CheckBoxes = ({labelCheckBox, onChange}: checkboxInput ) => {
+  const [isChecked, setIsChecked]= useState(false);
+
 
   return (
-    <div className='rememberAccountCheckBoxContainer'  >
+    <div className='checkBoxContainer'>
         <input  
-        className='rememberAccountCheckBox'
+        className='checkBoxCheckbox'
         type='checkbox' 
         checked={isChecked}
-        onChange={() => setIsChecked((prev) => !prev)}
+        name={labelCheckBox}
+        onChange={() => [setIsChecked(!isChecked), onChange(!isChecked)]
+        }
         />
-        <label className='rememberAccountText' > {labelCheckBox } </label> 
+
+        <label className='checkBoxText' > {labelCheckBox } </label> 
         
     </div>
     
   );
 };
 
-export default RememberAccountCheckBox
+
+
+export default CheckBoxes
