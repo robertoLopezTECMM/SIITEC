@@ -26,14 +26,11 @@ export const DropFileInput = ({message, onChangeInputFiles}:inputFileProps) => {
                 
                 :
 
-                <div 
-                    ref={wrapperRef}
-                    className='drop-file-input'
-                >
+                <div className='drop-file-input'>
                     <div className='drop-file-input_label'>
                         <img src= {uploadImg} alt="Cloud" />
                         <p>{message}</p>
-                        <p>( arrastrar / soltar )</p>
+
                     </div>
                     
                     <input multiple type="file" value="" onChange={(e)=> [setFile(e.target.files), onChangeInputFiles(e.target.files)]}/>

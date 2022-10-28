@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { ButtonPrimarys } from '../../../../../Components/Buttons/Buttons';
 import { ColorPicker } from '../../../../../Components/ColorPicker';
 import { LogInContainer } from '../../../../../Components/Containers/LogInContainer/logInContainer';
+import { DropFileInput } from '../../../../../Components/DropFileInput/DropFileInput';
 import { InputText, InputTextShortNumber } from '../../../../../Components/TextInputs/TextInputs';
 import { ThemedH1 } from '../../../../../Components/ThemedTexts';
 
@@ -88,14 +89,26 @@ export const ModalCreateAssignature = ({isOpen, onCloseModal}:modalProps) => {
                 <InputTextShortNumber labelText='Unidades' textInputOnChange={()=>console.log('hi')}/>
                 <InputTextShortNumber labelText='H/Teoricas' textInputOnChange={()=>console.log('hi')}/>
                 <InputTextShortNumber labelText='H/Practicas' textInputOnChange={()=>console.log('hi')}/>
-
                 <InputTextShortNumber labelText='Creditos' textInputOnChange={()=>console.log('hi')}/>
-
             </div>
+
             <div className='colorPickerContainerInModal'>
               <ColorPicker onChangeColorPicker={()=>console.log('hi')} />
             </div>
 
+            <div style={{display:'flex', justifyContent:'space-around'}}>
+              <div style={{width:'30%'}}>
+                <DropFileInput message='Folleto promocional' onChangeInputFiles={()=>console.log('hi')}/>
+              </div>
+
+              <div style={{width:'30%'}}>
+                <DropFileInput message='Video promocional' onChangeInputFiles={()=>console.log('hi')}/>
+              </div>
+
+              <div style={{width:'30%'}}>
+                <DropFileInput message='Video testimonial' onChangeInputFiles={()=>console.log('hi')}/>
+              </div>
+            </div>
             
 
 
