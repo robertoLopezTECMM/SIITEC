@@ -5,6 +5,7 @@ import { useContext, useState } from 'react'
 import { ListItem } from '../Administrativos/administradorAcademico/components/ListItem'
 import { ModalNewCareer } from '../Administrativos/administradorAcademico/components/modalNewCareer'
 import { ModalCreateAssignature } from '../Administrativos/administradorAcademico/components/ModalCreateAssignature'
+import { Schedule } from './Scheduler/Schedule'
 
 export const TestScreen = () => {
   const [showModal, setShowModal] = useState(false)
@@ -14,12 +15,13 @@ export const TestScreen = () => {
   }
 
   return(
-    <div>
-      {/* <ModalNewCareer isOpen={showModal} onCloseModal={closeModal}/> */}
-      <ModalCreateAssignature isOpen={showModal} onCloseModal={closeModal}/>
+    // <div>
+    //   {/* <ModalNewCareer isOpen={showModal} onCloseModal={closeModal}/> */}
+    //   <ModalCreateAssignature isOpen={showModal} onCloseModal={closeModal}/>
 
-      <button onClick={()=>setShowModal(true)}>open modal</button>
-    </div>
+    //   <button onClick={()=>setShowModal(true)}>open modal</button>
+    // </div>
+    <Schedule/>
   );
 
 }

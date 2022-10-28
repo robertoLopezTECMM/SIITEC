@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
-import Selector from '../components/Selector';
+import Selector from '../../components/Selector';
 import './index.css'
 
 const customStyles = {
@@ -48,6 +48,7 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubm
     onRequestClose={closeModal}
     style={customStyles}
     contentLabel="Example Modal"
+    ariaHideApp={false}
   >
     <div className='modalMainContainer'>
         <h1>Añadir asignatura</h1>
