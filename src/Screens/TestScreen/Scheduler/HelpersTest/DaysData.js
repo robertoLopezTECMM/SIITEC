@@ -16,7 +16,7 @@ export const Monday = [
     {id:15, hour:'21 - 22', assignatureName:" "},
 ]
 
-export const Thursday = [
+export const Tuesday = [
     {id:16, hour:'7 - 8', assignatureName:" "},
     {id:17, hour:'8 - 9', assignatureName:" "},
     {id:18, hour:'9 - 10', assignatureName:" "},
@@ -52,12 +52,66 @@ export const Wednesday = [
     {id:45, hour:'21 - 22', assignatureName:" "},
 ]
 
+export const Thursday = [
+    {id:31, hour:'7 - 8', assignatureName:" "},
+    {id:32, hour:'8 - 9', assignatureName:" "},
+    {id:33, hour:'9 - 10', assignatureName:" "},
+    {id:34, hour:'10 - 11', assignatureName:" "},
+    {id:35, hour:'11 - 12', assignatureName:" "},
+    {id:36, hour:'12 - 13', assignatureName:" "},
+    {id:37, hour:'13 - 14', assignatureName:" "},
+    {id:38, hour:'14 - 15', assignatureName:" "},
+    {id:39, hour:'15 - 16', assignatureName:" "},
+    {id:40, hour:'16 - 17', assignatureName:" "},
+    {id:41, hour:'17 - 18', assignatureName:" "},
+    {id:42, hour:'18 - 19', assignatureName:" "},
+    {id:43, hour:'19 - 20', assignatureName:" "},
+    {id:44, hour:'20 - 21', assignatureName:" "},
+    {id:45, hour:'21 - 22', assignatureName:" "},
+]
+
+export const Friday = [
+    {id:31, hour:'7 - 8', assignatureName:" "},
+    {id:32, hour:'8 - 9', assignatureName:" "},
+    {id:33, hour:'9 - 10', assignatureName:" "},
+    {id:34, hour:'10 - 11', assignatureName:" "},
+    {id:35, hour:'11 - 12', assignatureName:" "},
+    {id:36, hour:'12 - 13', assignatureName:" "},
+    {id:37, hour:'13 - 14', assignatureName:" "},
+    {id:38, hour:'14 - 15', assignatureName:" "},
+    {id:39, hour:'15 - 16', assignatureName:" "},
+    {id:40, hour:'16 - 17', assignatureName:" "},
+    {id:41, hour:'17 - 18', assignatureName:" "},
+    {id:42, hour:'18 - 19', assignatureName:" "},
+    {id:43, hour:'19 - 20', assignatureName:" "},
+    {id:44, hour:'20 - 21', assignatureName:" "},
+    {id:45, hour:'21 - 22', assignatureName:" "},
+]
+
+export const Saturday = [
+    {id:31, hour:'7 - 8', assignatureName:" "},
+    {id:32, hour:'8 - 9', assignatureName:" "},
+    {id:33, hour:'9 - 10', assignatureName:" "},
+    {id:34, hour:'10 - 11', assignatureName:" "},
+    {id:35, hour:'11 - 12', assignatureName:" "},
+    {id:36, hour:'12 - 13', assignatureName:" "},
+    {id:37, hour:'13 - 14', assignatureName:" "},
+    {id:38, hour:'14 - 15', assignatureName:" "},
+    {id:39, hour:'15 - 16', assignatureName:" "},
+    {id:40, hour:'16 - 17', assignatureName:" "},
+    {id:41, hour:'17 - 18', assignatureName:" "},
+    {id:42, hour:'18 - 19', assignatureName:" "},
+    {id:43, hour:'19 - 20', assignatureName:" "},
+    {id:44, hour:'20 - 21', assignatureName:" "},
+    {id:45, hour:'21 - 22', assignatureName:" "},
+]
+
 export const Assignatures = [
-    {name: 'Calculo diferencial',         semester: '1'},
-    {name: 'Matematicas discretas',       semester: '1'},
-    {name: 'Quimica',                     semester: '1'},
-    {name: 'Fundamentos de programación', semester: '1'},
-    {name: 'POO',                         semester: '1'},
-    {name: 'Taller de investigacion',     semester: '1'},
-    {name: 'Formación cívica y ética',    semester: '1'},
+    {name: 'Calculo diferencial',         semester: '1', assignatureName:''},
+    {name: 'Matematicas discretas',       semester: '1', assignatureName:''},
+    {name: 'Quimica',                     semester: '1', assignatureName:''},
+    {name: 'Fundamentos de programación', semester: '1', assignatureName:''},
+    {name: 'POO',                         semester: '1', assignatureName:''},
+    {name: 'Taller de investigacion',     semester: '1', assignatureName:''},
+    {name: 'Formación cívica y ética',    semester: '1', assignatureName:''},
   ];
