@@ -32,9 +32,7 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubm
     const [modalIsOpen, setIsOpen] = useState(isOpen);
     const [valueSelector, setValueSelector] = useState("")
 
-    function openModal() {
-      setIsOpen(true);
-    }
+
   
     function afterOpenModal() {
       // references are now sync'd and can be accessed.

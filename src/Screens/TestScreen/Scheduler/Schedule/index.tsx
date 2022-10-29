@@ -4,6 +4,7 @@ import "./index.css";
 //import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { ModalToAddAssignature } from "../components/ModalAddAssignature";
 import { AssignatureCell } from "../components/AssignatureCell";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 
 //import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
 import {
@@ -54,7 +55,6 @@ export const Schedule = () => {
   const onSubmit = (value: string) => {
     const assignature = Assignatures.find((el) => value === el.assignatureName);
     const newAssignature = assignature?.assignatureName;
-
     day === "Monday"
       ? Monday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
@@ -89,17 +89,25 @@ export const Schedule = () => {
         positionIndex={positionIndex}
         onSubmit={onSubmit}
       />
-      
-      <div className="schedule">
-        <Grid container direction="row" className="div-grid" >
-          <Grid container direction="row" className="grid-schedule" wrap="nowrap">
-            <Grid container direction="column" xs={1}>
+      <DragDropContext
+        onDragEnd={(result) => {
+          console.log(result);
+        }}
+      >
+        <Grid container direction="row" className="div-grid">
+          <Grid
+            container
+            direction="row"
+            className="grid-schedule"
+            wrap="nowrap"
+          >
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[0].name}</div>
               {hours.map((item, index) => {
                 return (
                   <>
                     <Grid item xs>
-                      <div key={index} className="div-cell">
+                      <div key={index} className="div-cell ">
                         {item.start} - {item.end}
                       </div>
                     </Grid>
@@ -108,151 +116,200 @@ export const Schedule = () => {
               })}
             </Grid>
 
-            <Grid container direction="column" xs={1}>
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[1].name}</div>
-              {Monday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell assignature-cell"
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Monday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="MondayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Monday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                            className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Monday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
-            <Grid container direction="column" xs={1}>
+
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[2].name}</div>
-              {Tuesday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell assignature-cell"
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Tuesday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="TuesdayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Tuesday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                             className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Tuesday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={1}>
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[3].name}</div>
-              {Wednesday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell assignature-cell"
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Wednesday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="WednesdayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Wednesday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                             className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Wednesday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={1}>
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[4].name}</div>
-              {Thursday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell assignature-cell" 
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Thursday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="ThursdayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Thursday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                             className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Thursday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={1}>
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[5].name}</div>
-              {Friday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell assignature-cell"
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Friday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="FridayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Friday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                             className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Friday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={1}>
+            <Grid container direction="column" xs={2}>
               <div className="div-cell">{days[6].name}</div>
-              {Saturday.map((item, index) => {
-                return (
-                  <>
-                    <Grid item xs>
-                      <div
-                        key={index} className="div-cell"
-                        onClick={() => {
-                          setPositionIndex(item.id);
-                          setDay("Saturday");
-                        }}
-                      >
-                        <AssignatureCell
-                          item={item}
-                          onOpenModal={onOpenModal}
-                        />
-                      </div>
-                    </Grid>
-                  </>
-                );
-              })}
+              <Droppable droppableId="SaturdayColumn">
+                {(provided) => (
+                  <div ref={provided.innerRef} {...provided.droppableProps}>
+                    {Saturday.map((item, index) => {
+                      return (
+                        <>
+                          <Grid item xs>
+                            <div
+                             className=" div-cell assignature-cell"
+                              key={index}
+                              onClick={() => {
+                                setPositionIndex(item.id);
+                                setDay("Saturday");
+                              }}
+                            >
+                              <AssignatureCell
+                                item={item}
+                                onOpenModal={onOpenModal}
+                                index={index}
+                              />
+                            </div>
+                          </Grid>
+                        </>
+                      );
+                    })}
+                  </div>
+                )}
+              </Droppable>
             </Grid>
           </Grid>
         </Grid>
-      </div>
+      </DragDropContext>
     </>
   );
 };
