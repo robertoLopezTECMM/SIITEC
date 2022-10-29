@@ -14,7 +14,7 @@ import {
   Friday,
   Saturday,
   Assignatures,
-} from "../HelpersTest/DaysData";
+} from "../Helpers/DaysData";
 
 export const Schedule = () => {
   // cuadricula 6 x 15
