@@ -21,16 +21,16 @@ export const AssignatureCell = ({
 
   return (
     <Draggable draggableId={item.id.toString()} index={index}>
-      {(provided) => (
+      {(provided, snapshot) => (
         <div
-          className="assignatureCell"
+          className={`assignatureCell ${snapshot.isDragging ? "drag" : ""}`}
           onClick={onOpenModal}
-          {...provided.dragHandleProps}
           {...provided.draggableProps}
+          {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          <i className="material-icons">add_box</i>
           {assignatureName}
+          <i className="material-icons">add_box</i>
         </div>
       )}
     </Draggable>

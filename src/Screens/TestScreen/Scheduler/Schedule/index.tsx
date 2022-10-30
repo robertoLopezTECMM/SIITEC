@@ -4,7 +4,7 @@ import "./index.css";
 //import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { ModalToAddAssignature } from "../components/ModalAddAssignature";
 import { AssignatureCell } from "../components/AssignatureCell";
-import { DragDropContext, Droppable } from "@hello-pangea/dnd";
+import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
 
 //import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
 import {
@@ -42,6 +42,7 @@ export const Schedule = () => {
   const [openModal, setOpenModal] = useState(false);
   const [positionIndex, setPositionIndex] = useState(0);
   const [day, setDay] = useState("");
+  const [assignature, setAssignature] = useState("");
 
   const onOpenModal = () => {
     setOpenModal(true);
@@ -81,7 +82,87 @@ export const Schedule = () => {
 
     setOpenModal(false);
   };
+  
+
+  const onDragEnd = (result: DropResult) => {
+    const { source, destination} = result;
+    console.log(result)
+    if(!destination || (
+      destination.droppableId===source.droppableId && 
+      destination.index===source.index
+      )) 
+    return; 
+    
+    var copyAssignature: string;
+
+    if (source.droppableId === 'MondayColumn'){
+      if (Monday[source.index].assignatureName === " ") return;
+      copyAssignature = Monday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }
+    else if (source.droppableId === 'TuesdayColumn'){
+      if (Tuesday[source.index].assignatureName === " ") return;
+      copyAssignature = Tuesday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }
+    else if (source.droppableId === 'WednesdayColumn'){
+      if (Wednesday[source.index].assignatureName === " ") return;
+      copyAssignature = Wednesday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }
+    else if (source.droppableId === 'ThursdayColumn'){
+      if (Thursday[source.index].assignatureName === " ") return;
+      copyAssignature = Thursday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }
+    else if (source.droppableId === 'FridayColumn'){
+      if (Friday[source.index].assignatureName === " ") return;
+      copyAssignature = Friday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }
+    else if (source.droppableId === 'SaturdayColumn'){
+      if (Saturday[source.index].assignatureName === " ") return;
+      copyAssignature = Saturday[source.index].assignatureName;
+      console.log(copyAssignature);
+    }  
+
+    if (destination.droppableId === 'MondayColumn') {
+      Monday[destination.index].assignatureName = copyAssignature!;     
+    }
+    else if (destination.droppableId === 'TuesdayColumn') {
+      Tuesday[destination.index].assignatureName = copyAssignature!;     
+    }
+    else if (destination.droppableId === 'WednesdayColumn') {
+      Wednesday[destination.index].assignatureName = copyAssignature!;     
+    }
+    else if (destination.droppableId === 'ThursdayColumn') {
+      Thursday[destination.index].assignatureName = copyAssignature!;     
+    }
+    else if (destination.droppableId === 'FridayColumn') {
+      Friday[destination.index].assignatureName = copyAssignature!;     
+    }
+    else if (destination.droppableId === 'SaturdayColumn') {
+      Saturday[destination.index].assignatureName = copyAssignature!;     
+    }
+    
+    
+      // if (source.droppableId === 'MondayColumn') {
+      //   add = assignature[source.index];
+      //   assignature.splice(source.index, 1);
+      // } else{
+      //   add = assignature[source.index];
+      //   test.splice(source.index, 1);
+      // }
+
+      // if (destination.droppableId === 'MondayColumn') {
+      //   assignature.splice(destination.index, 0, add);
+      // } else{
+      //   test.splice(destination.index, 0, add);
+      // }
+  };
+
   return (
+    
     <>
       <ModalToAddAssignature
         onCloseModal={onCloseModal}
@@ -89,11 +170,7 @@ export const Schedule = () => {
         positionIndex={positionIndex}
         onSubmit={onSubmit}
       />
-      <DragDropContext
-        onDragEnd={(result) => {
-          console.log(result);
-        }}
-      >
+      <DragDropContext onDragEnd={onDragEnd}>
         <Grid container direction="row" className="div-grid">
           <Grid
             container
@@ -107,7 +184,7 @@ export const Schedule = () => {
                 return (
                   <>
                     <Grid item xs>
-                      <div key={index} className="div-cell ">
+                      <div key={index} className="div-cell">
                         {item.start} - {item.end}
                       </div>
                     </Grid>
@@ -126,7 +203,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                            className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -143,6 +219,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
@@ -158,7 +235,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                             className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -175,6 +251,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
@@ -190,7 +267,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                             className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -207,6 +283,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
@@ -222,7 +299,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                             className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -239,6 +315,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
@@ -254,7 +331,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                             className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -271,6 +347,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
@@ -286,7 +363,6 @@ export const Schedule = () => {
                         <>
                           <Grid item xs>
                             <div
-                             className=" div-cell assignature-cell"
                               key={index}
                               onClick={() => {
                                 setPositionIndex(item.id);
@@ -303,6 +379,7 @@ export const Schedule = () => {
                         </>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 )}
               </Droppable>
