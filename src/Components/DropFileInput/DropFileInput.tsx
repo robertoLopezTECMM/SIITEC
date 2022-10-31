@@ -28,7 +28,9 @@ export const DropFileInput = ({message, onChangeInputFiles}:inputFileProps) => {
 
                 <div className='drop-file-input'>
                     <div className='drop-file-input_label'>
-                        <img src= {uploadImg} alt="Cloud" />
+                        <h1>
+                            <i className="material-icons">cloud_upload</i>
+                        </h1>
                         <p>{message}</p>
 
                     </div>
