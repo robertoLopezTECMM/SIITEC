@@ -44,23 +44,42 @@ export const TestScreen = () => {
     },
   ])
 
+  function List () {
+    
+    const filterData=carrers.filter((item:any)=>{
+
+
+      if (keyWord === ''){
+        return item
+      }
+
+      else{
+        return item.title.toLowerCase().includes(keyWord)
+      }
+
+    })
+
+    return(
+      <>
+        {
+          filterData.map((item:any)=>{
+            return <ListItem isCarrera code={item.code} title={item.title} /> 
+          })
+        
+        }
+      
+      </>
+
+    )
+  }
+
 
   
 
   const handleChange = (value:string) => {
     //setSearchCarrers(value);
     //filterCarrers(value);
-
-    console.log(value)
-
-    if(value.length>0){
-      carrers.filter((career, key) =>{
-        let filteredCarrers =  career.title.match(value)
-        setCarrerasFiltradas( filteredCarrers)
-        console.log(filteredCarrers)
-        return
-      })
-    }
+    setKeyWord(value)
     
   //console.log(filtersCarrers)
 
@@ -82,20 +101,7 @@ export const TestScreen = () => {
         <ButtonPrimarys isCancel={false} isborder={false} textButton={''} buttonOnClick={()=>console.log('hi')} />
       </div>
       <div className='container'>
-        {carrerasFiltradas ?
-                carrerasFiltradas?.map((carrer) => {
-          return(
-            <ListItem isCarrera code={carrer.code} title={carrer.input} /> 
-          )
-        })
-
-        :
-        carrers.map((carrer) => {
-          return(
-            <ListItem isCarrera code={carrer.code} title={carrer.title} /> 
-          )
-        })
-      }
+        <List/>
 
       </div>
     </>
