@@ -1,12 +1,15 @@
 import './index.css'
 
+import React from 'react'
+
 interface listItem{
     code: string;
     title: string;
     isCarrera?: boolean;
 }
 
-export const ListItem = ({code, title, isCarrera}:listItem) =>{
+export const ListItem = ({code, title, isCarrera}:listItem) => {
+
     return(
 
         <div className="ListItem">

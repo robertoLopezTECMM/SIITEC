@@ -59,52 +59,68 @@ export const PasswordTextInput= ({placeHolder, passwordOnchange, fieldId, isForP
     )
   }
   
+{/* =================================================================================================================================== */}
+
+{/* Interface InputText */}
 interface inputTextInterface{
   textInputOnChange: (value:string) => void;
   labelText: string;
   placeholder?: string;
-  isForNumber?: boolean;
-  isForSearch?: boolean;
-  maxLenght?: number;
-  width?: string;
 }
 
-export const InputText = ({labelText, placeholder, isForNumber, isForSearch, maxLenght, width, textInputOnChange}: inputTextInterface) => {
+{/* Component InputText */}
+export const InputText = ({labelText, placeholder, textInputOnChange}: inputTextInterface) => {
   const [textInputValue, setTextinputValue] = useState('')
-    return(
+  return(
         <div className='inputContainer'>
-            <label>{labelText}</label>
-            <input 
-                className={!isForNumber ? "inputText" : "numberText"} 
-                placeholder={!isForNumber ? placeholder : ''}
-                maxLength={!isForNumber ? 524288 : maxLenght }
-                style={!isForNumber ? {width: "100%"} : {width:`${width}`} } 
-                value={textInputValue}
-                onChange={(e) => [setTextinputValue(e.target.value), textInputOnChange(e.currentTarget.value)]} />
-                {isForSearch
-                ? <button>
-                    <i className="material-icons">{'search'}</i>
-                </button>
-                : null
-                }
+          <label>{labelText}</label>
+          <input 
+              className={"inputText"} 
+              placeholder={placeholder} 
+              value={textInputValue}
+              onChange={(e) => [setTextinputValue(e.target.value), textInputOnChange(e.currentTarget.value)]} />
         </div>
     )
 }
 
+{/* Interface InputTextSearch */}
+interface inputTextSearchInterface{
+  placeholder?: string;
+  textInputOnChange: (value:string) => void;
+}
 
+{/* Component InputTextSearch */}
+export const InputTextSearch = ({placeholder, textInputOnChange}: inputTextSearchInterface) => {
+  const [value, setValue] = useState('')
+  return(
+        <div className='inputContainer'>
+          <input 
+              onChange={(e) => [setValue(e.target.value), textInputOnChange(e.target.value)]}
+              className={"inputText"} 
+              placeholder={placeholder} 
+              value={value}
+              />
+              <button>
+                <i className="material-icons">{'search'}</i>
+              </button>
+        </div>
+    )
+}
+
+  
+{/* Interface InputTextShortNumber */}
 interface inputTextShortNumberInterface{
   textInputOnChange: (value:string) => void;
   labelText: string;
   placeholder?: string;
-
   maxLenght?: number;
-
 }
 
+{/* Component InputTextShortNumber */}
 export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  textInputOnChange}: inputTextShortNumberInterface) => {
   const [textInputValue, setTextinputValue] = useState('')
-    return(
-        <div className='inputContainer'>
+  return(
+    <div className='inputContainer'>
             <label>{labelText}</label>
             <input
                 type='text'
@@ -117,20 +133,22 @@ export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  text
 
         </div>
     )
-}
-
+  }
+  
+{/* Interface InputTextPassword */}
 interface inputTextPassword{
-    passwordOnchange: (value:string, value2:string) => void;
-    labelText: string;
-    placeholder: string;
-    fieldId?: any;
+  passwordOnchange: (value:string, value2:string) => void;
+  labelText: string;
+  placeholder: string;
+  fieldId?: any;
 }
 
+{/* Component InputTextPassword */}
 export const InputTextPassword = ({labelText, placeholder, fieldId, passwordOnchange}: inputTextPassword) => {
-    const [hidePassword, setHidePassword] = useState(true)
-    const [passWordValue, setPassWordValue] = useState('')
-    return(
-        <div className='inputContainer'>
+  const [hidePassword, setHidePassword] = useState(true)
+  const [passWordValue, setPassWordValue] = useState('')
+  return(
+    <div className='inputContainer'>
                 <label>{labelText}</label>
                 <input 
                     className="inputText"

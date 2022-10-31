@@ -4,10 +4,11 @@
     border: 2px solid var(--green);
     border-radius: 10px;
     display: flex;
-    height: 63px;
+    height: auto;
     justify-content: space-between;
-    margin: 20px 0;
-    width: calc(100% - 30px);
+    margin: 10px 0;
+    padding: 15px;
+    width: 100%;
 }
 
 .ListItem .info{

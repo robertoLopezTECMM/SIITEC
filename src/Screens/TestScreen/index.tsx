@@ -1,16 +1,104 @@
 import './index.css'
-import { InputText, InputTextPassword } from '../../../src/Components/TextInputs/TextInputs'
+import { InputText, InputTextPassword, InputTextSearch, TextInput } from '../../Components/TextInputs/TextInputs'
 import { authContext } from '../../Contexts/AuthProvider'
-import { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { ListItem } from '../Administrativos/administradorAcademico/components/ListItem'
+import { ButtonPrimarys } from '../../Components/Buttons/Buttons'
+import { getValue } from '@testing-library/user-event/dist/utils'
 
 export const TestScreen = () => {
 
+
+  const[searchCarrers, setSearchCarrers] = useState('');
+
+  const[keyWord, setKeyWord] = useState('');
+  const [carrerasFiltradas, setCarrerasFiltradas] = useState<RegExpMatchArray | null>()
+  const [carrers, setCarrers] = useState([
+    {
+      code: 'ABC-123', 
+      title: 'Ingenieria en sistemas computacionales'
+    },
+    {
+      code: 'ABC-456', 
+      title: 'Ingenieria en electronica'
+    },
+    {
+      code: 'ABC-789', 
+      title: 'Ingenieria en industrial'
+    },
+    {
+      code: 'ABC-012', 
+      title: 'Licenciatura en gastronomia'
+    },
+    {
+      code: 'ABC-012', 
+      title: 'Ingenieria en mecatronica'
+    },
+    {
+      code: 'ABC-012', 
+      title: 'Ingenieria civil'
+    },
+    {
+      code: 'ABC-012', 
+      title: 'Licenciatura en electronica 2'
+    },
+  ])
+
+
+  
+
+  const handleChange = (value:string) => {
+    //setSearchCarrers(value);
+    //filterCarrers(value);
+
+    console.log(value)
+
+    if(value.length>0){
+      carrers.filter((career, key) =>{
+        let filteredCarrers =  career.title.match(value)
+        setCarrerasFiltradas( filteredCarrers)
+        console.log(filteredCarrers)
+        return
+      })
+    }
+    
+  //console.log(filtersCarrers)
+
+  }
+
+
+
+
+  const searchCareer = () =>{
+
+  }
+
   return(
-    <div className='container'>
-      <ListItem isCarrera code='SCI-093' title='Ingenieria en sistemas computacionales'/>
-      <ListItem code='ID-1234' title='Matematicas discretas'/>
-    </div>
+    <>
+      <div className="container-inputs">
+        <div className="input-search">
+          <InputTextSearch placeholder='Buscar carrera...' textInputOnChange={handleChange} />
+        </div>
+        <ButtonPrimarys isCancel={false} isborder={false} textButton={''} buttonOnClick={()=>console.log('hi')} />
+      </div>
+      <div className='container'>
+        {carrerasFiltradas ?
+                carrerasFiltradas?.map((carrer) => {
+          return(
+            <ListItem isCarrera code={carrer.code} title={carrer.input} /> 
+          )
+        })
+
+        :
+        carrers.map((carrer) => {
+          return(
+            <ListItem isCarrera code={carrer.code} title={carrer.title} /> 
+          )
+        })
+      }
+
+      </div>
+    </>
   );
 
 }
