@@ -5,7 +5,7 @@
     margin: 8px !important;
     text-align: center;
     background-color: #f1f1f1;
-    width: 6rem;
+    min-width: 6rem;
     height: 2rem;
     border-radius: 10px;
     word-break: break-all;

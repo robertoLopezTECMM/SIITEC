@@ -6,7 +6,7 @@
   margin: 4px;
   text-align: center;
   background-color: #f1f1f1;
-  width: 6rem;
+  min-width: 15vh;
   height: 2rem;
   border-radius: 10px;
   word-break: break-all;
@@ -16,20 +16,20 @@
 .div-grid {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   box-sizing: content-box;
-  padding: 16px;
+  padding: 8px;
   margin: 0;
   text-align: center;
   background-color: var(--green);
+  min-width: 160vh;
   min-height: 100vh;
 }
 
 .grid-schedule {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1%;
   grid-auto-rows: 100%;
-  align-items: start;
-  
+  align-items: space-between;
 }
 
 

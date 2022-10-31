@@ -42,7 +42,6 @@ export const Schedule = () => {
   const [openModal, setOpenModal] = useState(false);
   const [positionIndex, setPositionIndex] = useState(0);
   const [day, setDay] = useState("");
-  const [assignature, setAssignature] = useState("");
 
   const onOpenModal = () => {
     setOpenModal(true);
@@ -54,6 +53,12 @@ export const Schedule = () => {
 
   // submit to add assignature in scheduleCard
   const onSubmit = (value: string) => {
+    console.log(value);
+    console.log(value);
+    if (value === "") {
+      setOpenModal(false);
+      return;
+    }
     const assignature = Assignatures.find((el) => value === el.assignatureName);
     const newAssignature = assignature?.assignatureName;
     day === "Monday"
@@ -82,87 +87,75 @@ export const Schedule = () => {
 
     setOpenModal(false);
   };
-  
 
   const onDragEnd = (result: DropResult) => {
-    const { source, destination} = result;
-    console.log(result)
-    if(!destination || (
-      destination.droppableId===source.droppableId && 
-      destination.index===source.index
-      )) 
-    return; 
-    
+    const { source, destination } = result;
+    console.log(result);
+    if (
+      !destination ||
+      (destination.droppableId === source.droppableId &&
+        destination.index === source.index)
+    )
+      return;
+
     var copyAssignature: string;
 
-    if (source.droppableId === 'MondayColumn'){
+    if (source.droppableId === "MondayColumn") {
       if (Monday[source.index].assignatureName === " ") return;
       copyAssignature = Monday[source.index].assignatureName;
       console.log(copyAssignature);
-    }
-    else if (source.droppableId === 'TuesdayColumn'){
+    } else if (source.droppableId === "TuesdayColumn") {
       if (Tuesday[source.index].assignatureName === " ") return;
       copyAssignature = Tuesday[source.index].assignatureName;
       console.log(copyAssignature);
-    }
-    else if (source.droppableId === 'WednesdayColumn'){
+    } else if (source.droppableId === "WednesdayColumn") {
       if (Wednesday[source.index].assignatureName === " ") return;
       copyAssignature = Wednesday[source.index].assignatureName;
       console.log(copyAssignature);
-    }
-    else if (source.droppableId === 'ThursdayColumn'){
+    } else if (source.droppableId === "ThursdayColumn") {
       if (Thursday[source.index].assignatureName === " ") return;
       copyAssignature = Thursday[source.index].assignatureName;
       console.log(copyAssignature);
-    }
-    else if (source.droppableId === 'FridayColumn'){
+    } else if (source.droppableId === "FridayColumn") {
       if (Friday[source.index].assignatureName === " ") return;
       copyAssignature = Friday[source.index].assignatureName;
       console.log(copyAssignature);
-    }
-    else if (source.droppableId === 'SaturdayColumn'){
+    } else if (source.droppableId === "SaturdayColumn") {
       if (Saturday[source.index].assignatureName === " ") return;
       copyAssignature = Saturday[source.index].assignatureName;
       console.log(copyAssignature);
-    }  
+    }
 
-    if (destination.droppableId === 'MondayColumn') {
-      Monday[destination.index].assignatureName = copyAssignature!;     
+    if (destination.droppableId === "MondayColumn") {
+      Monday[destination.index].assignatureName = copyAssignature!;
+    } else if (destination.droppableId === "TuesdayColumn") {
+      Tuesday[destination.index].assignatureName = copyAssignature!;
+    } else if (destination.droppableId === "WednesdayColumn") {
+      Wednesday[destination.index].assignatureName = copyAssignature!;
+    } else if (destination.droppableId === "ThursdayColumn") {
+      Thursday[destination.index].assignatureName = copyAssignature!;
+    } else if (destination.droppableId === "FridayColumn") {
+      Friday[destination.index].assignatureName = copyAssignature!;
+    } else if (destination.droppableId === "SaturdayColumn") {
+      Saturday[destination.index].assignatureName = copyAssignature!;
     }
-    else if (destination.droppableId === 'TuesdayColumn') {
-      Tuesday[destination.index].assignatureName = copyAssignature!;     
-    }
-    else if (destination.droppableId === 'WednesdayColumn') {
-      Wednesday[destination.index].assignatureName = copyAssignature!;     
-    }
-    else if (destination.droppableId === 'ThursdayColumn') {
-      Thursday[destination.index].assignatureName = copyAssignature!;     
-    }
-    else if (destination.droppableId === 'FridayColumn') {
-      Friday[destination.index].assignatureName = copyAssignature!;     
-    }
-    else if (destination.droppableId === 'SaturdayColumn') {
-      Saturday[destination.index].assignatureName = copyAssignature!;     
-    }
-    
-    
-      // if (source.droppableId === 'MondayColumn') {
-      //   add = assignature[source.index];
-      //   assignature.splice(source.index, 1);
-      // } else{
-      //   add = assignature[source.index];
-      //   test.splice(source.index, 1);
-      // }
 
-      // if (destination.droppableId === 'MondayColumn') {
-      //   assignature.splice(destination.index, 0, add);
-      // } else{
-      //   test.splice(destination.index, 0, add);
-      // }
+    // if (source.droppableId === 'MondayColumn') {
+    //   add = assignature[source.index];
+    //   assignature.splice(source.index, 1);
+    // } else{
+    //   add = assignature[source.index];
+    //   test.splice(source.index, 1);
+    // }
+
+    // if (destination.droppableId === 'MondayColumn') {
+    //   assignature.splice(destination.index, 0, add);
+    // } else{
+    //   test.splice(destination.index, 0, add);
+    // }
   };
 
   return (
-    
     <>
       <ModalToAddAssignature
         onCloseModal={onCloseModal}

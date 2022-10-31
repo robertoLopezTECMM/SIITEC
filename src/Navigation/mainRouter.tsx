@@ -14,7 +14,7 @@ export default function MainRouter() {
   useEffect(() => {
 
     if(auth.isLogged) {navigate('/home')}
-    if(!auth.isLogged) {navigate('/')}
+    if(!auth.isLogged) {navigate('/home')}
 
   }, [auth.isLogged])
   
@@ -25,7 +25,7 @@ export default function MainRouter() {
         <Route path="/" element={<LogIn />}/>
         <Route path="/forgotPassword" element={!auth.isLogged? <ForgotPassword/> : <Home/>}/>
         <Route path="/testScreen" element={<TestScreen/>}/>    
-        <Route path="/home" element={auth.isLogged? <TestScreen/>:<LogIn/>}/> 
+        <Route path="/home" element={auth.isLogged? <TestScreen/>:<TestScreen/>}/> 
                   
       </Routes>
   );

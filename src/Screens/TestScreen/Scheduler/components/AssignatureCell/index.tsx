@@ -29,8 +29,11 @@ export const AssignatureCell = ({
           {...provided.dragHandleProps}
           ref={provided.innerRef}
         >
-          {assignatureName}
-          <i className="material-icons">add_box</i>
+          {assignatureName === " " ? (
+            <i className="material-icons">add_box</i>
+          ) : (
+            assignatureName
+          )}
         </div>
       )}
     </Draggable>
