@@ -18,8 +18,6 @@ import {
 } from "../Helpers/DaysData";
 
 export const Schedule = () => {
-  // cuadricula 6 x 15
-
   const hours: { start: number; end: number }[] = [];
   let h1 = 7,
     h2 = 8;
@@ -53,44 +51,56 @@ export const Schedule = () => {
 
   // submit to add assignature in scheduleCard
   const onSubmit = (value: string) => {
-    console.log(value);
-    console.log(value);
     if (value === "") {
       setOpenModal(false);
       return;
     }
+
     const assignature = Assignatures.find((el) => value === el.assignatureName);
     const newAssignature = assignature?.assignatureName;
-    day === "Monday"
-      ? Monday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
-        )
-      : day === "Tuesday"
-      ? Tuesday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
-        )
-      : day === "Wednesday"
-      ? Wednesday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
-        )
-      : day === "Thursday"
-      ? Thursday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
-        )
-      : day === "Friday"
-      ? Friday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
-        )
-      : Saturday.map((el) =>
+
+    switch (day) {
+      case "Monday": {
+        Monday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
         );
+        break;
+      }
+      case "Tuesday": {
+        Tuesday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
+        );
+        break;
+      }
+      case "Wednesday": {
+        Wednesday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
+        );
+        break;
+      }
+      case "Thursday": {
+        Thursday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
+        );
+        break;
+      }
+      case "Friday": {
+        Friday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
+        );
+        break;
+      }
+      default: {
+        break;
+      }
+    }
 
     setOpenModal(false);
   };
 
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-    console.log(result);
+    // console.log(result);
     if (
       !destination ||
       (destination.droppableId === source.droppableId &&
@@ -98,32 +108,42 @@ export const Schedule = () => {
     )
       return;
 
-    var copyAssignature: string;
+    let copyAssignature: string;
 
-    if (source.droppableId === "MondayColumn") {
-      if (Monday[source.index].assignatureName === " ") return;
-      copyAssignature = Monday[source.index].assignatureName;
-      console.log(copyAssignature);
-    } else if (source.droppableId === "TuesdayColumn") {
-      if (Tuesday[source.index].assignatureName === " ") return;
-      copyAssignature = Tuesday[source.index].assignatureName;
-      console.log(copyAssignature);
-    } else if (source.droppableId === "WednesdayColumn") {
-      if (Wednesday[source.index].assignatureName === " ") return;
-      copyAssignature = Wednesday[source.index].assignatureName;
-      console.log(copyAssignature);
-    } else if (source.droppableId === "ThursdayColumn") {
-      if (Thursday[source.index].assignatureName === " ") return;
-      copyAssignature = Thursday[source.index].assignatureName;
-      console.log(copyAssignature);
-    } else if (source.droppableId === "FridayColumn") {
-      if (Friday[source.index].assignatureName === " ") return;
-      copyAssignature = Friday[source.index].assignatureName;
-      console.log(copyAssignature);
-    } else if (source.droppableId === "SaturdayColumn") {
-      if (Saturday[source.index].assignatureName === " ") return;
-      copyAssignature = Saturday[source.index].assignatureName;
-      console.log(copyAssignature);
+    switch (source.droppableId) {
+      case "MondayColumn": {
+        if (Monday[source.index].assignatureName === " ") return;
+        copyAssignature = Monday[source.index].assignatureName;
+        break;
+      }
+      case "TuesdayColumn": {
+        if (Tuesday[source.index].assignatureName === " ") return;
+        copyAssignature = Tuesday[source.index].assignatureName;
+        break;
+      }
+      case "WednesdayColumn": {
+        if (Wednesday[source.index].assignatureName === " ") return;
+        copyAssignature = Wednesday[source.index].assignatureName;
+        break;
+      }
+      case "ThursdayColumn": {
+        if (Thursday[source.index].assignatureName === " ") return;
+        copyAssignature = Thursday[source.index].assignatureName;
+        break;
+      }
+      case "FridayColumn": {
+        if (Friday[source.index].assignatureName === " ") return;
+        copyAssignature = Friday[source.index].assignatureName;
+        break;
+      }
+      case "SaturdayColumn": {
+        if (Saturday[source.index].assignatureName === " ") return;
+        copyAssignature = Saturday[source.index].assignatureName;
+        break;
+      }
+      default: {
+        break;
+      }
     }
 
     if (destination.droppableId === "MondayColumn") {
@@ -139,7 +159,6 @@ export const Schedule = () => {
     } else if (destination.droppableId === "SaturdayColumn") {
       Saturday[destination.index].assignatureName = copyAssignature!;
     }
-
   };
 
   return (
@@ -158,7 +177,7 @@ export const Schedule = () => {
             className="grid-schedule"
             wrap="nowrap"
           >
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[0].name}</div>
               {hours.map((item, index) => {
                 return (
@@ -173,7 +192,7 @@ export const Schedule = () => {
               })}
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[1].name}</div>
               <Droppable droppableId="MondayColumn">
                 {(provided) => (
@@ -205,7 +224,7 @@ export const Schedule = () => {
               </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[2].name}</div>
               <Droppable droppableId="TuesdayColumn">
                 {(provided) => (
@@ -237,7 +256,7 @@ export const Schedule = () => {
               </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[3].name}</div>
               <Droppable droppableId="WednesdayColumn">
                 {(provided) => (
@@ -269,7 +288,7 @@ export const Schedule = () => {
               </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[4].name}</div>
               <Droppable droppableId="ThursdayColumn">
                 {(provided) => (
@@ -301,7 +320,7 @@ export const Schedule = () => {
               </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[5].name}</div>
               <Droppable droppableId="FridayColumn">
                 {(provided) => (
@@ -333,7 +352,7 @@ export const Schedule = () => {
               </Droppable>
             </Grid>
 
-            <Grid container direction="column" xs={2}>
+            <Grid item xs={2}>
               <div className="div-cell">{days[6].name}</div>
               <Droppable droppableId="SaturdayColumn">
                 {(provided) => (

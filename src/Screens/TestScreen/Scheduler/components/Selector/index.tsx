@@ -44,7 +44,6 @@ const Selector = ({setValueSelector}:selectorProps) => {
           value={subject}
           label="Materias"
           onChange={handleChange}
-          className="mr-4"
         >
           {assignatures.map((item) => (
             <MenuItem value={item.assignatureName}>{item.assignatureName}</MenuItem>

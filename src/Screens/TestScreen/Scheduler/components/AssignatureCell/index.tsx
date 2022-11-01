@@ -32,7 +32,7 @@ export const AssignatureCell = ({
           {assignatureName === " " ? (
             <i className="material-icons">add_box</i>
           ) : (
-            <abbr title={assignatureName}> <p>{assignatureName}</p></abbr>
+            <span title={assignatureName}> <p>{assignatureName}</p></span>
           )}
         </div>
       )}

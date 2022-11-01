@@ -1,8 +1,9 @@
-.form-control{
-    background-color:white;
-    z-index: 1000 !important;
+.form-control {
+  background-color: white;
+  z-index: 1000 !important;
 }
-.input-label{
-        color:black !important;
-        background-color:white !important;
+.input-label {
+  color: var(--green) !important;
+  background-color: white !important;
 }
+
