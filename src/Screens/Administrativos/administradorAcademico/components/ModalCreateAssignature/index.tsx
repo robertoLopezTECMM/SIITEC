@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import { ButtonPrimarys } from '../../../../../Components/Buttons/Buttons';
+import CheckBox from '../../../../../Components/ChecksBox/ChecksBox';
 import { ColorPicker } from '../../../../../Components/ColorPicker';
 import { LogInContainer } from '../../../../../Components/Containers/LogInContainer/logInContainer';
 import { DropFileInput } from '../../../../../Components/DropFileInput/DropFileInput';
@@ -96,7 +97,12 @@ export const ModalCreateAssignature = ({isOpen, onCloseModal}:modalProps) => {
               <ColorPicker onChangeColorPicker={()=>console.log('hi')} />
             </div>
 
-            <div style={{display:'flex', justifyContent:'space-around'}}>
+            <div style={{display:'flex'}}>
+              <CheckBox labelCheckBox='Es obligatoria' onChange={()=>console.log('hi')}/>
+              <CheckBox labelCheckBox='Es evaluada' onChange={()=>console.log('hi')}/>
+            </div>
+
+            {/* <div style={{display:'flex', justifyContent:'space-around'}}>
               <div style={{width:'30%'}}>
                 <DropFileInput message='Folleto promocional' onChangeInputFiles={()=>console.log('hi')}/>
               </div>
@@ -108,7 +114,7 @@ export const ModalCreateAssignature = ({isOpen, onCloseModal}:modalProps) => {
               <div style={{width:'30%'}}>
                 <DropFileInput message='Video testimonial' onChangeInputFiles={()=>console.log('hi')}/>
               </div>
-            </div>
+            </div> */}
             
 
 

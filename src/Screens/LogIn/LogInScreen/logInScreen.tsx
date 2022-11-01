@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { PrimaryButton } from '../../../Components/Buttons/Buttons'
-import { RememberAccountCheckBox } from '../../../Components/ChecksBox/ChecksBox'
+import { CheckBox } from '../../../Components/ChecksBox/ChecksBox'
 import { LogInContainer } from '../../../Components/Containers/LogInContainer/logInContainer'
 import { PasswordTextInput, TextInput } from '../../../Components/TextInputs/TextInputs'
 import { VerificationCodeScreen } from '../VerificationCodeScreen/verificationCodeScreen'
@@ -84,7 +84,7 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
         <br/>
         <br/>
 
-        <RememberAccountCheckBox/>
+        <CheckBox labelCheckBox='Recordarme' onChange={()=>console.log('hi')}/>
         <br/>
         <br/>
 

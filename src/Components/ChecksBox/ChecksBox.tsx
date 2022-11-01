@@ -18,7 +18,7 @@ interface checkboxInput{
   
 }
 
-export const CheckBoxes = ({labelCheckBox, onChange}: checkboxInput ) => {
+export const CheckBox = ({labelCheckBox, onChange}: checkboxInput ) => {
   const [isChecked, setIsChecked]= useState(false);
 
 
@@ -42,4 +42,4 @@ export const CheckBoxes = ({labelCheckBox, onChange}: checkboxInput ) => {
 
 
 
-export default CheckBoxes
+export default CheckBox
