@@ -54,7 +54,7 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubm
     style={customStyles}
     contentLabel="Example Modal"
     ariaHideApp={false}
-    overlayClassName="Overlay"
+    // overlayClassName="Overlay"
   >
     <LogInContainer>
         <ThemedH1 text='Añadir asignatura'/>
