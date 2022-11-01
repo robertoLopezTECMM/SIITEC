@@ -3,14 +3,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   box-sizing: content-box;
   padding: 8px;
-  margin: 4px;
+  margin: 4px !important;
   text-align: center;
   background-color: #f1f1f1;
   min-width: 15vh;
   height: 2rem;
   border-radius: 10px;
-  word-break: break-all;
-  text-overflow: ellipsis;
 }
 
 .div-grid {

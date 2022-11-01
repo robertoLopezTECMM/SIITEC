@@ -16,6 +16,7 @@ const assignatures = [
   { id: 5, assignatureName: "POO", semester: "1" },
   { id: 6, assignatureName: "Taller de investigacion", semester: "1" },
   { id: 7, assignatureName: "Formación cívica y ética", semester: "1" },
+  { id: 8, assignatureName: "Diseño y análisis de algoritmos", semester: "1" },
 ];
 
 interface selectorProps{
@@ -43,6 +44,7 @@ const Selector = ({setValueSelector}:selectorProps) => {
           value={subject}
           label="Materias"
           onChange={handleChange}
+          className="mr-4"
         >
           {assignatures.map((item) => (
             <MenuItem value={item.assignatureName}>{item.assignatureName}</MenuItem>

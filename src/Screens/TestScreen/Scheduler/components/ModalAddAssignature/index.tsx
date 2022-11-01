@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
+import { ButtonPrimarys } from '../../../../../Components/Buttons/Buttons';
+import { LogInContainer } from '../../../../../Components/Containers/LogInContainer/logInContainer';
+import { ThemedH1 } from '../../../../../Components/ThemedTexts';
 import Selector from '../../components/Selector';
 import './index.css'
 
-
-
-
-
 const customStyles = {
-    content: {
-      top: '50%',
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      width:'80%',
-      height:'80%',
-      marginRight: '-50%',
-      transform: 'translate(-50%, -50%)',
-      border:'none'
-    },
-  };
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    width:'100%',
+    height:'100%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor:'transparent',
+    border:'none',
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+  },
+};
 
 interface modalProps{
     isOpen: boolean;
@@ -51,22 +54,20 @@ export const ModalToAddAssignature = ({isOpen, onCloseModal,positionIndex,onSubm
     style={customStyles}
     contentLabel="Example Modal"
     ariaHideApp={false}
+    overlayClassName="Overlay"
   >
-    <div className='modalMainContainer'>
-        <h1>Añadir asignatura</h1>
-        <h2>Asignatura: </h2>
-        <h2>Horario:</h2>
-
+    <LogInContainer>
+        <ThemedH1 text='Añadir asignatura'/>
+        <br /> 
+        <ThemedH1 text='Asignatura:'/>
+        <ThemedH1 text='Horario:'/>
         <Selector setValueSelector={setValueSelector}/>
-        
         <hr />
-        <button className='btn btn-danger' onClick={onCloseModal}>
-            <h1>Cancelar</h1>
-        </button>
-        <button className='btn btn-primary' onClick={()=>onSubmit(valueSelector)}>
-            <h1>Enviar</h1>
-        </button>
-    </div>
+        <div className='buttonsModalContainer'>
+                <ButtonPrimarys buttonOnClick={()=>onCloseModal()} textButton={'Cancelar'} isCancel isborder />
+                <ButtonPrimarys buttonOnClick={()=>onSubmit(valueSelector)} textButton={'Guardar'} isCancel={false} isborder />
+        </div>
+    </LogInContainer>
   </Modal>
   
   )

@@ -107,11 +107,12 @@ export const Saturday = [
 ]
 
 export const Assignatures = [
-    {assignatureName: 'Calculo diferencial',         semester: '1',},
-    {assignatureName: 'Matematicas discretas',       semester: '1',},
-    {assignatureName: 'Quimica',                     semester: '1',},
-    {assignatureName: 'Fundamentos de programación', semester: '1',},
-    {assignatureName: 'POO',                         semester: '1',},
-    {assignatureName: 'Taller de investigacion',     semester: '1',},
-    {assignatureName: 'Formación cívica y ética',    semester: '1',},
+    {assignatureName: 'Calculo diferencial',                semester: '1',},
+    {assignatureName: 'Matematicas discretas',              semester: '1',},
+    {assignatureName: 'Quimica',                            semester: '1',},
+    {assignatureName: 'Fundamentos de programación',        semester: '1',},
+    {assignatureName: 'POO',                                semester: '1',},
+    {assignatureName: 'Taller de investigacion',            semester: '1',},
+    {assignatureName: 'Formación cívica y ética',           semester: '1',},
+    {assignatureName: 'Diseño y análisis de algoritmos',    semester: '1',},
   ];

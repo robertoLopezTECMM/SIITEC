@@ -140,19 +140,6 @@ export const Schedule = () => {
       Saturday[destination.index].assignatureName = copyAssignature!;
     }
 
-    // if (source.droppableId === 'MondayColumn') {
-    //   add = assignature[source.index];
-    //   assignature.splice(source.index, 1);
-    // } else{
-    //   add = assignature[source.index];
-    //   test.splice(source.index, 1);
-    // }
-
-    // if (destination.droppableId === 'MondayColumn') {
-    //   assignature.splice(destination.index, 0, add);
-    // } else{
-    //   test.splice(destination.index, 0, add);
-    // }
   };
 
   return (

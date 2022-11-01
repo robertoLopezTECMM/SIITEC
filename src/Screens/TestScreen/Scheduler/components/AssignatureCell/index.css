@@ -1,15 +1,17 @@
-.assignatureCell {
+  abbr{
+    text-decoration: none;
+  }
+
+  .assignatureCell {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     box-sizing: content-box;
     padding: 8px;
-    margin: 8px !important;
+    margin: 12.5px !important;
     text-align: center;
     background-color: #f1f1f1;
     min-width: 6rem;
     height: 2rem;
     border-radius: 10px;
-    word-break: break-all;
-    text-overflow: ellipsis;
 }
 
 .assignatureCell{
@@ -24,4 +26,11 @@
 
 .drag{
   box-shadow: 0 0 20px black;
+}
+
+.assignatureCell p{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
