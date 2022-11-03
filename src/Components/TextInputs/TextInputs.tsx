@@ -93,7 +93,7 @@ interface inputTextSearchInterface{
 export const InputTextSearch = ({placeholder, textInputOnChange}: inputTextSearchInterface) => {
   const [value, setValue] = useState('')
   return(
-        <div className='inputContainer'>
+        <div className='inputContainerSearch'>
           <input 
               onChange={(e) => [setValue(e.target.value), textInputOnChange(e.target.value)]}
               className={"inputText"} 

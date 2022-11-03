@@ -53,6 +53,18 @@ display: none;
   width: 100%;
 }
 
+.inputContainerSearch{
+  align-items: center;
+  display: flex;
+  height: auto;
+  position: relative;
+  width: 100%;
+}
+
+.inputContainerSearch input{
+  width: 100%;
+}
+
 .inputContainer label{
   font-size: 12px;
   margin: 10px;
@@ -91,16 +103,16 @@ display: none;
   position: relative;
 }
 
-.inputContainer button{
+.inputContainerSearch button{
   background-color: transparent;
   border: none;
+  bottom: -4px;
   padding: 0 10px;
   position: absolute;
   right: 0;
-  bottom: -4px;
 }
 
-.inputContainer i{
+.inputContainerSearch i{
   color: var(--green);
   font-size: 30px;
 }
