@@ -28,7 +28,8 @@
 .ListItem .info .title{
     color: black;
     font-family: 'KB-Bold';
-    margin: 0 50px;}
+    margin: 0 50px;
+}
 
 .ListItem .icon-group{
     cursor: pointer;
