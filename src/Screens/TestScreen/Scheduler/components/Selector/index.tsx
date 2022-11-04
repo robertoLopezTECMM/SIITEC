@@ -5,7 +5,7 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import "./styles.css";
 
 const assignatures = [
@@ -36,9 +36,7 @@ const Selector = ({ setValueSelector, valueSelector }: selectorProps) => {
   };
 
   useEffect(() => {
-    
     setSubject(valueSelector);
-
     setDataloaded(true);
   }, [valueSelector]);
 

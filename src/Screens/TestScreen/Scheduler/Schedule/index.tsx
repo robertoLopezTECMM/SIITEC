@@ -1,12 +1,10 @@
 import { Grid } from "@mui/material";
 import { useState } from "react";
-import "./index.css";
-//import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import { ModalToAddAssignature } from "../components/ModalAddAssignature";
 import { AssignatureCell } from "../components/AssignatureCell";
 import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
+import "./index.css";
 
-//import { semester1, semester2, semester3, semester4, semester5, semester6, semester7, semester8, semester9 } from '../../../Helpers/semesterData'
 import {
   Monday,
   Tuesday,
@@ -48,6 +46,57 @@ export const Schedule = () => {
 
   const onOpenModal = () => {
     setOpenModal(true);
+  };
+
+  //delete Assignature
+  const handleDeleteAssignature = () => {
+    switch (day) {
+      case "Monday": {
+        Monday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      case "Tuesday": {
+        Tuesday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      case "Wednesday": {
+        Wednesday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      case "Thursday": {
+        Thursday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      case "Friday": {
+        Friday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      case "Saturday": {
+        Saturday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = " ") : " "
+        );
+        setValueCell({ id: 0, hour: "", assignatureName: " " });
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   };
 
   const onCloseModal = () => {
@@ -111,14 +160,12 @@ export const Schedule = () => {
       }
     }
 
-    console.log(Monday);
-
     setOpenModal(false);
   };
 
+  //Drag and Drop function
   const onDragEnd = (result: DropResult) => {
     const { source, destination } = result;
-    // console.log(result);
     if (
       !destination ||
       (destination.droppableId === source.droppableId &&
@@ -190,6 +237,7 @@ export const Schedule = () => {
         positionIndex={positionIndex}
         valueCell={valueCell}
         onSubmit={onSubmit}
+        handleDeleteAssignature={handleDeleteAssignature}
       />
       <DragDropContext onDragEnd={onDragEnd}>
         <Grid container direction="row" className="div-grid">

@@ -4,15 +4,6 @@ import { ButtonPrimarys } from "../../../../../Components/Buttons/Buttons";
 import { LogInContainer } from "../../../../../Components/Containers/LogInContainer/logInContainer";
 import { ThemedH1 } from "../../../../../Components/ThemedTexts";
 import Selector from "../../components/Selector";
-import {
-  Monday,
-  Tuesday,
-  Wednesday,
-  Thursday,
-  Friday,
-  Saturday,
-  Assignatures,
-} from "../../Helpers/DaysData";
 import "./index.css";
 
 const customStyles = {
@@ -36,6 +27,7 @@ const customStyles = {
 interface modalProps {
   isOpen: boolean;
   onCloseModal: () => void;
+  handleDeleteAssignature: () => void;
   positionIndex: number;
   valueCell: { assignatureName: string };
   onSubmit: (value: string) => void;
@@ -47,6 +39,7 @@ export const ModalToAddAssignature = ({
   positionIndex,
   valueCell,
   onSubmit,
+  handleDeleteAssignature,
 }: modalProps) => {
   const [valueSelector, setValueSelector] = useState("");
   const [dataLoaded, setDataloaded] = useState(false);
@@ -60,7 +53,6 @@ export const ModalToAddAssignature = ({
     if (isOpen) {
       if (valueCell.assignatureName === " ") {
         setValueSelector("");
-        console.log(valueSelector);
       } else {
         setValueSelector(valueCell.assignatureName);
       }
@@ -69,7 +61,7 @@ export const ModalToAddAssignature = ({
     }
 
     setDataloaded(true);
-  }, [isOpen]);
+  }, [isOpen, valueCell.assignatureName]);
 
   return (
     <>
@@ -96,6 +88,9 @@ export const ModalToAddAssignature = ({
             )}
             <hr />
             <div className="buttonsModalContainer">
+              <button onClick={() => handleDeleteAssignature()}>
+                Eliminar
+              </button>
               <ButtonPrimarys
                 buttonOnClick={() => onCloseModal()}
                 textButton={"Cancelar"}
