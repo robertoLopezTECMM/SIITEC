@@ -1,14 +1,15 @@
-import './carrers.css'
+import './index.css'
 
 import React, { useState } from 'react'
 import { ButtonPrimarys } from '../../../../../Components/Buttons/Buttons';
 import { InputText } from '../../../../../Components/TextInputs/TextInputs';
 import { ListItem } from '../../components/ListItem';
+import { FilteredList } from '../../components/FilteredList';
 
 export const Carrers = () => {
   
     const[keyWord, setKeyWord] = useState('');
-    const [carrers, setCarrers] = useState([
+    const [careersData, setCareersData] = useState([
       {
         code: 'ABC-123', 
         title: 'Ingenieria en sistemas computacionales'
@@ -39,29 +40,29 @@ export const Carrers = () => {
       },
     ])
   
-    function List () {
+    // function List () {
       
-      const filterData=carrers.filter((item:any)=>{
+    //   const filterData=carrers.filter((item:any)=>{
   
-        if (keyWord === ''){
-          return item
-        }else{
-          return item.title.toLowerCase().includes(keyWord)
-        }
+    //     if (keyWord === ''){
+    //       return item
+    //     }else{
+    //       return item.title.toLowerCase().includes(keyWord)
+    //     }
   
-      })
+    //   })
   
-      return(
-        <>
-          {
-            filterData.map((item:any)=>{
-              return <ListItem isCarrera code={item.code} title={item.title} /> 
-            })
+    //   return(
+    //     <>
+    //       {
+    //         filterData.map((item:any)=>{
+    //           return <ListItem isCareer code={item.code} title={item.title} /> 
+    //         })
           
-          }
-        </>
-      )
-    }
+    //       }
+    //     </>
+    //   )
+    // }
   
     const handleChange = (value:string) => {
       setKeyWord(value)
@@ -78,7 +79,7 @@ export const Carrers = () => {
 
         
         <div className='careersListContainer'>
-          <List/>
+          <FilteredList keyWord={keyWord} data={careersData} isForCareers={true}/>
         </div>
       </>
     );

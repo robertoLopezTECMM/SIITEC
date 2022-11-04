@@ -5,7 +5,8 @@ import { useContext, useState } from 'react'
 import { ListItem } from '../Administrativos/administradorAcademico/components/ListItem'
 import { ModalNewCareer } from '../Administrativos/administradorAcademico/components/modalNewCareer'
 import { ModalCreateAssignature } from '../Administrativos/administradorAcademico/components/ModalCreateAssignature'
-import { Carrers } from '../Administrativos/administradorAcademico/features/newCareer/carrers'
+import { Carrers } from '../Administrativos/administradorAcademico/features/newCareer'
+import { Assignatures } from '../Administrativos/administradorAcademico/features/newAssignature/index';
 
 export const TestScreen = () => {
   const [showModal, setShowModal] = useState(false)
@@ -20,7 +21,7 @@ export const TestScreen = () => {
       {/* <ModalCreateAssignature isOpen={showModal} onCloseModal={closeModal}/>
 
       <button onClick={()=>setShowModal(true)}>open modal</button> */}
-      <Carrers/>
+      <Assignatures/>
     </div>
   );
 

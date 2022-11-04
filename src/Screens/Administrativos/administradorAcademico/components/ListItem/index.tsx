@@ -3,10 +3,10 @@ import './index.css'
 interface listItem{
     code: string;
     title: string;
-    isCarrera?: boolean;
+    isCareer?: boolean;
 }
 
-export const ListItem = ({code, title, isCarrera}:listItem) =>{
+export const ListItem = ({code, title, isCareer}:listItem) =>{
     return(
 
         <div className="ListItem">
@@ -15,7 +15,7 @@ export const ListItem = ({code, title, isCarrera}:listItem) =>{
                 <span className="title">{title}</span>
             </div>
             <div className="icon-group">
-                {isCarrera ?
+                {isCareer ?
                 <div className="user_info-video">
                     <i className="active material-icons">{'newspaper'}</i>
                     <i className="active material-icons">{'movie'}</i>
