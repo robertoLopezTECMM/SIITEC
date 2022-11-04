@@ -5,8 +5,8 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import React, { Dispatch, SetStateAction, useState } from "react";
-import "./styles.css"
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import "./styles.css";
 
 const assignatures = [
   { id: 1, assignatureName: "Calculo diferencial", semester: "1" },
@@ -19,38 +19,57 @@ const assignatures = [
   { id: 8, assignatureName: "Diseño y análisis de algoritmos", semester: "1" },
 ];
 
-interface selectorProps{
-  setValueSelector:Dispatch<SetStateAction<string>>
+interface selectorProps {
+  setValueSelector: Dispatch<SetStateAction<string>>;
+  valueSelector: string;
 }
 
-const Selector = ({setValueSelector}:selectorProps) => {
-  const [subject, setSubject] = useState("");
+const Selector = ({ setValueSelector, valueSelector }: selectorProps) => {
+  const [subject, setSubject] = useState(valueSelector);
+  const [dataLoaded, setDataloaded] = useState(false);
 
   const handleChange = (event: SelectChangeEvent) => {
-   const eventValue=event.target.value;
+    const eventValue = event.target.value;
     //console.log(eventValue);
     setSubject(eventValue.toString());
     setValueSelector(eventValue.toString());
   };
-  
+
+  useEffect(() => {
+    
+    setSubject(valueSelector);
+
+    setDataloaded(true);
+  }, [valueSelector]);
 
   return (
-    <div>
-      <FormControl className="form-control" sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel className="input-label" id="demo-simple-select-helper-label">Materias</InputLabel>
-        <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
-          value={subject}
-          label="Materias"
-          onChange={handleChange}
-        >
-          {assignatures.map((item) => (
-            <MenuItem value={item.assignatureName}>{item.assignatureName}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+    <>
+      {dataLoaded && (
+        <div>
+          <FormControl className="form-control" sx={{ m: 1, minWidth: 120 }}>
+            <InputLabel
+              className="input-label"
+              id="demo-simple-select-helper-label"
+            >
+              Materias
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-helper-label"
+              id="demo-simple-select-helper"
+              value={subject}
+              label="Materias"
+              onChange={handleChange}
+            >
+              {assignatures.map((item) => (
+                <MenuItem value={item.assignatureName}>
+                  {item.assignatureName}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+      )}
+    </>
   );
 };
 

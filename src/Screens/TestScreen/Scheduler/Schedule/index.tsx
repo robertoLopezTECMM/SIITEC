@@ -39,6 +39,11 @@ export const Schedule = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [positionIndex, setPositionIndex] = useState(0);
+  const [valueCell, setValueCell] = useState({
+    id: 0,
+    hour: "",
+    assignatureName: " ",
+  });
   const [day, setDay] = useState("");
 
   const onOpenModal = () => {
@@ -46,6 +51,11 @@ export const Schedule = () => {
   };
 
   const onCloseModal = () => {
+    setValueCell({
+      id: 0,
+      hour: "",
+      assignatureName: " ",
+    });
     setOpenModal(false);
   };
 
@@ -90,10 +100,18 @@ export const Schedule = () => {
         );
         break;
       }
+      case "Saturday": {
+        Saturday.map((el) =>
+          el.id === positionIndex ? (el.assignatureName = newAssignature!) : " "
+        );
+        break;
+      }
       default: {
         break;
       }
     }
+
+    console.log(Monday);
 
     setOpenModal(false);
   };
@@ -114,6 +132,7 @@ export const Schedule = () => {
       case "MondayColumn": {
         if (Monday[source.index].assignatureName === " ") return;
         copyAssignature = Monday[source.index].assignatureName;
+        console.log(Monday);
         break;
       }
       case "TuesdayColumn": {
@@ -148,8 +167,10 @@ export const Schedule = () => {
 
     if (destination.droppableId === "MondayColumn") {
       Monday[destination.index].assignatureName = copyAssignature!;
+      console.log(Monday);
     } else if (destination.droppableId === "TuesdayColumn") {
       Tuesday[destination.index].assignatureName = copyAssignature!;
+      console.log(Tuesday);
     } else if (destination.droppableId === "WednesdayColumn") {
       Wednesday[destination.index].assignatureName = copyAssignature!;
     } else if (destination.droppableId === "ThursdayColumn") {
@@ -167,6 +188,7 @@ export const Schedule = () => {
         onCloseModal={onCloseModal}
         isOpen={openModal}
         positionIndex={positionIndex}
+        valueCell={valueCell}
         onSubmit={onSubmit}
       />
       <DragDropContext onDragEnd={onDragEnd}>
@@ -206,6 +228,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Monday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
@@ -238,6 +261,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Tuesday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
@@ -270,6 +294,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Wednesday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
@@ -302,6 +327,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Thursday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
@@ -334,6 +360,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Friday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
@@ -366,6 +393,7 @@ export const Schedule = () => {
                               onClick={() => {
                                 setPositionIndex(item.id);
                                 setDay("Saturday");
+                                setValueCell(item);
                               }}
                             >
                               <AssignatureCell
