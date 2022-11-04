@@ -28,7 +28,6 @@ interface modalProps {
   isOpen: boolean;
   onCloseModal: () => void;
   handleDeleteAssignature: () => void;
-  positionIndex: number;
   valueCell: { assignatureName: string };
   onSubmit: (value: string) => void;
 }
@@ -36,30 +35,26 @@ interface modalProps {
 export const ModalToAddAssignature = ({
   isOpen,
   onCloseModal,
-  positionIndex,
   valueCell,
   onSubmit,
   handleDeleteAssignature,
 }: modalProps) => {
   const [valueSelector, setValueSelector] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
   const [dataLoaded, setDataloaded] = useState(false);
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    console.log("afteropenmodal");
-  }
 
   useEffect(() => {
     if (isOpen) {
       if (valueCell.assignatureName === " ") {
         setValueSelector("");
+        setIsEdit(false);
       } else {
         setValueSelector(valueCell.assignatureName);
+        setIsEdit(true);
       }
     } else {
       setValueSelector("");
     }
-
     setDataloaded(true);
   }, [isOpen, valueCell.assignatureName]);
 
@@ -68,41 +63,44 @@ export const ModalToAddAssignature = ({
       {dataLoaded && (
         <Modal
           isOpen={isOpen}
-          onAfterOpen={afterOpenModal}
           onRequestClose={onCloseModal}
           style={customStyles}
           contentLabel="Example Modal"
           ariaHideApp={false}
-          // overlayClassName="Overlay"
         >
           <LogInContainer>
             <ThemedH1 text="Añadir asignatura" />
             <br />
             <ThemedH1 text="Asignatura:" />
             <ThemedH1 text="Horario:" />
-            {isOpen && (
-              <Selector
-                setValueSelector={setValueSelector}
-                valueSelector={valueSelector}
-              />
-            )}
+            <Selector
+              setValueSelector={setValueSelector}
+              valueSelector={valueSelector}
+            />
             <hr />
-            <div className="buttonsModalContainer">
-              <button onClick={() => handleDeleteAssignature()}>
-                Eliminar
-              </button>
-              <ButtonPrimarys
-                buttonOnClick={() => onCloseModal()}
-                textButton={"Cancelar"}
-                isCancel
-                isborder
-              />
-              <ButtonPrimarys
-                buttonOnClick={() => onSubmit(valueSelector)}
-                textButton={"Guardar"}
-                isCancel={false}
-                isborder
-              />
+            <div className={isEdit ? "buttonsModalContainer" : "end-container"}>
+              {isEdit && (
+                <button
+                  className="button-delete"
+                  onClick={() => handleDeleteAssignature()}
+                >
+                  <i className="material-icons">delete</i>
+                </button>
+              )}
+              <div>
+                <ButtonPrimarys
+                  buttonOnClick={() => onCloseModal()}
+                  textButton={"Cancelar"}
+                  isCancel
+                  isborder
+                />
+                <ButtonPrimarys
+                  buttonOnClick={() => onSubmit(valueSelector)}
+                  textButton={"Guardar"}
+                  isCancel={false}
+                  isborder
+                />
+              </div>
             </div>
           </LogInContainer>
         </Modal>

@@ -30,7 +30,6 @@ const Selector = ({ setValueSelector, valueSelector }: selectorProps) => {
 
   const handleChange = (event: SelectChangeEvent) => {
     const eventValue = event.target.value;
-    //console.log(eventValue);
     setSubject(eventValue.toString());
     setValueSelector(eventValue.toString());
   };

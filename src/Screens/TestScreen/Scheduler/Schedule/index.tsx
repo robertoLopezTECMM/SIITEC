@@ -55,48 +55,43 @@ export const Schedule = () => {
         Monday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       case "Tuesday": {
         Tuesday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       case "Wednesday": {
         Wednesday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       case "Thursday": {
         Thursday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       case "Friday": {
         Friday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       case "Saturday": {
         Saturday.map((el) =>
           el.id === positionIndex ? (el.assignatureName = " ") : " "
         );
-        setValueCell({ id: 0, hour: "", assignatureName: " " });
         break;
       }
       default: {
         break;
       }
     }
+    onCloseModal();
   };
 
   const onCloseModal = () => {
@@ -179,7 +174,6 @@ export const Schedule = () => {
       case "MondayColumn": {
         if (Monday[source.index].assignatureName === " ") return;
         copyAssignature = Monday[source.index].assignatureName;
-        console.log(Monday);
         break;
       }
       case "TuesdayColumn": {
@@ -214,10 +208,8 @@ export const Schedule = () => {
 
     if (destination.droppableId === "MondayColumn") {
       Monday[destination.index].assignatureName = copyAssignature!;
-      console.log(Monday);
     } else if (destination.droppableId === "TuesdayColumn") {
       Tuesday[destination.index].assignatureName = copyAssignature!;
-      console.log(Tuesday);
     } else if (destination.droppableId === "WednesdayColumn") {
       Wednesday[destination.index].assignatureName = copyAssignature!;
     } else if (destination.droppableId === "ThursdayColumn") {
@@ -234,7 +226,6 @@ export const Schedule = () => {
       <ModalToAddAssignature
         onCloseModal={onCloseModal}
         isOpen={openModal}
-        positionIndex={positionIndex}
         valueCell={valueCell}
         onSubmit={onSubmit}
         handleDeleteAssignature={handleDeleteAssignature}

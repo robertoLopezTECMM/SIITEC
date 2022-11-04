@@ -1,9 +1,28 @@
-.buttonsModalContainer{
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 0px;
-    border-collapse: collapse;
-    margin-top: 10%;
+.buttonsModalContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0px;
+  border-collapse: collapse;
+  margin-top: 10%;
 }
 
+.button-delete {
+  border-color: white;
+  color: white;
+  background-color: var(--red);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.end-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0px;
+  border-collapse: collapse;
+  margin-top: 10%;
+}
