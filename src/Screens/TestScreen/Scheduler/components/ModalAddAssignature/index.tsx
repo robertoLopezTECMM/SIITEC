@@ -28,7 +28,9 @@ interface modalProps {
   isOpen: boolean;
   onCloseModal: () => void;
   handleDeleteAssignature: () => void;
-  valueCell: { assignatureName: string };
+  valueCell: {
+    hour: any; assignatureName: string 
+};
   onSubmit: (value: string) => void;
 }
 
@@ -72,7 +74,7 @@ export const ModalToAddAssignature = ({
             <ThemedH1 text="Añadir asignatura" />
             <br />
             <ThemedH1 text="Asignatura:" />
-            <ThemedH1 text="Horario:" />
+            <ThemedH1 text={`Horario: ${isEdit ? valueCell.hour : ""}`} />
             <Selector
               setValueSelector={setValueSelector}
               valueSelector={valueSelector}

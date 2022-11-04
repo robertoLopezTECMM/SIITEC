@@ -8,7 +8,7 @@
 }
 
 .button-delete {
-  border-color: white;
+  border: 2px solid white;
   color: white;
   background-color: var(--red);
   width: 3rem;
@@ -16,9 +16,10 @@
   border-radius: 15px;
   margin: 10px;
   padding: 10px;
+  outline: none;
 }
 
-.end-container{
+.end-container {
   width: 100%;
   display: flex;
   justify-content: flex-end;
