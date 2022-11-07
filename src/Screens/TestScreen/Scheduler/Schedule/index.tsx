@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ModalToAddAssignature } from "../components/ModalAddAssignature";
 import { AssignatureCell } from "../components/AssignatureCell";
 import { DragDropContext, Droppable, DropResult } from "@hello-pangea/dnd";
+import swal from 'sweetalert'
 import "./index.css";
 
 import {
@@ -48,50 +49,87 @@ export const Schedule = () => {
     setOpenModal(true);
   };
 
+  const confirmDelete = () => {
+    swal({
+      title: "¿Está seguro que desea eliminar esta materia?",
+      icon: "warning",
+      dangerMode: true,
+      closeOnEsc: false,
+      buttons:{
+        cancel: true, 
+        confirm: true
+      },
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal("Materia eliminada correctamente", {
+          icon: "success",
+        });
+      }
+    });
+  }
+
   //delete Assignature
   const handleDeleteAssignature = () => {
-    switch (day) {
-      case "Monday": {
-        Monday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
+    swal({
+      title: "¿Está seguro que desea eliminar esta asignatura?", 
+      text: "La asignatura se eliminará de la celda",
+      icon: "warning", 
+      dangerMode: true, 
+      closeOnEsc: false, 
+      buttons: ["Cancelar", "Aceptar"]
+    })
+    .then((willDelete) => {
+      if(willDelete){
+        switch (day) {
+          case "Monday": {
+            Monday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          case "Tuesday": {
+            Tuesday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          case "Wednesday": {
+            Wednesday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          case "Thursday": {
+            Thursday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          case "Friday": {
+            Friday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          case "Saturday": {
+            Saturday.map((el) =>
+              el.id === positionIndex ? (el.assignatureName = " ") : " "
+            );
+            break;
+          }
+          default: {
+            break;
+          }
+        }
+        swal({
+          title: "Asignatura eliminada con éxito",
+          icon: "success",
+          timer: 1250
+        });
+        onCloseModal();
       }
-      case "Tuesday": {
-        Tuesday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
-      }
-      case "Wednesday": {
-        Wednesday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
-      }
-      case "Thursday": {
-        Thursday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
-      }
-      case "Friday": {
-        Friday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
-      }
-      case "Saturday": {
-        Saturday.map((el) =>
-          el.id === positionIndex ? (el.assignatureName = " ") : " "
-        );
-        break;
-      }
-      default: {
-        break;
-      }
-    }
-    onCloseModal();
+    });
   };
 
   const onCloseModal = () => {
