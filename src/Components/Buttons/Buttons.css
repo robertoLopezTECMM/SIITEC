@@ -58,3 +58,17 @@
 .buttonPrimaryCancel p{
     margin: auto;
 }
+
+/************************************************************************/
+
+.button-delete {
+    border: 2px solid white;
+    color: white;
+    background-color: var(--red);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 10px;
+    outline: none;
+  }

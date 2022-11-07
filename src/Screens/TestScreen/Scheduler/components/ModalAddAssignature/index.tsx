@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { ButtonPrimarys } from "../../../../../Components/Buttons/Buttons";
+import {
+  ButtonPrimarys,
+  DeleteButton,
+} from "../../../../../Components/Buttons/Buttons";
 import { LogInContainer } from "../../../../../Components/Containers/LogInContainer/logInContainer";
 import { ThemedH1 } from "../../../../../Components/ThemedTexts";
 import Selector from "../../components/Selector";
@@ -29,8 +32,9 @@ interface modalProps {
   onCloseModal: () => void;
   handleDeleteAssignature: () => void;
   valueCell: {
-    hour: any; assignatureName: string 
-};
+    hour: any;
+    assignatureName: string;
+  };
   onSubmit: (value: string) => void;
 }
 
@@ -82,12 +86,10 @@ export const ModalToAddAssignature = ({
             <hr />
             <div className={isEdit ? "buttonsModalContainer" : "end-container"}>
               {isEdit && (
-                <button
-                  className="button-delete"
-                  onClick={() => handleDeleteAssignature()}
-                >
-                  <i className="material-icons">delete</i>
-                </button>
+                <DeleteButton
+                  textButton={""}
+                  buttonOnClick={handleDeleteAssignature}
+                />
               )}
               <div>
                 <ButtonPrimarys
