@@ -42,3 +42,20 @@ export const ButtonPrimarys = ({isborder ,textButton, buttonOnClick, isCancel}:b
     </button>
   )
 }
+
+interface iconButtonAddProps {
+  icon: any;
+  buttonOnClick: () => void
+}
+
+export const RoundButtonAdd = ({ icon, buttonOnClick }:iconButtonAddProps) => {
+  return (
+    <button 
+    onClick={()=>buttonOnClick()} 
+    className="buttonPrimarySucces"
+    style={{border:'solid 2px white'}} 
+    >
+        {icon}
+    </button>
+  )
+}
