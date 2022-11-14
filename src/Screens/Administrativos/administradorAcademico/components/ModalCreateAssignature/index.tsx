@@ -74,15 +74,15 @@ export const ModalCreateAssignature = ({isOpen, onCloseModal}:modalProps) => {
                 &nbsp;
                 &nbsp;
                 <InputText
-                    labelText='Nombre Completo'
+                    labelText='Clave'
                     textInputOnChange={()=>console.log('hi')}
-                    placeholder='Escriba el nombre completo'    
+                    placeholder='Escriba la clave'    
                 />
 
             </div>
 
             <InputText
-                labelText='Clave'
+                labelText='Nombre Completo'
                 textInputOnChange={()=>console.log('hi')}
                 placeholder='Escriba el nombre completo'    
             />
