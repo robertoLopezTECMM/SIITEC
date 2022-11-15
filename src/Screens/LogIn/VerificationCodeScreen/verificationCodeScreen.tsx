@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const VerificationCodeScreen = () => {
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
-    const { setAuthData, userAndPassword}:any = useContext(authContext);
+    const { setAuthData, userAndPassword, setAuthRoll}:any = useContext(authContext);
     const navigate = useNavigate()
 
     const onChangeFourDigits = (e:string) =>{
@@ -28,7 +28,8 @@ export const VerificationCodeScreen = () => {
           console.log('Response: ', response)
 
           if(response.status === 200){
-            setAuthData(response.data.token, true, undefined)
+            setAuthData(response.data.token, true, undefined, response.data.rol)
+            //setAuthRoll(response.data.rol)
             navigate('/home')
           }
           setShowLoadingSpinner(false)
