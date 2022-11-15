@@ -59,3 +59,11 @@ export const RoundButtonAdd = ({ icon, buttonOnClick }:iconButtonAddProps) => {
     </button>
   )
 }
+
+export const DeleteButton = ({ textButton, buttonOnClick }: buttonProps) => {
+  return (
+    <button className="button-delete" onClick={buttonOnClick}>
+      <i className="material-icons">delete</i>
+    </button>
+  );
+};
