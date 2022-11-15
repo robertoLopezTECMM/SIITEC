@@ -52,7 +52,6 @@ display: none;
   height: auto;
   position: relative;
   width: 100%;
-  margin-top: 3vh;
 }
 
 .inputContainer label{
@@ -99,7 +98,7 @@ display: none;
   padding: 0 10px;
   position: absolute;
   right: 0;
-  bottom: -4px;
+  bottom: 0;
 }
 
 .inputContainer i{

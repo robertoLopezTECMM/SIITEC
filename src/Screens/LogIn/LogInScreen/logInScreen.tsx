@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { PrimaryButton } from '../../../Components/Buttons/Buttons'
-import { RememberAccountCheckBox } from '../../../Components/ChecksBox/ChecksBox'
+import { CheckBox } from '../../../Components/ChecksBox/ChecksBox'
 import { LogInContainer } from '../../../Components/Containers/LogInContainer/logInContainer'
-import { PasswordTextInput, TextInput } from '../../../Components/TextInputs/TextInputs'
+import { InputText, InputTextPassword, PasswordTextInput, TextInput } from '../../../Components/TextInputs/TextInputs'
 import { VerificationCodeScreen } from '../VerificationCodeScreen/verificationCodeScreen'
 import './logInScreen.css'
 import LogoTec from '../../../Assets/Images/logoTecJalisco.png'
@@ -61,16 +61,27 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
       <LoadingSpinner visible={showLoadingSpinner}/>
       <LogInContainer>
         <img className='logoTecImageTag' src={LogoTec}/>
-        <h3>SIITEC</h3>
+        {/* <h3>SIITEC</h3> */}
 
         <h2>Inicio de sesión</h2>
-        
-        <PasswordTextInput passwordOnchange={onChangePasswords} placeHolder='Email, Curp, Celular, Rfc' fieldId='user'/>
+        <InputText
+                    labelText='Usuario'
+                    textInputOnChange={()=>console.log('hi')}
+                    placeholder='Email, Curp, Celular, Rfc'
+                />
+        <InputTextPassword
+            labelText='Contraseña'
+            passwordOnchange={()=>console.log('hi')}
+            placeholder='Escriba su contraseña'
+
+
+        />
+        {/* <PasswordTextInput passwordOnchange={onChangePasswords} placeHolder='Email, Curp, Celular, Rfc' fieldId='user'/>
         <br/>
         <br/>
         <PasswordTextInput isForPassword placeHolder='contraseña' passwordOnchange={onChangePasswords} passwordValue={''} fieldId='password'/>
         <br/>
-        <br/>
+        <br/> */}
 
         <div className='captchaContainer'>
           <ReCAPTCHA sitekey={'6LeuDx8iAAAAAL8osYNEEiZNJACVSGSTEkV_Z6-2'}/>
@@ -84,7 +95,7 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
         <br/>
         <br/>
 
-        <RememberAccountCheckBox/>
+        <CheckBox labelCheckBox='Recordarme' onChange={()=>console.log('hi')}/>
         <br/>
         <br/>
 
