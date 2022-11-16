@@ -1,20 +1,18 @@
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { authContext } from '../Contexts/AuthProvider';
 
- const PrivateRoute = ({ children }) => {
+ const PrivateRoute = ({ children, isAllowed, redirect }) => {
 
-    const { auth } = useContext(authContext);
+    //const { auth } = useContext(authContext);
 
-    if (auth.isLogged) {
+    /*if (auth.isLogged) {
         return <Navigate to="/home" />;
+    }*/
+    if(!isAllowed){
+        return <Navigate to={redirect}/>
     }
-    return (
-        <>
-            {/* <AppSidebar /> */} {/* your other components */}
-            {children}
-        </>
-    );
+    return children? children: <Outlet/>
 };
 
 export default PrivateRoute
