@@ -25,9 +25,9 @@ export const CounterButton = ({textButton, buttonOnClick}:buttonProps) => {
 }
 
 interface buttonprimarysProps {
-  textButton: string;
-  isCancel: boolean;
-  isborder: boolean;
+  textButton?: string;
+  isCancel?: boolean;
+  isborder?: boolean;
   buttonOnClick: () => void
 }
 
