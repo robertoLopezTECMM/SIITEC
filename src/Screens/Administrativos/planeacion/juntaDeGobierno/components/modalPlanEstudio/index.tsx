@@ -5,6 +5,7 @@ import CheckBox from "../../../../../../Components/ChecksBox/ChecksBox";
 import { DropFileInput } from "../../../../../../Components/DropFileInput/DropFileInput";
 import { InputText } from "../../../../../../Components/TextInputs/TextInputs";
 import { ThemedH1 } from "../../../../../../Components/ThemedTexts";
+import { AddSubtitles } from "../addSubtitles";
 import "./index.css";
 
 const customStyles = {
@@ -65,7 +66,7 @@ export const ModalPlanEstudio = () => {
               onChangeInputFiles={() => console.log("hi")}
             />
           )}
-          {hasSubtitles && <>Ti</>}
+          {hasSubtitles && <AddSubtitles />}
           <div className="buttons">
             <ButtonPrimarys
               buttonOnClick={() => console.log("Cerrar modal")}

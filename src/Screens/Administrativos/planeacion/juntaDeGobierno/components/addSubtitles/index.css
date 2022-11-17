@@ -1,0 +1,17 @@
+.containerComponent {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 18rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.listSubtitles {
+  margin: 10px;
+  width: 100%;
+  display: flex;
+}
