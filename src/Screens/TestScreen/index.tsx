@@ -7,6 +7,8 @@ import { DropFileInput } from "../../Components/DropFileInput/DropFileInput";
 import CheckBox from "../../Components/ChecksBox/ChecksBox";
 import { HeaderBottomBorder } from "../Administrativos/planeacion/juntaDeGobierno/components/headerBottomBorder";
 import { NewJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno/index";
+import { JuntaDeGobiernoDetails } from "../Administrativos/planeacion/juntaDeGobierno/juntaDeGobiernoDetails";
+import { HomeJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
 
 export const TestScreen = () => {
   return (
@@ -29,9 +31,10 @@ export const TestScreen = () => {
           <CardJuntaDeGobierno date='15 de febrero de 2022' title='Primera sesion ordinaria'/>
         </Grid>
       </Grid> */}
-      <NewJuntaDeGobierno />
-    
-
+      {/* <NewJuntaDeGobierno /> */}
+      
+      <JuntaDeGobiernoDetails/>
+      {/* <HomeJuntaDeGobierno/> */}
       {/* <RoundButtonAdd icon={<AddCircleOutlineOutlinedIcon fontSize='large'/>} buttonOnClick={() => console.log('hi')}/>
     
       <DropFileInput borderColor='#00A29A' message={'seleccione el archivo'} onChangeInputFiles={()=>console.log('hi')}/>
