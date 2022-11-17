@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { ButtonPrimarys } from "../../../../../../Components/Buttons/Buttons";
+import {
+  ButtonPrimarys,
+  DocumentButton,
+  RoundButtonAdd,
+} from "../../../../../../Components/Buttons/Buttons";
 import CheckBox from "../../../../../../Components/ChecksBox/ChecksBox";
 import { DropFileInput } from "../../../../../../Components/DropFileInput/DropFileInput";
 import { InputText } from "../../../../../../Components/TextInputs/TextInputs";
 import { ThemedH1 } from "../../../../../../Components/ThemedTexts";
-import { AddSubtitles } from "../addSubtitles";
 import "./index.css";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 
 const customStyles = {
   content: {
@@ -34,8 +38,19 @@ interface modalProps {
 
 export const ModalPlanEstudio = () => {
   const [hasSubtitles, setHasSubtitles] = useState(false);
+  const [reRender, setReRender] = useState(1);
+  const [subtitles, setSubtitles] = useState([
+    { subtitleName: "", documentUrl: null },
+  ]);
 
   useEffect(() => {}, [hasSubtitles]);
+
+  const addSubtitle = () => {
+    let subtitlesLocal = subtitles;
+    subtitlesLocal.push({ subtitleName: "", documentUrl: null });
+    setSubtitles(subtitlesLocal);
+    setReRender(reRender + 1);
+  };
 
   return (
     <>
@@ -66,7 +81,32 @@ export const ModalPlanEstudio = () => {
               onChangeInputFiles={() => console.log("hi")}
             />
           )}
-          {hasSubtitles && <AddSubtitles />}
+          {hasSubtitles && (
+            <>
+              <div className="containerComponent">
+                {subtitles.map((item) => {
+                  return (
+                    <div className="listSubtitles">
+                      <InputText
+                        labelText="Nombre del anexo"
+                        textInputOnChange={() => console.log("hi")}
+                        placeholder="Escribe el nombre del anexo"
+                      />
+                      <DocumentButton
+                        textButton={""}
+                        buttonOnClick={() => console.log("FILE")}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+
+              <RoundButtonAdd
+                icon={<AddCircleOutlineOutlinedIcon fontSize="large" />}
+                buttonOnClick={() => addSubtitle()}
+              />
+            </>
+          )}
           <div className="buttons">
             <ButtonPrimarys
               buttonOnClick={() => console.log("Cerrar modal")}
