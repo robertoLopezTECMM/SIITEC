@@ -16,7 +16,9 @@ export const TestScreen = () => {
     <>
       {/* <HomeJuntaDeGobierno /> */}
 
-      <ModalPlanEstudio />
+      {/* <ModalPlanEstudio /> */}
+
+      <JuntaDeGobiernoDetails/>
 
       {/* <NewJuntaDeGobierno /> */}
 

@@ -6,11 +6,9 @@ import { Grid } from "@mui/material";
 import { CardJuntaDeGobierno } from "../components/cardJuntaDeGobierno";
 
 const sessions = [
-  {
-    Topic: "",
-    Subtopic: [] 
-  }
-]
+  { topic: "Nombre del documento", subtopic: [{title: "Nombre del anexo"}, {title: "Nombre del anexo"}]},
+  { topic: "Nombre del documento", subtopic: []},
+];
 
 export const HomeJuntaDeGobierno = () => {
   const cardOrdinarySessions = [

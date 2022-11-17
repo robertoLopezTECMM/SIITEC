@@ -31,7 +31,7 @@ export const NewJuntaDeGobierno = () => {
             />
           </div>
           <Grid container className="agenda">
-            <ListDocuments />
+            {/* <ListDocuments /> */}
           </Grid>
         </Grid>
         <div className={"create-button"}>
