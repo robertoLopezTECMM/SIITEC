@@ -1,10 +1,14 @@
 import "./index.css";
+import { CardJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/components/cardJuntaDeGobierno/index";
+import { Grid } from "@mui/material";
 import { RoundButtonAdd } from "../../Components/Buttons/Buttons";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { DropFileInput } from "../../Components/DropFileInput/DropFileInput";
 import CheckBox from "../../Components/ChecksBox/ChecksBox";
 import { HomeJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
 import { ModalPlanEstudio } from "../Administrativos/planeacion/juntaDeGobierno/components/modalPlanEstudio";
+import { HeaderBottomBorder } from "../Administrativos/planeacion/juntaDeGobierno/components/headerBottomBorder";
+import { NewJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno/index";
 
 export const TestScreen = () => {
   return (
@@ -13,8 +17,8 @@ export const TestScreen = () => {
 
       {/* <ModalPlanEstudio /> */}
 
-      {/*  
-      <RoundButtonAdd icon={<AddCircleOutlineOutlinedIcon fontSize='large'/>} buttonOnClick={() => console.log('hi')}/>
+      {/*<NewJuntaDeGobierno />*}
+      {/* <RoundButtonAdd icon={<AddCircleOutlineOutlinedIcon fontSize='large'/>} buttonOnClick={() => console.log('hi')}/>
     
       <DropFileInput borderColor='#00A29A' message={'seleccione el archivo'} onChangeInputFiles={()=>console.log('hi')}/>
     
