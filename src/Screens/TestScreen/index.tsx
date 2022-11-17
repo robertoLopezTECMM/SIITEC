@@ -13,11 +13,12 @@ import { NewJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobiern
 export const TestScreen = () => {
   return (
     <>
-      <HomeJuntaDeGobierno />
+      {/* <HomeJuntaDeGobierno /> */}
 
-      {/* <ModalPlanEstudio /> */}
+      <ModalPlanEstudio />
 
-      {/*<NewJuntaDeGobierno />*}
+      {/* <NewJuntaDeGobierno /> */}
+
       {/* <RoundButtonAdd icon={<AddCircleOutlineOutlinedIcon fontSize='large'/>} buttonOnClick={() => console.log('hi')}/>
     
       <DropFileInput borderColor='#00A29A' message={'seleccione el archivo'} onChangeInputFiles={()=>console.log('hi')}/>
