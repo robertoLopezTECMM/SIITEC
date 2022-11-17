@@ -5,6 +5,11 @@ import "./index.css";
 import { Grid } from "@mui/material";
 import { CardJuntaDeGobierno } from "../components/cardJuntaDeGobierno";
 
+const sessions = [
+  { topic: "Nombre del documento", subtopic: [{title: "Nombre del anexo"}, {title: "Nombre del anexo"}]},
+  { topic: "Nombre del documento", subtopic: []},
+];
+
 export const HomeJuntaDeGobierno = () => {
   const cardOrdinarySessions = [
     { date: "15 de febrero de 2022", title: "Primera sesion ordinaria" },
