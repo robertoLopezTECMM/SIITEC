@@ -9,6 +9,7 @@ import { LogIn } from "../Screens/LogIn/logIn";
 import { TestScreen } from "../Screens/TestScreen";
 import PrivateRoute from "./privateRoute";
 import StudentValidator from "../Helpers/StudentValidator";
+import { NavigatorPlaneacion } from '../Screens/Administrativos/planeacion/navigator/navigatorPlaneacion';
 
 
 export default function MainRouter() {
@@ -73,6 +74,13 @@ export default function MainRouter() {
   
           <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='gobierno')} redirect="/home"/>}>
             <Route path="/gobierno" element={<h1>Gobierno</h1>}/>  
+          </Route>
+
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/home"/>}>
+            <Route path="/planeacion" element={<NavigatorPlaneacion/>}/>
+            <Route path="/juntaGobierno2021" element={<h1>Planeacion</h1>}/>
+            <Route path="/juntaGobierno2022" element={<h1>Planeacion</h1>}/>
+            <Route path="/juntaGobierno2023" element={<h1>Planeacion</h1>}/>
           </Route>
   
         </Routes>

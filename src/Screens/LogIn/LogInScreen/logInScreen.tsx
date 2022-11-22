@@ -32,9 +32,22 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
   
   }
 
+  const onChangeUser = (inputValue:string) =>{
+    console.log('valueUser: ', inputValue)
+    setUser(inputValue)
+  }
+
+  const onChangePassword = (inputValue:string) =>{
+    console.log('VALUE: ', inputValue)
+    setPassword(inputValue)
+  }
+
+
+
 
   const getVerificationCode = () => {
     setShowLoadingSpinner(true)
+    console.log(user, password)
     axiosInstance.post(getVerificationCodeUrl, {user:user, password:password} )
     .then((response)=>{
       console.log('Response: ', response)
@@ -65,13 +78,13 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
 
         <h2>Inicio de sesión</h2>
         <InputText
-                    labelText='Usuario'
-                    textInputOnChange={()=>console.log('hi')}
-                    placeholder='Email, Curp, Celular, Rfc'
-                />
+            labelText='Usuario'
+            textInputOnChange={onChangeUser}
+            placeholder='Email, Curp, Celular, Rfc'
+        />
         <InputTextPassword
             labelText='Contraseña'
-            passwordOnchange={()=>console.log('hi')}
+            passwordOnchange={onChangePassword}
             placeholder='Escriba su contraseña'
 
 
@@ -90,7 +103,7 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
         <br/>
         <br/>
 
-        <PrimaryButton buttonOnClick={getVerificationCode} textButton='Iniciar sesión'/>
+        <PrimaryButton buttonOnClick={()=>getVerificationCode()} textButton='Iniciar sesión'/>
 
         <br/>
         <br/>
