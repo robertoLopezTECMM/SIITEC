@@ -1,0 +1,39 @@
+.subtitles-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.subtitle {
+  margin-top: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: baseline;
+}
+.info-subtitle {
+  margin-left: 10px;
+}
+.container-title_order {
+  width: 100%;
+  margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+}
+.title-order {
+  margin-top: 15px !important;
+}
+.agenda {
+  background-color: var(--green);
+  height: 500px;
+}
+.create-button {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+
+.containerNewBoard {
+  width: 80%;
+  margin: auto;
+}

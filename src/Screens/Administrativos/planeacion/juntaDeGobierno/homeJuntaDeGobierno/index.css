@@ -1,0 +1,14 @@
+.sessions {
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+}
+
+.buttonHeader {
+  width: 15%;
+  margin-left: -13%;
+}

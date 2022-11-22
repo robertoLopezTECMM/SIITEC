@@ -16,7 +16,6 @@ export default function MainRouter() {
   const { auth, roll }:any = useContext(authContext);
   const navigate = useNavigate()
   useEffect(() => {
-    console.log('AUTH: ', auth)
 
     //if(auth.isLogged) {navigate('/home')}
     if(!auth.isLogged) {navigate('/')}

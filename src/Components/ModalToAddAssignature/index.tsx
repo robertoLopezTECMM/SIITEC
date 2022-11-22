@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
-import { LogInContainer } from '../Containers/LogInContainer/logInContainer';
 import './index.css'
 
 const customStyles = {
