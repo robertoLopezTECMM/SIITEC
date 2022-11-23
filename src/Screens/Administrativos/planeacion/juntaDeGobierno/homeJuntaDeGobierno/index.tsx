@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { HeaderBottomBorder } from "../components/headerBottomBorder";
 import { ButtonPrimarys } from "../../../../../Components/Buttons/Buttons";
 import "./index.css";
 import { Grid } from "@mui/material";
 import { CardJuntaDeGobierno } from "../components/cardJuntaDeGobierno";
+import { NavigatorPlaneacion } from "../../navigatorPlaneacion";
+import { Link } from "react-router-dom";
+
+
+interface homeJuntaGobiernoProps{
+  year: string;
+}
 
 const sessions = [
   { topic: "Nombre del documento", subtopic: [{title: "Nombre del anexo"}, {title: "Nombre del anexo"}]},
   { topic: "Nombre del documento", subtopic: []},
 ];
 
-export const HomeJuntaDeGobierno = () => {
+export const HomeJuntaDeGobierno = ({year}:homeJuntaGobiernoProps) => {
   const cardOrdinarySessions = [
     { date: "15 de febrero de 2022", title: "Primera sesion ordinaria" },
     { date: "15 de febrero de 2022", title: "Segunda sesion ordinaria" },
@@ -25,17 +32,28 @@ export const HomeJuntaDeGobierno = () => {
     { date: "15 de febrero de 2022", title: "Tercera sesion ordinaria" },
   ];
 
+  useEffect(() => {
+    console.log("YEAR: ", year)
+    console.log("CURRENT YEAR: ", new Date().getFullYear())
+  }, [])
+  
   return (
+    <NavigatorPlaneacion>
     <div className="sessions" style={{ width: "80%", margin: "auto" }}>
       <div className="header">
         <HeaderBottomBorder title="Sesiones ordinarias 2022" />
+
+
         <div className="buttonHeader">
-          <ButtonPrimarys
-            textButton={`+ Nueva sesión`}
-            isCancel={false}
-            isborder
-            buttonOnClick={() => console.log("hi")}
-          />
+          <Link to={'/nuevaJuntaGobiernoOrdinaria'}>
+            <ButtonPrimarys
+              textButton={`+ Nueva sesión`}
+              isCancel={false}
+              isborder
+              buttonOnClick={() => console.log("hi")}
+            />
+          </Link>
+
         </div>
       </div>
       <div style={{ marginBottom: "5%" }}>
@@ -55,12 +73,14 @@ export const HomeJuntaDeGobierno = () => {
       <div className="header">
         <HeaderBottomBorder title="Sesiones extraordinarias 2022" />
         <div className="buttonHeader">
-          <ButtonPrimarys
-            textButton={`+ Nueva sesión`}
-            isCancel={false}
-            isborder
-            buttonOnClick={() => console.log("hi")}
-          />
+          <Link to={'/nuevaJuntaGobiernoExtraordinaria'}>
+            <ButtonPrimarys
+              textButton={`+ Nueva sesión`}
+              isCancel={false}
+              isborder
+              buttonOnClick={() => console.log("hi")}
+            />
+          </Link>
         </div>
       </div>
       <div style={{ marginBottom: "10%" }}>
@@ -77,5 +97,6 @@ export const HomeJuntaDeGobierno = () => {
         </Grid>
       </div>
     </div>
+  </NavigatorPlaneacion>
   );
 };

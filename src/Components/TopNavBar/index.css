@@ -1,6 +1,6 @@
 .topNavBarContainer{
     width: 100%;
-    height: 4vh;
+    height: 3rem;
     background-color: var(--green);
     margin: 0;
     display: flex;

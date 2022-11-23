@@ -9,7 +9,9 @@ import { LogIn } from "../Screens/LogIn/logIn";
 import { TestScreen } from "../Screens/TestScreen";
 import PrivateRoute from "./privateRoute";
 import StudentValidator from "../Helpers/StudentValidator";
-import { NavigatorPlaneacion } from '../Screens/Administrativos/planeacion/navigator/navigatorPlaneacion';
+import { NavigatorPlaneacion } from '../Screens/Administrativos/planeacion/navigatorPlaneacion';
+import { HomeJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
+import { NewJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno";
 
 
 export default function MainRouter() {
@@ -76,10 +78,12 @@ export default function MainRouter() {
           </Route>
 
           <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/home"/>}>
-            <Route path="/planeacion" element={<NavigatorPlaneacion/>}/>
-            <Route path="/juntaGobierno2021" element={<h1>Planeacion</h1>}/>
-            <Route path="/juntaGobierno2022" element={<h1>Planeacion</h1>}/>
-            <Route path="/juntaGobierno2023" element={<h1>Planeacion</h1>}/>
+            <Route path="/planeacion" element={<h1>planeacion</h1>}/>
+            <Route path="/juntaGobierno2021" element={<HomeJuntaDeGobierno year="2021"/>}/>
+            <Route path="/juntaGobierno2022" element={<HomeJuntaDeGobierno year="2022"/>}/>
+            <Route path="/juntaGobierno2023" element={<HomeJuntaDeGobierno year="2023"/>}/>
+            <Route path="/nuevaJuntaGobiernoOrdinaria" element={<NewJuntaDeGobierno type='ordinaria'/>}/>
+            <Route path="/nuevaJuntaGobiernoExtraordinaria" element={<NewJuntaDeGobierno type='extraordinaria'/>}/>
           </Route>
   
         </Routes>
