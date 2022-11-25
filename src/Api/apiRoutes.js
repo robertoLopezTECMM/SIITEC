@@ -5,3 +5,7 @@ export const postLogInCredentialsUrl = '/v1/autenticacion/'
 export const postForgotPasswordUrl = '/v1/recuperacion/'
 export const postCodeForgotPasswordUrl = '/v1/recuperacion/codigo/'
 export const putNewPasswordsUrl = '/v1/recuperacion/'
+
+export const baseUrlJuntaGobierno = 'https://developer.tecmm.mx:3318'
+
+export const getNextSessionUrl = '/sesion/nombre/'
