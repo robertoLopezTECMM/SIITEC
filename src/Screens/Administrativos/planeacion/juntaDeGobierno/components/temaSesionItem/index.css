@@ -1,0 +1,15 @@
+.temaSesionItemContainer{
+    background-color: rgb(229, 229, 229);
+    min-height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.temaSesionItemContainer p{
+    color:red;
+    margin-top:auto;
+    margin-bottom:auto
+}

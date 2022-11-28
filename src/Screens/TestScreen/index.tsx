@@ -1,5 +1,5 @@
 import "./index.css";
-import { ModalPlanEstudio } from "../Administrativos/planeacion/juntaDeGobierno/components/modalPlanEstudio";
+import { ModalNewAnexo } from "../Administrativos/planeacion/juntaDeGobierno/components/modalNewAnexo";
 import { JuntaDeGobiernoDetails } from "../Administrativos/planeacion/juntaDeGobierno/juntaDeGobiernoDetails";
 import { HomeJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
 import { NewJuntaDeGobierno } from "../Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno";

@@ -30,15 +30,19 @@ const customStyles = {
   },
 };
 
-interface modalProps {
+interface modalNewAnexoProps {
   isOpen: boolean;
   onCloseModal: () => void;
-  onSubmit: (value: string) => void;
+  onSubmit: (anexoName: string, hasSubtitles:boolean, anexoDocumentUrl:string, subtitles:any) => void;
 }
 
-export const ModalPlanEstudio = () => {
+export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProps) => {
+  const [anexoName, setAnexoName] = useState('')
   const [hasSubtitles, setHasSubtitles] = useState(false);
+  const [anexoDocumentUrl, setAnexoDocumentUrl] = useState('http://testdocumenturl.com')
+
   const [reRender, setReRender] = useState(1);
+  
   const [subtitles, setSubtitles] = useState([
     { subtitleName: "", documentUrl: null },
   ]);
@@ -52,10 +56,15 @@ export const ModalPlanEstudio = () => {
     setReRender(reRender + 1);
   };
 
+  const onSubmitAnexo = () =>{
+    onSubmit(anexoName, hasSubtitles, anexoDocumentUrl, subtitles)
+    onCloseModal()
+  }
+
   return (
     <>
       <Modal
-        isOpen={true}
+        isOpen={isOpen}
         onRequestClose={() => {
           console.log("CLOSE");
         }}
@@ -65,11 +74,13 @@ export const ModalPlanEstudio = () => {
       >
         <div className="mainContainer">
           <ThemedH1 text="Nuevo anexo" />
+
           <InputText
             labelText="Nombre del anexo"
-            textInputOnChange={() => console.log("hi")}
+            textInputOnChange={(e) => setAnexoName(e)}
             placeholder="Escribe el nombre del anexo"
           />
+
           <CheckBox
             labelCheckBox="Tiene subtemas"
             onChange={() => setHasSubtitles(!hasSubtitles)}
@@ -109,13 +120,13 @@ export const ModalPlanEstudio = () => {
           )}
           <div className="buttons">
             <ButtonPrimarys
-              buttonOnClick={() => console.log("Cerrar modal")}
+              buttonOnClick={onCloseModal}
               textButton={"Cancelar"}
               isCancel
               isborder
             />
             <ButtonPrimarys
-              buttonOnClick={() => console.log("Guardar anexo")}
+              buttonOnClick={() => onSubmitAnexo()}
               textButton={"Guardar"}
               isCancel={false}
               isborder
