@@ -5,29 +5,31 @@ import './index.css'
 interface accordionComponentProps{
     title:string;
     url: string;
+    hasSubtitles: any;
+    subtitiles:any;
     isExpandable: boolean
 }
 
 
-export const TemaSesionItem = ({title, url, isExpandable}:accordionComponentProps) => {
+export const TemaSesionItem = ({title, url, isExpandable, hasSubtitles, subtitiles}:accordionComponentProps) => {
   return (
-    // <Accordion onClick={()=>console.log('hi')}>
-    //     <AccordionSummary
-    //         expandIcon={<ExpandMoreIcon />}
-    //         aria-controls="panel1a-content"
-    //         id="panel1a-header"
-    //     >
-    //     <Typography >{title}</Typography>
-
-    //     </AccordionSummary>
-
-
-    // </Accordion>
-
     <div className='temaSesionItemContainer'>
-      <p>{title}</p>
-      <ExpandMoreIcon />
+      <div className='nameTemaSesionItemContainer'>
+        <p>{title}</p>
+        <ExpandMoreIcon />
+      </div>
+     {hasSubtitles?
+      <div className='subtitlesItemContainer'>
+        {subtitiles.map((subtitle:any)=>{
+          return <p>{subtitle.subtitleName}.</p>
+        })}
+      </div>
+      :null
+     
+     } 
+
     </div>
+
   )
 }
 

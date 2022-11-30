@@ -21,7 +21,7 @@ export const useNextSession = (year:string, type:string) => {
             try{
                 const response = await axiosInstanceJuntaGobierno.get(getNextSessionUrl+type+'/'+year, {headers:{'x-token':auth.token}})
                 const data = await response?.data
-
+                console.log(data)
 
                 //console.log('AQUI: ',response)
                 setNextSesionName(response.data.nombre)

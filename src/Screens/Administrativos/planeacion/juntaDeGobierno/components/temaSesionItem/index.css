@@ -1,4 +1,9 @@
 .temaSesionItemContainer{
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.nameTemaSesionItemContainer{
     background-color: rgb(229, 229, 229);
     min-height: 3rem;
     border-radius: 0.5rem;
@@ -8,8 +13,16 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .temaSesionItemContainer p{
     color:red;
     margin-top:auto;
-    margin-bottom:auto
+    margin-bottom:auto;
+    font-family: 'KB-bold';
+}
+
+.subtitlesItemContainer{
+    background-color: rgb(229, 229, 229);
+    height: auto; 
+    margin-top: -0.5rem;
 }

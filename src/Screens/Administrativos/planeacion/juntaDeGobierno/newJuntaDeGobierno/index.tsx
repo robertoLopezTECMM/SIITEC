@@ -77,7 +77,13 @@ export const NewJuntaDeGobierno = ({type}:newJuntaGobiernoPros) => {
           <div className="anexosContainer">
               {
                 temasOrdenDelDia.map((item:any)=>{
-                  return <TemaSesionItem title={item.anexoName} url={item.anexoDocumentUrl} isExpandable={false} />
+                  return <TemaSesionItem
+                            title={item.anexoName}
+                            url={item.anexoDocumentUrl}
+                            isExpandable={false}
+                            hasSubtitles={item.subtitles.length===0?false:true}
+                            subtitiles={item.subtitles}
+                          />
                 })
               }
           </div>

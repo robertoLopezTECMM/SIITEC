@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
 import {
   ButtonPrimarys,
@@ -11,6 +11,10 @@ import { InputText } from "../../../../../../Components/TextInputs/TextInputs";
 import { ThemedH1 } from "../../../../../../Components/ThemedTexts";
 import "./index.css";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import axiosInstanceJuntaGobierno from "../../../../../../Api/axiosInstanceJuntaGobierno";
+import { postFilesUrl } from "../../../../../../Api/apiRoutes";
+import { authContext } from "../../../../../../Contexts/AuthProvider";
+import  {PostFiles}  from "../../functions/postFiles";
 
 const customStyles = {
   content: {
@@ -37,17 +41,26 @@ interface modalNewAnexoProps {
 }
 
 export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProps) => {
+  const { auth }:any = useContext(authContext);
+
   const [anexoName, setAnexoName] = useState('')
   const [hasSubtitles, setHasSubtitles] = useState(false);
   const [anexoDocumentUrl, setAnexoDocumentUrl] = useState('http://testdocumenturl.com')
 
   const [reRender, setReRender] = useState(1);
   
-  const [subtitles, setSubtitles] = useState([
-    { subtitleName: "", documentUrl: null },
+  const [subtitles, setSubtitles] = useState<any[]>([
+    
   ]);
 
   useEffect(() => {}, [hasSubtitles]);
+  
+  const resetModalStates=()=>{
+    setAnexoName('')
+    setHasSubtitles(false)
+    setAnexoDocumentUrl('')
+    setSubtitles([])
+  }
 
   const addSubtitle = () => {
     let subtitlesLocal = subtitles;
@@ -57,8 +70,31 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
   };
 
   const onSubmitAnexo = () =>{
-    onSubmit(anexoName, hasSubtitles, anexoDocumentUrl, subtitles)
+      onSubmit(anexoName, hasSubtitles, anexoDocumentUrl, subtitles)
+      onCloseModal()
+      resetModalStates()
+  }
+
+  const handleCancel = () =>{
+    resetModalStates()
     onCloseModal()
+  }
+
+  const onChangeSubtitle = (subtitleKey:any, subtitleName:string) => {
+    const newState = subtitles.map((obj, key) => {
+      if (key === subtitleKey) {
+        return {...obj, subtitleName: subtitleName};
+      }
+      return obj;
+    });
+
+    setSubtitles(newState);
+  }
+
+  const handleFileAnexo = (files:any) => {
+    console.log(files[0])
+    console.log('TOKEN: ', auth.token)
+    PostFiles(postFilesUrl, files[0], auth.token)
   }
 
   return (
@@ -89,19 +125,19 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
             <DropFileInput
               borderColor="#00A29A"
               message={"seleccione el archivo"}
-              onChangeInputFiles={() => console.log("hi")}
+              onChangeInputFiles={handleFileAnexo}
             />
           )}
           {hasSubtitles && (
             <>
               <div className="containerComponent">
-                {subtitles.map((item) => {
+                {subtitles.map((item, key) => {
                   return (
                     <div className="listSubtitles">
                       <InputText
-                        labelText="Nombre del anexo"
-                        textInputOnChange={() => console.log("hi")}
-                        placeholder="Escribe el nombre del anexo"
+                        labelText="Nombre del subtema"
+                        textInputOnChange={(text) => onChangeSubtitle(key, text)}
+                        placeholder="Escribe el nombre del subtema"
                       />
                       <DocumentButton
                         textButton={""}
@@ -120,7 +156,7 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
           )}
           <div className="buttons">
             <ButtonPrimarys
-              buttonOnClick={onCloseModal}
+              buttonOnClick={handleCancel}
               textButton={"Cancelar"}
               isCancel
               isborder
