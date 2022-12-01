@@ -17,6 +17,7 @@ export const VerificationCodeScreen = () => {
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
     const { setAuthData, userAndPassword, setAuthRoll}:any = useContext(authContext);
     const navigate = useNavigate()
+    //const {auth}:any = useContext(authContext);
 
     const onChangeFourDigits = (e:string) =>{
       if(e.includes('·')){
@@ -30,7 +31,19 @@ export const VerificationCodeScreen = () => {
           if(response.status === 200){
             setAuthData(response.data.token, true, undefined, response.data.rol)
             //setAuthRoll(response.data.rol)
-            navigate('/home')
+            if(response.data.rol==1){
+              navigate('/alumno');
+            }
+            else if(response.data.rol==2){
+              navigate('/docente');
+            }
+            else if(response.data.rol==3){
+              navigate('/jefecarrera')
+            }
+            else if(response.data.rol==4){
+              navigate('/admin');
+            }
+            //navigate('/home')
           }
           setShowLoadingSpinner(false)
         }).catch((err)=>{

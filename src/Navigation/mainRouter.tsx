@@ -39,24 +39,24 @@ export default function MainRouter() {
             <Route path="/home" element={<Home/>}/> 
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==1)} redirect="/home"/>}>
-            <Route path="/alumno" element={<StudentValidator/>}/>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==1)} redirect="/alumno"/>}>
+            <Route path="/alumno" element={<h1>home alumno</h1>}/>
             <Route path="/alumno1" element={<h1>ruta1</h1>}/>
             <Route path="/alumno2" element={<h1>ruta2</h1>}/>
           </Route>
           
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==2)} redirect="/home"/>}>
-            <Route path="/docente" element={<StudentValidator/>}/>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==2)} redirect="/docente"/>}>
+            <Route path="/docente" element={<h1>home docente</h1>}/>
             <Route path="/docente1" element={<h1>ruta1</h1>}/>
             <Route path="/docente2" element={<h1>ruta2</h1>}/> 
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==4)} redirect="/home"/>}>
-            <Route path="/admin" element={<h1>Admin</h1>}/>  
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==4)} redirect="/admin"/>}>
+            <Route path="/admin" element={<h1>home admin</h1>}/>  
           </Route>
 
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==3)} redirect="/home"/>}>
-            <Route path="/jefecarrera" element={<h1>Jefe de carrera</h1>}/>  
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==3)} redirect="/jefecarrera"/>}>
+            <Route path="/jefecarrera" element={<h1>home jefe de carrera</h1>}/>  
           </Route>
   
           <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='aspirante')} redirect="/home"/>}>
