@@ -6,7 +6,7 @@ import {
   RoundButtonAdd,
 } from "../../../../../../Components/Buttons/Buttons";
 import CheckBox from "../../../../../../Components/ChecksBox/ChecksBox";
-import { DropFileInput } from "../../../../../../Components/DropFileInput/DropFileInput";
+import { DropFileInput, DropFileInputButton } from "../../../../../../Components/DropFileInput/DropFileInput";
 import { InputText } from "../../../../../../Components/TextInputs/TextInputs";
 import { ThemedH1 } from "../../../../../../Components/ThemedTexts";
 import "./index.css";
@@ -97,6 +97,11 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
     PostFiles(postFilesUrl, files[0], auth.token)
   }
 
+  const getAnexoDocumentUrl = (anexoUrl:string) =>{
+
+  }
+
+
   return (
     <>
       <Modal
@@ -139,10 +144,7 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
                         textInputOnChange={(text) => onChangeSubtitle(key, text)}
                         placeholder="Escribe el nombre del subtema"
                       />
-                      <DocumentButton
-                        textButton={""}
-                        buttonOnClick={() => console.log("FILE")}
-                      />
+                      <DropFileInputButton message={"hola"} borderColor={""} onChangeInputFiles={()=>console.log()} />
                     </div>
                   );
                 })}
