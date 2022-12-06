@@ -97,8 +97,8 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
     PostFiles(postFilesUrl, files[0], auth.token)
   }
 
-  const getAnexoDocumentUrl = (anexoUrl:string) =>{
-
+  const getAnexoFile = (anexoFile:any) =>{
+    console.log('AnexoUrl: ', anexoFile)
   }
 
 
@@ -144,7 +144,7 @@ export const ModalNewAnexo = ({isOpen, onCloseModal, onSubmit}:modalNewAnexoProp
                         textInputOnChange={(text) => onChangeSubtitle(key, text)}
                         placeholder="Escribe el nombre del subtema"
                       />
-                      <DropFileInputButton message={"hola"} borderColor={""} onChangeInputFiles={()=>console.log()} />
+                      <DropFileInputButton message={"hola"} borderColor={""} onChangeInputFiles={getAnexoFile} />
                     </div>
                   );
                 })}

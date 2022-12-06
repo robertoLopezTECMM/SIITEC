@@ -77,9 +77,18 @@ export default function MainRouter() {
             <Route path="/gobierno" element={<h1>Gobierno</h1>}/>  
           </Route>
 
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/planeacion"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/"/>}>
             <Route path="/planeacion" element={<h1>planeacion</h1>}/>
             <Route path="/juntaGobierno2021" element={<HomeJuntaDeGobierno year="2021"/>}/>
+            <Route path="/juntaGobierno2022" element={<HomeJuntaDeGobierno year="2022"/>}/>
+            <Route path="/juntaGobierno2023" element={<HomeJuntaDeGobierno year="2023"/>}/>
+            <Route path="/nuevaJuntaGobiernoOrdinaria" element={<NewJuntaDeGobierno type='ordinaria'/>}/>
+            <Route path="/nuevaJuntaGobiernoExtraordinaria" element={<NewJuntaDeGobierno type='extraordinaria'/>}/>
+          </Route>
+
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/planeacion"/>}>
+            <Route path="/consejeros" element={<h1>consejeros junta de gobierno</h1>}/>
+            <Route path="/juntaGobierno" element={<HomeJuntaDeGobierno year="2021"/>}/>
             <Route path="/juntaGobierno2022" element={<HomeJuntaDeGobierno year="2022"/>}/>
             <Route path="/juntaGobierno2023" element={<HomeJuntaDeGobierno year="2023"/>}/>
             <Route path="/nuevaJuntaGobiernoOrdinaria" element={<NewJuntaDeGobierno type='ordinaria'/>}/>
