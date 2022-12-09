@@ -12,6 +12,7 @@ import StudentValidator from "../Helpers/StudentValidator";
 import { NavigatorPlaneacion } from '../Screens/Administrativos/planeacion/navigatorPlaneacion';
 import { HomeJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
 import { NewJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno";
+import { JuntaDeGobiernoConsejero } from "../Screens/Administrativos/planeacion/juntaDeGobierno/juntaDeGobiernoConsejero";
 
 
 export default function MainRouter() {
@@ -28,11 +29,11 @@ export default function MainRouter() {
   return (
 
     <Routes>
-          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/  "/>}>
             <Route path="/" element={<LogIn />}/>
           </Route>
 
-          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/"/>}>
             <Route path="/forgotPassword" element={<ForgotPassword/>}/>
           </Route>
   
@@ -41,39 +42,39 @@ export default function MainRouter() {
             <Route path="/home" element={<Home/>}/> 
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==1)} redirect="/alumno"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==1)} redirect="/"/>}>
             <Route path="/alumno" element={<h1>home alumno</h1>}/>
             <Route path="/alumno1" element={<h1>ruta1</h1>}/>
             <Route path="/alumno2" element={<h1>ruta2</h1>}/>
           </Route>
           
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==2)} redirect="/docente"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==2)} redirect="/"/>}>
             <Route path="/docente" element={<h1>home docente</h1>}/>
             <Route path="/docente1" element={<h1>ruta1</h1>}/>
             <Route path="/docente2" element={<h1>ruta2</h1>}/> 
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==4)} redirect="/admin"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==4)} redirect="/"/>}>
             <Route path="/admin" element={<h1>home admin</h1>}/>  
           </Route>
 
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==3)} redirect="/jefecarrera"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==3)} redirect="/"/>}>
             <Route path="/jefecarrera" element={<h1>home jefe de carrera</h1>}/>  
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='aspirante')} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='aspirante')} redirect="/"/>}>
             <Route path="/aspirante" element={<h1>Aspirante</h1>}/>  
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='dependencia')} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='dependencia')} redirect="/"/>}>
             <Route path="/dependencias" element={<h1>Dependencias</h1>}/>  
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='empresa')} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='empresa')} redirect="/"/>}>
             <Route path="/empresas" element={<h1>Empresas</h1>}/>  
           </Route>
   
-          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='gobierno')} redirect="/home"/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='gobierno')} redirect="/"/>}>
             <Route path="/gobierno" element={<h1>Gobierno</h1>}/>  
           </Route>
 
@@ -86,9 +87,9 @@ export default function MainRouter() {
             <Route path="/nuevaJuntaGobiernoExtraordinaria" element={<NewJuntaDeGobierno type='extraordinaria'/>}/>
           </Route>
 
-          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/planeacion"/>}>
-            <Route path="/consejeros" element={<h1>consejeros junta de gobierno</h1>}/>
-            <Route path="/juntaGobierno" element={<HomeJuntaDeGobierno year="2021"/>}/>
+          <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==7)} redirect="/"/>}>
+            {/* <Route path="/consejeros/juntaGobierno" element={<h1>consejeros junta de gobierno</h1>}/> */}
+            <Route path="/juntaGobiernoActual" element={<JuntaDeGobiernoConsejero/>}/>
             <Route path="/juntaGobierno2022" element={<HomeJuntaDeGobierno year="2022"/>}/>
             <Route path="/juntaGobierno2023" element={<HomeJuntaDeGobierno year="2023"/>}/>
             <Route path="/nuevaJuntaGobiernoOrdinaria" element={<NewJuntaDeGobierno type='ordinaria'/>}/>

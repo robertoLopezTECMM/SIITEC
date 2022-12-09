@@ -19,6 +19,8 @@
     margin-top:auto;
     margin-bottom:auto;
     font-family: 'KB-bold';
+    width: 90%;
+    text-align: left;
 }
 
 .subtitlesItemContainer{

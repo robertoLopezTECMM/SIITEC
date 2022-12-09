@@ -1,0 +1,5 @@
+.ordenDiaContainer{
+    width: 100%;
+    background-color: var(--green);
+    padding: 1rem;
+}

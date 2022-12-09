@@ -9,4 +9,5 @@ export const putNewPasswordsUrl = '/v1/recuperacion/'
 //Paths junta de gobierno
 export const baseUrlJuntaGobierno = 'https://developer.tecmm.mx:3318'
 export const getNextSessionUrl = '/sesion/nombre/'
+export const getActualSession = '/temas/sesion/actual'
 export const postFilesUrl = '/files'

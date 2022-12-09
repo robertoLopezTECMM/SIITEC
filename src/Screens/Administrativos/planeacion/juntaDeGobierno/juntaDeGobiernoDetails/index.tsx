@@ -14,7 +14,7 @@ const sessions = [
 
 export const JuntaDeGobiernoDetails = () => {
   return (
-    <div className={"containerComponent"}>
+    <div className="juntaGobiernoDetailsContainer">
       <Grid container spacing={1}>
         <HeaderBottomBorder
           title="Primera sesion ordinaria 2022"

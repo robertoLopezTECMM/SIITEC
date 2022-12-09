@@ -46,6 +46,9 @@ export const VerificationCodeScreen = () => {
             else if(response.data.rol==6){
               navigate('/planeacion');
             }
+            else if(response.data.rol==7){
+              navigate('/juntaGobiernoActual');
+            }
             //navigate('/home')
           }
           setShowLoadingSpinner(false)

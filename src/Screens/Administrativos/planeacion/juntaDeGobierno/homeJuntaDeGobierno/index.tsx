@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import { HeaderBottomBorder } from "../components/headerBottomBorder";
 import { ButtonPrimarys } from "../../../../../Components/Buttons/Buttons";
 import "./index.css";
@@ -6,6 +6,7 @@ import { Grid } from "@mui/material";
 import { CardJuntaDeGobierno } from "../components/cardJuntaDeGobierno";
 import { NavigatorPlaneacion } from "../../navigatorPlaneacion";
 import { Link } from "react-router-dom";
+import { authContext } from "../../../../../Contexts/AuthProvider";
 
 
 interface homeJuntaGobiernoProps{
@@ -18,6 +19,7 @@ const sessions = [
 ];
 
 export const HomeJuntaDeGobierno = ({year}:homeJuntaGobiernoProps) => {
+  const { auth }:any = useContext(authContext);
   const cardOrdinarySessions = [
     { date: "15 de febrero de 2022", title: "Primera sesion ordinaria" },
     { date: "15 de febrero de 2022", title: "Segunda sesion ordinaria" },
@@ -35,6 +37,7 @@ export const HomeJuntaDeGobierno = ({year}:homeJuntaGobiernoProps) => {
   useEffect(() => {
     console.log("YEAR: ", year)
     console.log("CURRENT YEAR: ", new Date().getFullYear())
+    console.log(auth.token)
   }, [])
   
   return (

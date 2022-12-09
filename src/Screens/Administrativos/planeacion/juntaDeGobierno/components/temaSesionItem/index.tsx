@@ -1,5 +1,7 @@
 import * as React from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import InsertCommentIcon from '@mui/icons-material/InsertComment';
+import FolderSharedIcon from '@mui/icons-material/FolderShared';
 import './index.css'
 
 interface accordionComponentProps{
@@ -16,7 +18,9 @@ export const TemaSesionItem = ({title, url, isExpandable, hasSubtitles, subtitil
     <div className='temaSesionItemContainer'>
       <div className='nameTemaSesionItemContainer'>
         <p>{title}</p>
-        <ExpandMoreIcon />
+        {/* <ExpandMoreIcon /> */}
+        <InsertCommentIcon />
+        <FolderSharedIcon/>
       </div>
      {hasSubtitles?
       <div className='subtitlesItemContainer'>
