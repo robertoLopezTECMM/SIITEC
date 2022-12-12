@@ -1,0 +1,8 @@
+.buttonsModalContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    border-collapse: collapse;
+    margin-top: 10%;
+}

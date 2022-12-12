@@ -1,0 +1,35 @@
+
+
+.searchAddCareerContainer{
+    display: flex;
+    width: 80%;
+    margin:auto;
+    justify-content: space-between;
+    padding:1%;
+}
+
+.searchAddCareerContainer .searchCareerInput{
+    width: 400px;
+    margin-bottom: auto;
+}
+
+.careersListContainer{
+    background: #D9D9D9;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 438px;
+    overflow: auto;
+    padding-top: 40px;
+    width:80%;
+    margin: auto;
+}
+
+.careersListContainer::-webkit-scrollbar{
+    width: 10px;
+}
+
+.careersListContainer::-webkit-scrollbar-thumb{
+    background: var(--grey);
+    border-radius: 10px;
+} 

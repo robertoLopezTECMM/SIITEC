@@ -1,0 +1,43 @@
+
+.containerNewSession {
+  width: 80%;
+  margin: auto;
+}
+
+.ultimaSesionContainer{
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.nuevaSesionContainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.newAnexoButtonContainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.anexosContainer{
+  width: 100%;
+  min-height: 30rem;
+  max-height: 35rem;
+  padding:1rem;
+  overflow: scroll;
+  background-color: var(--green);
+}
+
+.create-button {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: end;
+}
+

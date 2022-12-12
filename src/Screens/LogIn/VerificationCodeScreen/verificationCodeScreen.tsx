@@ -15,8 +15,9 @@ import { useNavigate } from 'react-router-dom';
 
 export const VerificationCodeScreen = () => {
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
-    const { setAuthData, userAndPassword}:any = useContext(authContext);
+    const { setAuthData, userAndPassword, setAuthRoll}:any = useContext(authContext);
     const navigate = useNavigate()
+    //const {auth}:any = useContext(authContext);
 
     const onChangeFourDigits = (e:string) =>{
       if(e.includes('·')){
@@ -28,8 +29,27 @@ export const VerificationCodeScreen = () => {
           console.log('Response: ', response)
 
           if(response.status === 200){
-            setAuthData(response.data.token, true, undefined)
-            navigate('/home')
+            setAuthData(response.data.token, true, undefined, response.data.rol)
+            //setAuthRoll(response.data.rol)
+            if(response.data.rol==1){
+              navigate('/alumno');
+            }
+            else if(response.data.rol==2){
+              navigate('/docente');
+            }
+            else if(response.data.rol==3){
+              navigate('/jefecarrera')
+            }
+            else if(response.data.rol==4){
+              navigate('/admin');
+            }
+            else if(response.data.rol==6){
+              navigate('/planeacion');
+            }
+            else if(response.data.rol==7){
+              navigate('/juntaGobiernoActual');
+            }
+            //navigate('/home')
           }
           setShowLoadingSpinner(false)
         }).catch((err)=>{

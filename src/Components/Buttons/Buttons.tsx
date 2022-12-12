@@ -1,5 +1,6 @@
 import React from 'react'
 import Timer from '../Timer/timer';
+import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 import './Buttons.css'
 
 
@@ -25,9 +26,9 @@ export const CounterButton = ({textButton, buttonOnClick}:buttonProps) => {
 }
 
 interface buttonprimarysProps {
-  textButton: string;
-  isCancel: boolean;
-  isborder: boolean;
+  textButton?: string;
+  isCancel?: boolean;
+  isborder?: boolean;
   buttonOnClick: () => void
 }
 
@@ -42,3 +43,36 @@ export const ButtonPrimarys = ({isborder ,textButton, buttonOnClick, isCancel}:b
     </button>
   )
 }
+
+interface iconButtonAddProps {
+  icon: any;
+  buttonOnClick: () => void
+}
+
+export const RoundButtonAdd = ({ icon, buttonOnClick }:iconButtonAddProps) => {
+  return (
+    <button 
+    onClick={()=>buttonOnClick()} 
+    className="buttonPrimarySucces"
+    style={{border:'solid 2px white'}} 
+    >
+        {icon}
+    </button>
+  )
+}
+
+export const DeleteButton = ({ textButton, buttonOnClick }: buttonProps) => {
+  return (
+    <button className="button-delete" onClick={buttonOnClick}>
+      <i className="material-icons">delete</i>
+    </button>
+  );
+};
+
+export const DocumentButton = ({ textButton, buttonOnClick }: buttonProps) => {
+  return (
+    <button className="documentButton" onClick={buttonOnClick}>
+      <DescriptionOutlinedIcon/> {"Documento"}
+    </button>
+  );
+};

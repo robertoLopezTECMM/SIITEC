@@ -1,0 +1,16 @@
+.buttonsModalContainer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    border-collapse: collapse;
+    margin-top: 10%;
+}
+
+.colorPickerContainerInModal{
+    width: 90%;
+    margin:auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}

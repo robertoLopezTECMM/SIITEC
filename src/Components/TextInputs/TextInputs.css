@@ -1,6 +1,6 @@
 .textInput{
     width: 60%;
-    height: 45px;
+    height: 25px;
     border-radius: 10px;
     font-size: 1em;
     font-family:'KB-Light';
@@ -38,6 +38,9 @@
     font-size: 2em;
   }
 
+
+
+
 ::-ms-reveal {
 display: none;
 }
@@ -52,27 +55,27 @@ display: none;
 }
 
 .inputContainer label{
-  font-size: 12px;
-  margin: 10px;
+  font-size: 1em;
+  font-family: 'KB-Bold';
 }
 
 .inputText{
   border: 2.5px solid var(--green);
-  border-radius: 10px;
+  border-radius: 15px;
   font-family: 'KB-light';
-  font-size: 1.2em;
-  height: 2em;
+  font-size: 1em;
+  height: 3em;
   outline: none;
   padding: 0 10px;
 }
 
 .numberText{
   border: 1.5px solid var(--green);
-  border-radius: 10px;
+  border-radius: 15px;
   font-family: 'KB-light';
-  font-size: 1.2em;
-  height: 2em;
-  height: auto;
+  font-size: 1em;
+  height: 3em;
+  width: 80px;
   outline: none;
   text-align: center;
 }
@@ -95,7 +98,7 @@ display: none;
   padding: 0 10px;
   position: absolute;
   right: 0;
-  bottom: -4px;
+  bottom: 0;
 }
 
 .inputContainer i{

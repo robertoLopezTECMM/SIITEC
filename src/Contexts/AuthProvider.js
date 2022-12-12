@@ -6,7 +6,7 @@ const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(
     window.localStorage.getItem("Session")
       ? JSON.parse(window.localStorage.getItem("Session"))
-      : { token: null, isLogged: false, uuid: null }
+      : { token: null, isLogged: false, uuid: null, roll: 0 }
   );
   const [userAndPassword, setUserAndPassword] = useState({
     user: "",
@@ -22,8 +22,8 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("Session", JSON.stringify(auth));
   }, [auth]);
 
-  const setAuthData = (token, isLogged, uuid) => {
-    setAuth({ token: token, isLogged: isLogged, uuid: uuid });
+  const setAuthData = (token, isLogged, uuid, rol) => {
+    setAuth({ token: token, isLogged: isLogged, uuid: uuid, roll: rol});
   };
 
   const setUserPassword = (userPassword) => {
@@ -40,9 +40,15 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("Session");
   };
 
+  const [roll,setRoll]=useState(1);
+
+  const setAuthRoll=(input)=>{
+    setRoll(input);
+  }
+
   return (
     <authContext.Provider
-      value={{ auth, setAuthData, userAndPassword, setUserPassword, logOut }}
+      value={{ auth, setAuthData, userAndPassword, setUserPassword, logOut, roll, setAuthRoll }}
     >
       {children}
     </authContext.Provider>

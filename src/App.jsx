@@ -20,15 +20,26 @@ import PrivateRoute from './Navigation/privateRoute';
 import ProtectedRoutes from './Navigation/protectedRoutes';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+// or for Day.js
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// or for Luxon
+import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
+// or for Moment.js
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+
 
 
 function App() {
   
   return(
       <div className="App">
-        <BrowserRouter>
-          <MainRouter/>
-        </BrowserRouter>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <BrowserRouter>
+            <MainRouter/>
+          </BrowserRouter>
+        </LocalizationProvider>
       </div>
   ) 
 

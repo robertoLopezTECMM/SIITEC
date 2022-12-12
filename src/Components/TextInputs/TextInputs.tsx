@@ -80,7 +80,7 @@ export const InputText = ({labelText, placeholder, isForNumber, isForSearch, max
                 maxLength={!isForNumber ? 524288 : maxLenght }
                 style={!isForNumber ? {width: "100%"} : {width:`${width}`} } 
                 value={textInputValue}
-                onChange={(e) => [setTextinputValue(e.target.value), textInputOnChange(e.currentTarget.value)]} />
+                onChange={(e) => [setTextinputValue(e.target.value), textInputOnChange(e.target.value)]} />
                 {isForSearch
                 ? <button>
                     <i className="material-icons">{'search'}</i>
@@ -108,10 +108,10 @@ export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  text
             <label>{labelText}</label>
             <input
                 type='text'
-                className={"numberText"} 
+                className="numberText"
                 placeholder={placeholder ? placeholder : ''}
                 maxLength={maxLenght }
-                style={{width:'80px'} } 
+                 
                 value={textInputValue}
                 onChange={(e) => [setTextinputValue(e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1')), textInputOnChange(e.currentTarget.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1'))]} />
 
@@ -120,7 +120,7 @@ export const InputTextShortNumber = ({labelText, placeholder, maxLenght=2,  text
 }
 
 interface inputTextPassword{
-    passwordOnchange: (value:string, value2:string) => void;
+    passwordOnchange: (value:string) => void;
     labelText: string;
     placeholder: string;
     fieldId?: any;
@@ -140,7 +140,7 @@ export const InputTextPassword = ({labelText, placeholder, fieldId, passwordOnch
                     value={passWordValue}
                     onChange={(e) => [
                         setPassWordValue(e.target.value), 
-                        passwordOnchange(e.currentTarget.value, fieldId)
+                        passwordOnchange(e.target.value)
                       ]
                 }/>
                  <button onClick={()=>setHidePassword(!hidePassword)}>
@@ -151,3 +151,4 @@ export const InputTextPassword = ({labelText, placeholder, fieldId, passwordOnch
         </div>
     )
 }
+
