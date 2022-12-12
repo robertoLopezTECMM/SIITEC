@@ -33,7 +33,7 @@ export const JuntaDeGobiernoConsejero = () => {
 
             <div className='ordenDiaContainer'>
                 {actualSession.Temas.map((tema:any)=>{
-                    return <TemaSesionItem title={tema.Tema} url={''} hasSubtitles={false} subtitiles={[]} isExpandable={false} />
+                    return <TemaSesionItem title={tema.Tema} url={''} hasSubtitles={tema.subtemas && tema.subtemas.length >0?true:false} subtitiles={tema.subtemas && tema.subtemas.length >0?tema.subtemas:[]} isExpandable={false} />
                 })}
             </div>
         </div>

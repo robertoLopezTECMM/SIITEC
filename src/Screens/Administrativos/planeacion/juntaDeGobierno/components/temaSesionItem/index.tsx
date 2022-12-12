@@ -25,7 +25,7 @@ export const TemaSesionItem = ({title, url, isExpandable, hasSubtitles, subtitil
      {hasSubtitles?
       <div className='subtitlesItemContainer'>
         {subtitiles.map((subtitle:any)=>{
-          return <p>{subtitle.subtitleName}.</p>
+          return <p>{subtitle.Subtema}.</p>
         })}
       </div>
       :null

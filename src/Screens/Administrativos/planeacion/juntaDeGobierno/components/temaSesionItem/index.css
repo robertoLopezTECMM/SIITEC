@@ -15,7 +15,7 @@
 }
 
 .temaSesionItemContainer p{
-    color:red;
+    color:black;
     margin-top:auto;
     margin-bottom:auto;
     font-family: 'KB-bold';
@@ -27,4 +27,9 @@
     background-color: rgb(229, 229, 229);
     height: auto; 
     margin-top: -0.5rem;
+}
+
+.subtitlesItemContainer p{
+    font-family: 'KB-light';
+    margin-top: 1rem;
 }
