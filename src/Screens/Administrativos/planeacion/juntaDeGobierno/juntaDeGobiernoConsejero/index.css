@@ -1,5 +1,40 @@
 .ordenDiaContainer{
     width: 100%;
-    background-color: var(--green);
+    max-height: 40rem;
+    background-color: var(--navyBlue);
     padding: 1rem;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+.modalFilesBodyContainer{
+    max-height: 30rem;
+    overflow-y: scroll;
+}
+
+.modalFilesCloseButton{
+    background-color: var(--red);
+    border:none
+}
+
+.modalFilesCloseButton:hover{
+    background-color: var(--red);
+}
+
+.modalFileItemContainer{
+    font-family: 'KB-light';
+}
+
+.modalFileItemContainer a{
+    outline: none;
+    text-decoration: none;
+    color:black;
+    font-size: 1rem;
+}
+.modalFileItemContainer a:hover{
+    outline: none;
+    text-decoration: none;
+    color:var(--green);
+    font-family: 'KB-bold';
+    font-size: 1.1rem;
 }

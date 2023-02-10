@@ -1,18 +1,23 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { PrimaryButton } from '../../../Components/Buttons/Buttons'
+import { GooglePrimaryButton, PrimaryButton } from '../../../Components/Buttons/Buttons'
 import { CheckBox } from '../../../Components/ChecksBox/ChecksBox'
 import { LogInContainer } from '../../../Components/Containers/LogInContainer/logInContainer'
 import { InputText, InputTextPassword, PasswordTextInput, TextInput } from '../../../Components/TextInputs/TextInputs'
 import { VerificationCodeScreen } from '../VerificationCodeScreen/verificationCodeScreen'
 import './logInScreen.css'
-import LogoTec from '../../../Assets/Images/logoTecJalisco.png'
+import LogoTec from '../../../Assets/Images/newLogoTecJalisco.png'
 import { Link } from 'react-router-dom'
 import axiosInstance from '../../../Api/axiosInstance'
-import { getVerificationCodeUrl } from '../../../Api/apiRoutes'
+import { getVerificationCodeUrl, postGoogleAuth } from '../../../Api/apiRoutes'
 import { LoadingSpinner } from '../../../Components/LoadingSpinner'
 import { authContext } from '../../../Contexts/AuthProvider'
 import swal from 'sweetalert'
+// import { GoogleButton } from '../../../Components/googleButton'
+import { GoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from '@react-oauth/google';
+
+import { gapi } from 'gapi-script';
 
 interface logInInterface {
   handleNextStep: () => void
@@ -24,6 +29,46 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   const { userAndPassword, setUserPassword }:any = useContext(authContext);
+  const clientId = '116926260799-t29jjjuclulishgfhk9q0ng44gll879g.apps.googleusercontent.com'
+
+  useEffect(() => {
+    const initClient = () => {
+          gapi.client.init({
+          clientId: clientId,
+          scope: ''
+        });
+     };
+     gapi.load('client:auth2', initClient);
+ });
+
+  const onSuccessFunction = (res:any) => {
+    console.log('success:', res);
+
+    axiosInstance.post(postGoogleAuth, {id_token:res.credential} )
+    .then((response)=>{
+      console.log('Response: ', response)
+
+      // if(response.status===200){
+      //   setUserPassword({user:user, password:password, verificationCode:''})
+      // }
+      // setShowLoadingSpinner(false)
+      // handleNextStep()
+    }).catch((err)=>{
+      console.log(err)
+      if(err.response.status===401){
+        setShowLoadingSpinner(false)
+        swal("Fallo!", "La contraseña o el usuario ingresado no son los correctos", "error")
+      }else{
+        setShowLoadingSpinner(false)
+        swal("Fallo!", "Fallo la comunicacion", "error")
+      }
+
+    })
+  };
+
+  const onFailure = (err:any) => {
+    console.log('failed:', err);
+  };
 
   const onChangePasswords = (inputValue:string, fieldId:string) =>{
 
@@ -42,7 +87,10 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
     setPassword(inputValue)
   }
 
-
+  const googleLogin = useGoogleLogin({
+    onSuccess: credentialResponse => onSuccessFunction(credentialResponse),
+    flow:'auth-code'
+  });
 
 
   const getVerificationCode = () => {
@@ -70,54 +118,67 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
   }
 
   return (
-    <div>
+    <div className='loginScreenContainer'>
       <LoadingSpinner visible={showLoadingSpinner}/>
-      <LogInContainer>
-        <img className='logoTecImageTag' src={LogoTec}/>
-        {/* <h3>SIITEC</h3> */}
 
+
+      <div className='loginFormContainer'>
+
+        <img className='logoTecImageTag' src={LogoTec}/>
         <h2>Inicio de sesión</h2>
+        <div>
+          <p>Si eres estudiante, docente o personal administrativo, inicia sesion con tu cuenta institucional aqui</p>
+          <br/>
+
+          {/* <GooglePrimaryButton buttonOnClick={()=>googleLogin()}/> */}
+          <GoogleLogin
+            
+            
+            onSuccess={credentialResponse =>onSuccessFunction(credentialResponse)}
+            onError={()=>{console.log('login fail')}}
+            
+            // render={renderProps => (<GooglePrimaryButton buttonOnClick={renderProps.onClick}/>)}
+          />
+        </div>
+
+        <div className="divider"><span></span><span>o</span><span></span></div>
+        
+        
         <InputText
             labelText='Usuario'
             textInputOnChange={onChangeUser}
             placeholder='Email, Curp, Celular, Rfc'
         />
+        <br/>
         <InputTextPassword
             labelText='Contraseña'
             passwordOnchange={onChangePassword}
             placeholder='Escriba su contraseña'
-
-
         />
-        {/* <PasswordTextInput passwordOnchange={onChangePasswords} placeHolder='Email, Curp, Celular, Rfc' fieldId='user'/>
-        <br/>
-        <br/>
-        <PasswordTextInput isForPassword placeHolder='contraseña' passwordOnchange={onChangePasswords} passwordValue={''} fieldId='password'/>
-        <br/>
-        <br/> */}
 
-        <div className='captchaContainer'>
+
+        {/* <div className='captchaContainer'>
           <ReCAPTCHA sitekey={'6LeuDx8iAAAAAL8osYNEEiZNJACVSGSTEkV_Z6-2'}/>
-        </div>
+        </div> */}
 
-        <br/>
         <br/>
 
         <PrimaryButton buttonOnClick={()=>getVerificationCode()} textButton='Iniciar sesión'/>
 
         <br/>
+
+        {/* <CheckBox labelCheckBox='Recordarme' onChange={()=>console.log('hi')}/> */}
         <br/>
 
-        <CheckBox labelCheckBox='Recordarme' onChange={()=>console.log('hi')}/>
-        <br/>
-        <br/>
 
         <div className='restorePswdAndCreateAccountContainer'>
-        <Link to='/forgotPassword'> Recuperar contraseña </Link>
-        <a> | </a>
-        <Link to='/testScreen'> Test Screen </Link>        
+          
+            <Link id='restorePswdLink' to='/forgotPassword'> Recuperar contraseña </Link>    
+   
         </div>
-    </LogInContainer>
+
+      </div>
+
     </div>
   )
 }

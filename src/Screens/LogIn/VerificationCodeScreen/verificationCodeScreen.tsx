@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { LogInContainer } from '../../../Components/Containers/LogInContainer/logInContainer'
 import { Zoom } from "react-awesome-reveal";
-import LogoTec from '../../../Assets/Images/logoTecJalisco.png'
+import LogoTec from '../../../Assets/Images/newLogoTecJalisco.png'
 import './verificationCodeScreen.css'
 import ReactInputVerificationCode from 'react-input-verification-code';
 import { CounterButton } from '../../../Components/Buttons/Buttons';
@@ -61,25 +61,26 @@ export const VerificationCodeScreen = () => {
 
 
   return (
-    <LogInContainer>
+    <div className='verificationCodeContainer'>
         <LoadingSpinner visible={showLoadingSpinner}/>
 
         <Zoom>
         <img className='logoTecImageTag' src={LogoTec}/>
-        <h3>SIITEC</h3>
+
+        <br/>
 
         <h2>Verificación de código</h2>
 
-        <p className='messageToCodeVerfication'>Por favor ingrese el codigo de 4 digitos enviado al numero con terminacion 04</p>
+        <p className='messageToCodeVerfication'>Ingrese el codigo de 4 digitos enviado a su correo electronico</p>
 
         <div className='codeDigitsContainer'>
             <ReactInputVerificationCode onCompleted={(e)=> onChangeFourDigits(e)}/>
         </div>
 
-        <p className='messageToCodeVerfication'>No recibiste el código?</p>
+        <p className='messageToCodeVerfication'>¿No recibiste el código?</p>
         <CounterButton buttonOnClick={()=>console.log('hola')} textButton='Reenviar código'/>
 
         </Zoom>
-    </LogInContainer>
+    </div>
   )
 }

@@ -22,14 +22,20 @@ export const LogIn = () => {
 
 
     return (
-      <div className="mainContainer">
-             { stepActive === 'login' ?
-                <LogInScreen handleNextStep={()=>handleToVerificationCode()}/>
-            : stepActive === 'checkVerificationCode'?
-                <VerificationCodeScreen/>
-            :null
-            }
-      </div>
+        <div className='loginContainer'>
+
+            <img id='colorSquaresImg' src='https://developer.tecmm.mx/web-tsj-designs/colorsSquares.png'/>
+
+            <div className='formsLoginContainer'>
+                { stepActive === 'login' ?
+                    <LogInScreen handleNextStep={()=>handleToVerificationCode()}/>
+                : stepActive === 'checkVerificationCode'?
+                    <VerificationCodeScreen/>
+                :null
+                }
+            </div>
+        </div>
+
 
  
     

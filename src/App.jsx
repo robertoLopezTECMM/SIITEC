@@ -28,18 +28,20 @@ import { AdapterLuxon } from '@mui/x-date-pickers/AdapterLuxon';
 // or for Moment.js
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { LocalizationProvider } from '@mui/x-date-pickers';
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 function App() {
   
   return(
       <div className="App">
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <BrowserRouter>
-            <MainRouter/>
-          </BrowserRouter>
-        </LocalizationProvider>
+        <GoogleOAuthProvider clientId='116926260799-t29jjjuclulishgfhk9q0ng44gll879g.apps.googleusercontent.com'>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <BrowserRouter>
+              <MainRouter/>
+            </BrowserRouter>
+          </LocalizationProvider>
+        </GoogleOAuthProvider>
       </div>
   ) 
 

@@ -8,10 +8,70 @@
 }
 
 :root{
-  --green:#00A29A;
-  --gold:#A7823B;
+  /* --green:#00A29A;
+  
   --grey:#6D6E71;
-  --red:#A20000;
+  --red:#A20000; */
+  
+  --gold:#A7823B;
+  --navyBlue:#33179c;
+  --blue:#308fff;
+  --green:#54c98f;
+  --red:#ff4d63;
+  --orange:#ffae31;
+  --grey:#d8d8d8;
+  
+}
+
+
+@font-face {
+  font-family: 'madaniArabicBlack';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Black.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicBold';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicExtraBold';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Extra-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicExtraLight';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Extra-Light.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicLight';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Light.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicMedium';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Medium.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicRegular';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Regular.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicSemiBold';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Semi-Bold.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicVariable';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Variable.ttf') ;
+}
+
+@font-face {
+  font-family: 'madaniArabicBlack';
+  src:local("MadaniArabicBlack"), url('./Assets/Fonts/Madani-Arabic-Black.ttf') ;
 }
 
 @font-face {

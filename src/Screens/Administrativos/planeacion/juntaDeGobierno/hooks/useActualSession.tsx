@@ -27,6 +27,7 @@ export const useActualSession = () => {
                 setActualSession(data)
                 setIsLoading(false)
             }catch(error){
+                console.log('ERROR: ', error)
                 setServerError(error);
                 setIsLoading(false);
             }  

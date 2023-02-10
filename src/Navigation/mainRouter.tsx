@@ -75,7 +75,7 @@ export default function MainRouter() {
           </Route>
   
           <Route element={<PrivateRoute children={undefined} isAllowed={(roll=='gobierno')} redirect="/"/>}>
-            <Route path="/gobierno" element={<h1>Gobierno</h1>}/>  
+            <Route path="/gobierno" element={<h1>Gobierno</h1>}/>   
           </Route>
 
           <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/"/>}>

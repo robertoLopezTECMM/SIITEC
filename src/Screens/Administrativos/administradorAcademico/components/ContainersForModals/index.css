@@ -39,19 +39,7 @@
     display: flex;
 }
 
-.restorePswdAndCreateAccountContainer{}
 
-.restorePswdAndCreateAccountContainer a{
-    font-family: 'KB-Bold';
-    color:white;
-    font-size: 1.2em;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.restorePswdAndCreateAccountContainer a:hover{
-    color:var(--grey)
-}
 
 /*
 DESKTOP OR LAPTOP

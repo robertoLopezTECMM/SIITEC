@@ -27,9 +27,35 @@
     background-color: rgb(229, 229, 229);
     height: auto; 
     margin-top: -0.5rem;
+    padding-left: 5rem;
+    padding-right: 2rem;
+    margin-top: -1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 }
 
-.subtitlesItemContainer p{
+
+
+.modalFileItemContainer{
+    font-family: 'KB-light';
+    text-align: left;
+    margin-top: 1rem;
+}
+
+.modalFileItemContainer a{
+    outline: none;
+    text-decoration: none;
+    color:black;
+    font-size: 1rem;
     font-family: 'KB-light';
     margin-top: 1rem;
+
+}
+.modalFileItemContainer a:hover{
+    outline: none;
+    text-decoration: none;
+    color:var(--green);
+    font-family: 'KB-light';
 }

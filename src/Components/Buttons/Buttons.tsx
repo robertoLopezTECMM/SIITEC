@@ -76,3 +76,19 @@ export const DocumentButton = ({ textButton, buttonOnClick }: buttonProps) => {
     </button>
   );
 };
+
+
+
+
+interface googlePrimaryButtonProps {
+  buttonOnClick: () => void
+}
+
+export const GooglePrimaryButton = ({buttonOnClick }: googlePrimaryButtonProps) => {
+  return (
+    <button className='googlePrimaryButton' onClick={buttonOnClick}>
+      <img src='https://developer.tecmm.mx/web-tsj-designs/googleIcon.png'/>
+      <span>Inicia Sesión con Google</span>
+    </button>
+  );
+};

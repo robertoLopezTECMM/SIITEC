@@ -12,7 +12,7 @@
     padding: 10px;
     position: relative;
     border: 10px solid #f3f3f3; /* Light grey */
-    border-top: 10px solid var(--green); /* Black */
+    border-top: 10px solid var(--blue); /* Black */
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
     text-align:center;

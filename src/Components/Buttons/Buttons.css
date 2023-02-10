@@ -85,3 +85,39 @@
   padding: 10px;
   border: none;
 }
+
+
+/************************************/
+
+.googlePrimaryButton {
+  background-color: white;
+  outline: none;
+  border: none;
+  width: auto;
+  height: auto;
+  color: white;
+  border-radius: 15px;
+  font-family:'madaniArabicBold' ;
+  cursor: pointer;
+  display: flex;
+  margin: auto;
+  padding:0.5rem;
+  box-shadow: 0 4px 10px 2px gray;
+  justify-content: space-around;
+  /* border: 1px solid var(--green); */
+}
+
+
+.googlePrimaryButton img{
+
+  width: 2rem;
+  vertical-align: middle;
+  margin-right:10px;
+}
+
+.googlePrimaryButton span{
+  color: var(--navyBlue);
+  margin: auto;
+  vertical-align: middle;
+
+}

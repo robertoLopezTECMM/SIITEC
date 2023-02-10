@@ -1,7 +1,7 @@
 .headerBottomBorderContainer{
     width: 100%;
     text-align: left;
-    border-bottom: 3px solid #C59C3F;
+    border-bottom: 3px solid var(--green);
     padding-bottom: 1%;
 }
 
