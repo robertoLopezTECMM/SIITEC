@@ -1,0 +1,13 @@
+.ordenDiaContainerFeb2023{
+    width: 100%;
+    max-height: 40rem;
+    background-color: var(--grey);
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.modalFilesAddComent{
+    background-color: var(--green);
+    border:none
+}

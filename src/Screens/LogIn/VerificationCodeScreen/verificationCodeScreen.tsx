@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const VerificationCodeScreen = () => {
     const [showLoadingSpinner, setShowLoadingSpinner] = useState(false)
-    const { setAuthData, userAndPassword, setAuthRoll}:any = useContext(authContext);
+    const { setAuthData, userAndPassword, setAuthRoll, setUserData}:any = useContext(authContext);
     const navigate = useNavigate()
     //const {auth}:any = useContext(authContext);
 
@@ -23,13 +23,15 @@ export const VerificationCodeScreen = () => {
       if(e.includes('·')){
         return console.log('todavia tiene puntos en el numero')
       }else{
+        console.log('userAndPassword: ', userAndPassword)
 
         axiosInstance.post(postLogInCredentialsUrl, {user:userAndPassword.user, password:userAndPassword.password, code:e} )
         .then((response)=>{
           console.log('Response: ', response)
 
           if(response.status === 200){
-            setAuthData(response.data.token, true, undefined, response.data.rol)
+            setAuthData(response.data.token, true, undefined, response.data.rol, userAndPassword.user)
+            setUserData('1', '2', '3')
             //setAuthRoll(response.data.rol)
             if(response.data.rol==1){
               navigate('/alumno');

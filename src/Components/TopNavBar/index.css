@@ -16,8 +16,8 @@
     top:0;
     bottom:0;
     margin: auto;
-    font-family:'KB-Bold';
-    font-size:clamp(.90em, 1vw, 5rem);
+    font-family:'madaniArabicBold';
+    font-size:clamp(.90em, 1.2vw, 5rem);
 }
 
 .topNavBarButton{

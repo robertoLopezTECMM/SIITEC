@@ -13,6 +13,7 @@ import { NavigatorPlaneacion } from '../Screens/Administrativos/planeacion/navig
 import { HomeJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/homeJuntaDeGobierno";
 import { NewJuntaDeGobierno } from "../Screens/Administrativos/planeacion/juntaDeGobierno/newJuntaDeGobierno";
 import { JuntaDeGobiernoConsejero } from "../Screens/Administrativos/planeacion/juntaDeGobierno/juntaDeGobiernoConsejero";
+import { JuntaGobierno2023 } from "../Screens/Administrativos/planeacion/juntaDeGobierno/juntaGobiernoFeb2023";
 
 
 export default function MainRouter() {
@@ -29,7 +30,7 @@ export default function MainRouter() {
   return (
 
     <Routes>
-          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/  "/>}>
+          <Route element={<PrivateRoute children={undefined} isAllowed={!auth.isLogged} redirect="/"/>}>
             <Route path="/" element={<LogIn />}/>
           </Route>
 
@@ -80,6 +81,8 @@ export default function MainRouter() {
 
           <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/"/>}>
             <Route path="/planeacion" element={<h1>planeacion</h1>}/>
+            {/*<Route path="/juntaGobiernoActual" element={<JuntaDeGobiernoConsejero/>}/>*/}
+            <Route path="/juntaGobiernoActual" element={<JuntaGobierno2023/>}/>
             <Route path="/juntaGobierno2021" element={<HomeJuntaDeGobierno year="2021"/>}/>
             <Route path="/juntaGobierno2022" element={<HomeJuntaDeGobierno year="2022"/>}/>
             <Route path="/juntaGobierno2023" element={<HomeJuntaDeGobierno year="2023"/>}/>

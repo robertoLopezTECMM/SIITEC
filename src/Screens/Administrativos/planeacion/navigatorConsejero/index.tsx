@@ -32,7 +32,7 @@ export const NavigatorConsejero = ({children, showDrawer}:any) => {
             }
 
         </TopNavBar>
-        <div>{children}</div>
+        <div style={{margin:'20px'}}>{children}</div>
     </>
 
   )

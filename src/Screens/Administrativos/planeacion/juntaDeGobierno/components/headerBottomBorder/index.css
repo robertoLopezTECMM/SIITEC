@@ -6,13 +6,13 @@
 }
 
 .headerBottomBorderContainer p{
-    font-family: 'KB-Bold';
+    font-family: 'madaniArabicBold';
     font-size: 1.5rem;
     margin: 0px;
 }
 
 #headerbottomBorderSubtitle{
-    font-family: 'KB-Light';
+    font-family: 'madaniArabicLight';
     font-size: 1.3rem;
     margin: 0px;
 }

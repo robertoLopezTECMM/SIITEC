@@ -33,7 +33,7 @@ export const TemaSesionItem = ({title, url, isExpandable, hasSubtitles, subtitil
         <InsertCommentIcon onClick={()=>openWriteCommentModal()}/>
 
         {hasFiles && files.length===1?
-          <a href={files[0].url} target='blank'>
+          <a style={{color:'#33179c'}} href={files[0].documentUrl} target='blank'>
             <PictureAsPdfIcon/>
           </a>
           :
@@ -44,7 +44,7 @@ export const TemaSesionItem = ({title, url, isExpandable, hasSubtitles, subtitil
      {hasSubtitles?
       <div className='subtitlesItemContainer'>
         {subtitiles.map((subtitle:any)=>{
-          return <SubtemaItem title={subtitle.Subtema} url={subtitle.url}/>
+          return <SubtemaItem title={subtitle.documentTitle} url={subtitle.documentUrl}/>
         })}
       </div>
       :null

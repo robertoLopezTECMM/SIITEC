@@ -6,7 +6,7 @@ const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(
     window.localStorage.getItem("Session")
       ? JSON.parse(window.localStorage.getItem("Session"))
-      : { token: null, isLogged: false, uuid: null, roll: 0 }
+      : { token: null, isLogged: false, uuid: null, roll: 0, email:null }
   );
   const [userAndPassword, setUserAndPassword] = useState({
     user: "",
@@ -22,16 +22,20 @@ const AuthProvider = ({ children }) => {
     localStorage.setItem("Session", JSON.stringify(auth));
   }, [auth]);
 
-  const setAuthData = (token, isLogged, uuid, rol) => {
-    setAuth({ token: token, isLogged: isLogged, uuid: uuid, roll: rol});
+  const setAuthData = (token, isLogged, uuid, rol, email) => {
+    setAuth({ token: token, isLogged: isLogged, uuid: uuid, roll: rol, email:email});
   };
+
+  const setUserData = (user, password, code) =>{
+    setUserAndPassword({user:user, password:password, verificationCode:code})
+  }
 
   const setUserPassword = (userPassword) => {
     setUserAndPassword(userPassword);
   };
 
   const logOut = () => {
-    setAuthData({ token: null, isLogged: false, uuid: null });
+    setAuthData({ token: null, isLogged: false, uuid: null, email:null });
     setUserAndPassword({
       user: "",
       password: "",
@@ -48,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <authContext.Provider
-      value={{ auth, setAuthData, userAndPassword, setUserPassword, logOut, roll, setAuthRoll }}
+      value={{ auth, setAuthData, setUserData, userAndPassword, setUserPassword, logOut, roll, setAuthRoll }}
     >
       {children}
     </authContext.Provider>
