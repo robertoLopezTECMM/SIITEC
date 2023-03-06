@@ -80,7 +80,7 @@ export default function MainRouter() {
           </Route>
 
           <Route element={<PrivateRoute children={undefined} isAllowed={(auth.roll==6)} redirect="/"/>}>
-            <Route path="/planeacion" element={<h1>planeacion</h1>}/>
+            <Route path="/planeacion" element={<JuntaGobierno2023/>}/>
             {/*<Route path="/juntaGobiernoActual" element={<JuntaDeGobiernoConsejero/>}/>*/}
             <Route path="/juntaGobiernoActual" element={<JuntaGobierno2023/>}/>
             <Route path="/juntaGobierno2021" element={<HomeJuntaDeGobierno year="2021"/>}/>
@@ -98,8 +98,7 @@ export default function MainRouter() {
             <Route path="/nuevaJuntaGobiernoOrdinaria" element={<NewJuntaDeGobierno type='ordinaria'/>}/>
             <Route path="/nuevaJuntaGobiernoExtraordinaria" element={<NewJuntaDeGobierno type='extraordinaria'/>}/>
           </Route>
-  
-        </Routes>
+    </Routes>
       
   );
 }

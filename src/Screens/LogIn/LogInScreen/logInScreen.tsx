@@ -46,13 +46,18 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
 
     axiosInstance.post(postGoogleAuth, {id_token:res.credential} )
     .then((response)=>{
-      console.log('Response: ', response)
 
-      // if(response.status===200){
-      //   setUserPassword({user:user, password:password, verificationCode:''})
-      // }
-      // setShowLoadingSpinner(false)
-      // handleNextStep()
+      
+      console.log('RESPONSE: ', response)
+      console.log('noControl: ', response.data.no[0].administrativo)
+      console.log('token: ', response.data.token)
+
+      //edcore maestro
+      if(response.data.rol[0] === 3) window.location.replace(`http://developer.tecmm.mx:8080/core/sec/sso1?token=${response.data.token}&noNomina=${response.data.no[0].docente}  http://developer.tecmm.mx:8080/alum/sec/sso3?token=${response.data.token}&noControl=${response.data.no[0].noControl}`)
+      
+      //edcore alumno
+      if(response.data.rol[0] === 2) window.location.replace(`http://developer.tecmm.mx:8080/alum/sec/sso3?token=${response.data.token}&noControl=${response.data.no[0].noControl}`)
+
     }).catch((err)=>{
       console.log(err)
       if(err.response.status===401){
@@ -130,15 +135,13 @@ export const LogInScreen = ({handleNextStep}:logInInterface) => {
           <p>Si eres estudiante, docente o personal administrativo, inicia sesion con tu cuenta institucional aqui</p>
           <br/>
 
-          {/* <GooglePrimaryButton buttonOnClick={()=>googleLogin()}/> */}
-          <GoogleLogin
-            
-            
-            onSuccess={credentialResponse =>onSuccessFunction(credentialResponse)}
-            onError={()=>{console.log('login fail')}}
-            
-            // render={renderProps => (<GooglePrimaryButton buttonOnClick={renderProps.onClick}/>)}
-          />
+          <div style={{margin:'auto', textAlign:'center'}}>
+            <GoogleLogin
+              onSuccess={credentialResponse =>onSuccessFunction(credentialResponse)}
+              onError={()=>{console.log('login fail')}}
+            />
+          </div>
+
         </div>
 
         <div className="divider"><span></span><span>o</span><span></span></div>
